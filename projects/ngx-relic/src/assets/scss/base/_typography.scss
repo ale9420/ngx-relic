@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../../assets/fonts/Quicksand-Regular.ttf") format("ttf"),
+    url("../../../assets/fonts/Quicksand-SemiBold.ttf") format("ttf");
+  /* Agrega más formatos si es necesario */
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+}

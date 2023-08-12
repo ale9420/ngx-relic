@@ -1,0 +1,36 @@
+@import "./variables";
+
+@each $spacing-value in $spacing-values {
+  $i: index($spacing-values, $spacing-value);
+
+  .m-#{$spacing-value} {
+    margin: ($default-size * $i) + rem;
+  }
+
+  .mt-#{$spacing-value} {
+    margin-top: ($default-size * $i) + rem;
+  }
+
+  .mb-#{$spacing-value} {
+    margin-bottom: ($default-size * $i) + rem;
+  }
+
+  .ml-#{$spacing-value} {
+    margin-left: ($default-size * $i) + rem;
+  }
+
+  .mr-#{$spacing-value} {
+    margin-right: ($default-size * $i) + rem;
+  }
+
+  .p-#{$spacing-value} {
+    padding: ($default-size * $i) + rem;
+  }
+}
+
+@each $rounded-value in $rounded-values {
+  $i: index($rounded-values, $rounded-value);
+  .rounded-#{$rounded-value} {
+    border-radius: ($default-size * $i) + rem;
+  }
+}

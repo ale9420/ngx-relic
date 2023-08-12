@@ -1,0 +1,6 @@
+<div [ngClass]="baseClass" class="ngx-tag rounded-xs p-1">
+  <ng-content></ng-content>
+  <em *ngIf="close" (click)="onCloseClick()" class="material-icons ml-1"
+    >close</em
+  >
+</div>

@@ -3,5 +3,143 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "ngx-relic": {
+      "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ngx-relic",
+      "sourceRoot": "projects/ngx-relic/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-relic/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-relic/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-relic/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/ngx-relic/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/ngx-relic/src/assets/scss",
+                "projects/ngx-relic/src/lib"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "relic-test": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/relic-test",
+      "sourceRoot": "projects/relic-test/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/relic-test",
+            "index": "projects/relic-test/src/index.html",
+            "main": "projects/relic-test/src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "projects/relic-test/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/relic-test/src/favicon.ico",
+              "projects/relic-test/src/assets"
+            ],
+            "styles": ["projects/relic-test/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["projects/ngx-relic/src/assets/scss"]
+            },
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "relic-test:build:production"
+            },
+            "development": {
+              "browserTarget": "relic-test:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "relic-test:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": ["zone.js", "zone.js/testing"],
+            "tsConfig": "projects/relic-test/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/relic-test/src/favicon.ico",
+              "projects/relic-test/src/assets"
+            ],
+            "styles": ["projects/relic-test/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["projects/ngx-relic/src/assets/scss"]
+            },
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "d80ef63d-720e-4f57-9cc2-a30b3008576e"
   }
 }
