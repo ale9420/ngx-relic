@@ -1,1 +1,52 @@
-<p>select works!</p>
+<div class="ngx-select" id="element">
+  <label>{{ label }}</label>
+  <div class="ngx-select__inner">
+    <div
+      class="ngx-select__tags-container"
+      [ngClass]="{ 'px-1': showSelectedOptions.length > 0 }"
+    >
+      <ngx-tag
+        (closeClick)="removeItem(option)"
+        [close]="true"
+        [outline]="true"
+        state="primary"
+        class="text-white mr-1"
+        *ngFor="let option of showSelectedOptions"
+        >{{ option[labelKey] }}</ngx-tag
+      >
+      <ngx-tag *ngIf="selectedOptions.length - showMax > 0"
+        >+ {{ selectedOptions.length - showMax }}</ngx-tag
+      >
+    </div>
+    <span
+      *ngIf="selectedOptions.length === 0"
+      class="ngx-select__placeholder text--placeholder p-1"
+      >{{ placeholder }}</span
+    >
+    <ngx-button
+      (click)="openSelect()"
+      class="ngx-select__expand"
+      [icon]="isOpen ? 'expand_less' : 'expand_more'"
+    />
+  </div>
+  <div #optionsContainer class="ngx-select__options-container" *ngIf="isOpen">
+    <div
+      class="ngx-select__option p-1"
+      [ngClass]="{ 'ngx-select__option--selected': option.selected }"
+      [ngStyle]="{ width: optionsContainer.offsetWidth }"
+      *ngFor="let option of internalOptions; let i = index"
+      (click)="multiple ? onMultipleClick(option, i) : onSingleClick(option, i)"
+    >
+      <em
+        *ngIf="multiple"
+        class="material-icons-outlined ngx-select__checkbox mr-1"
+        [ngClass]="{ 'ngx-select__option--selected': option.selected }"
+        >{{
+          option.selected ? "check_box_outline" : "check_box_outline_blank"
+        }}</em
+      >
+
+      <span>{{ option[labelKey] }}</span>
+    </div>
+  </div>
+</div>

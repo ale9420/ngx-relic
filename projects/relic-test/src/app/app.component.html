@@ -1,41 +1,76 @@
 <div class="flex">
-  <lib-ngx-tag class="mr-2" color="primary">Primary</lib-ngx-tag>
-  <lib-ngx-tag class="mr-2" color="success">Success</lib-ngx-tag>
-  <lib-ngx-tag class="mr-2" color="danger">Danger</lib-ngx-tag>
-  <lib-ngx-tag class="mr-2" color="warning">Warning</lib-ngx-tag>
+  <ngx-tag class="mr-2" state="primary">Primary</ngx-tag>
+  <ngx-tag class="mr-2" state="success">Success</ngx-tag>
+  <ngx-tag class="mr-2" state="danger">Danger</ngx-tag>
+  <ngx-tag class="mr-2" state="warning">Warning</ngx-tag>
 </div>
 
 <div class="flex mt-2">
-  <lib-ngx-tag [outline]="true" class="mr-2" color="primary"
-    >Primary</lib-ngx-tag
-  >
-  <lib-ngx-tag [outline]="true" class="mr-2" color="success"
-    >Success</lib-ngx-tag
-  >
-  <lib-ngx-tag [outline]="true" class="mr-2" color="danger">Danger</lib-ngx-tag>
-  <lib-ngx-tag [outline]="true" class="mr-2" color="warning"
-    >Warning</lib-ngx-tag
-  >
+  <ngx-tag [outline]="true" class="mr-2" state="primary">Primary</ngx-tag>
+  <ngx-tag [outline]="true" class="mr-2" state="success">Success</ngx-tag>
+  <ngx-tag [outline]="true" class="mr-2" state="danger">Danger</ngx-tag>
+  <ngx-tag [outline]="true" class="mr-2" state="warning">Warning</ngx-tag>
 </div>
 
 <div class="flex mt-2">
-  <lib-ngx-tag [close]="true" class="mr-2" color="primary">Primary</lib-ngx-tag>
-  <lib-ngx-tag [close]="true" class="mr-2" color="success">Success</lib-ngx-tag>
-  <lib-ngx-tag [close]="true" class="mr-2" color="danger">Danger</lib-ngx-tag>
-  <lib-ngx-tag [close]="true" class="mr-2" color="warning">Warning</lib-ngx-tag>
+  <ngx-tag [close]="true" class="mr-2" state="primary">Primary</ngx-tag>
+  <ngx-tag [close]="true" class="mr-2" state="success">Success</ngx-tag>
+  <ngx-tag [close]="true" class="mr-2" state="danger">Danger</ngx-tag>
+  <ngx-tag [close]="true" class="mr-2" state="warning">Warning</ngx-tag>
 </div>
 
 <div class="flex mt-2">
-  <lib-ngx-tag [outline]="true" [close]="true" class="mr-2" color="primary"
-    >Primary</lib-ngx-tag
+  <ngx-tag [outline]="true" [close]="true" class="mr-2" state="primary"
+    >Primary</ngx-tag
   >
-  <lib-ngx-tag [outline]="true" [close]="true" class="mr-2" color="success"
-    >Success</lib-ngx-tag
+  <ngx-tag [outline]="true" [close]="true" class="mr-2" state="success"
+    >Success</ngx-tag
   >
-  <lib-ngx-tag [outline]="true" [close]="true" class="mr-2" color="danger"
-    >Danger</lib-ngx-tag
+  <ngx-tag [outline]="true" [close]="true" class="mr-2" state="danger"
+    >Danger</ngx-tag
   >
-  <lib-ngx-tag [outline]="true" [close]="true" class="mr-2" color="warning"
-    >Warning</lib-ngx-tag
+  <ngx-tag [outline]="true" [close]="true" class="mr-2" state="warning"
+    >Warning</ngx-tag
   >
+</div>
+
+<div class="mt-5">
+  <ngx-button class="mr-2">Crear</ngx-button>
+  <ngx-button class="mr-2" icon="info">Crear</ngx-button>
+  <ngx-button class="mr-2" icon="info" />
+  <ngx-button class="mr-2" icon="expand_less" />
+</div>
+
+<div class="mt-5">
+  <ngx-select
+    [(ngModel)]="selectModel"
+    [options]="options"
+    [multiple]="true"
+    placeholder="Selecciona los permisos"
+    labelKey="name"
+    valueKey="id"
+    label="Permisos"
+  />
+</div>
+
+<div class="mt-5">
+  <ngx-select
+    [(ngModel)]="singleSelectModel"
+    [options]="options"
+    placeholder="Selecciona el permiso"
+    labelKey="name"
+    valueKey="id"
+    label="Permiso"
+  />
+</div>
+
+<div class="mt-5">
+  <p class="text--xxxl">ABCD</p>
+  <h1>ABCD</h1>
+  <h2>ABCD</h2>
+  <h3>ABCD</h3>
+  <h4>ABCD</h4>
+
+  <p class="text--sm">ABCD</p>
+  <p class="text--xs">ABCD</p>
 </div>

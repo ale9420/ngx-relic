@@ -2,7 +2,11 @@
 {
   "extends": "../../tsconfig.json",
   "angularCompilerOptions": {
-    "enableIvy": false
+    "enableIvy": false,
+    "strictTemplates": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "enableI18nLegacyMessageIdFormat": false
   },
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",

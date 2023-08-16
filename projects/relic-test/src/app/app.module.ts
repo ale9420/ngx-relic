@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { NgxRelicModule } from 'ngx-relic';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, NgxRelicModule],
+  imports: [BrowserModule, NgxRelicModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

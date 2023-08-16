@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxRelicComponent } from './ngx-relic.component';
+import { ButtonComponent } from './button.component';
 
-describe('NgxRelicComponent', () => {
-  let component: NgxRelicComponent;
-  let fixture: ComponentFixture<NgxRelicComponent>;
+describe('ButtonComponent', () => {
+  let component: ButtonComponent;
+  let fixture: ComponentFixture<ButtonComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NgxRelicComponent]
+      declarations: [ButtonComponent]
     });
-    fixture = TestBed.createComponent(NgxRelicComponent);
+    fixture = TestBed.createComponent(ButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

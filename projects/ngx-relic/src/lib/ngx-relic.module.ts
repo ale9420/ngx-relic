@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
-import { NgxRelicComponent } from './ngx-relic.component';
 import { FormsModule } from './forms/forms.module';
 import { DisplayModule } from './display/display.module';
 
 @NgModule({
-  declarations: [NgxRelicComponent],
+  declarations: [],
   imports: [FormsModule, DisplayModule],
-  exports: [NgxRelicComponent, DisplayModule],
+  exports: [DisplayModule, FormsModule],
 })
 export class NgxRelicModule {}

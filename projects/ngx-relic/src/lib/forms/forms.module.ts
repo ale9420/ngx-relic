@@ -5,11 +5,16 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { SelectComponent } from './select/select.component';
+import { DisplayModule } from '../display/display.module';
 
 @NgModule({
-  declarations: [
-    SelectComponent
+  declarations: [SelectComponent],
+  imports: [
+    CommonModule,
+    AngularFormsModule,
+    ReactiveFormsModule,
+    DisplayModule,
   ],
-  imports: [CommonModule, AngularFormsModule, ReactiveFormsModule],
+  exports: [SelectComponent],
 })
 export class FormsModule {}
