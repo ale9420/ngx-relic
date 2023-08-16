@@ -1,10 +1,14 @@
 @import "../.././../assets/scss/utils/variables";
 
+$color-variations: "primary", "success", "danger";
+
 :host {
   display: inline-block;
+  pointer-events: none;
 }
 
 .ngx-button {
+  pointer-events: auto;
   cursor: pointer;
   border: none;
   display: flex;
@@ -14,19 +18,34 @@
     margin-left: 6px;
   }
 
-  &--primary {
-    background-color: map-get($colors, "color-primary-500");
-    border: 1px solid map-get($colors, "color-primary-800");
-    color: map-get($colors, "color-neutral-100");
-    transition: all 0.2s ease-in;
+  &:disabled {
+    background-color: map-get($colors, "color-neutral-300");
+    border: 1px solid transparent;
+    pointer-events: none;
+    cursor: default;
+  }
 
-    &:hover {
-      border: 1px solid map-get($colors, "color-primary-500");
-      background: linear-gradient(
-        180deg,
-        rgba(map-get($colors, "color-primary-400"), 1) 0%,
-        rgba(map-get($colors, "color-primary-500"), 1) 100%
-      );
+  @each $color-variation in $color-variations {
+    &--default-#{$color-variation} {
+      background-color: map-get($colors, "color-" + $color-variation + "-500");
+      border: 1px solid map-get($colors, "color-" + $color-variation + "-800");
+      color: map-get($colors, "color-neutral-100");
+      transition: all 0.2s ease-in;
+
+      &:not(:disabled):hover {
+        border: 1px solid map-get($colors, "color-primary-500");
+        background: linear-gradient(
+          180deg,
+          rgba(map-get($colors, "color-" + $color-variation + "-400"), 1) 0%,
+          rgba(map-get($colors, "color-" + $color-variation + "-500"), 1) 100%
+        );
+      }
+    }
+
+    &--outline-#{$color-variation} {
+      background-color: map-get($colors, "color-neutral-50");
+      border: 1px solid map-get($colors, "color-" + $color-variation + "-500");
+      color: map-get($colors, "color-" + $color-variation + "-500");
     }
   }
 }

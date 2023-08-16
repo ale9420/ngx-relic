@@ -7,6 +7,8 @@ export type Color =
   | 'slate'
   | 'neutral';
 
+export type ButtonColor = 'primary' | 'danger' | 'success';
+
 export type OnChangeSelectFn<T> = (options: T[]) => void;
 
 export type OnTouched = () => void;

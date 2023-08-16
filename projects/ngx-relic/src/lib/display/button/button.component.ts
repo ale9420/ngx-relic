@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Color } from '../../types';
+import { ButtonColor } from '../../types';
 
 @Component({
   selector: 'ngx-button',
@@ -11,8 +11,17 @@ export class ButtonComponent {
   icon: string | null = null;
 
   @Input()
-  state: Color = 'primary';
+  color: ButtonColor = 'primary';
 
   @Input()
   outline = false;
+
+  @Input()
+  disabled = false;
+
+  get baseClass() {
+    return this.outline
+      ? `ngx-button--outline-${this.color}`
+      : `ngx-button--default-${this.color}`;
+  }
 }

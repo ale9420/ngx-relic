@@ -6,9 +6,21 @@ import {
   ElementRef,
   inject,
   forwardRef,
+  Inject,
+  Injector,
 } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  ControlValueAccessor,
+  FormControl,
+  FormControlDirective,
+  FormControlName,
+  FormGroupDirective,
+  NG_VALUE_ACCESSOR,
+  NgControl,
+  NgModel,
+} from '@angular/forms';
 import { OnChangeSelectFn, OnTouched, SelectOption } from '../../types';
+import { takeUntil, tap } from 'rxjs';
 
 @Component({
   selector: 'ngx-select',
@@ -35,6 +47,12 @@ export class SelectComponent<T extends object, U extends keyof T>
   placeholder = '';
 
   @Input()
+  errorText = '';
+
+  @Input()
+  helperText = '';
+
+  @Input()
   labelKey = '';
 
   @Input()
@@ -44,53 +62,73 @@ export class SelectComponent<T extends object, U extends keyof T>
   multiple = false;
 
   @Input()
+  required = false;
+
+  @Input()
+  disabled = false;
+
+  @Input()
+  closeOnSelect = true;
+
+  @Input()
   showMax = 1;
 
-  touched = false;
-  disabled = false;
   isOpen = false;
   internalOptions: SelectOption[] = [];
   selectedOptions: T[] = [];
   onChange!: OnChangeSelectFn<T>;
   onTouched!: OnTouched;
   private elementRef = inject(ElementRef);
+  control!: FormControl;
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
     const clickedElement = event.target as HTMLElement;
     const element = this.elementRef.nativeElement.querySelector('#element');
     if (element && !element.contains(clickedElement)) {
+      this.onTouched();
       this.isOpen = false;
     }
   }
 
+  constructor(@Inject(Injector) private injector: Injector) {}
+
   ngOnInit(): void {
     this.internalOptions = this.options.map((i) => ({ ...i, selected: false }));
-  }
+    const injectedControl = this.injector.get(NgControl);
 
-  writeValue(value: T[]): void {
-    if (value) {
-      this.selectedOptions = value;
+    switch (injectedControl.constructor) {
+      case NgModel: {
+        const { control, update } = injectedControl as NgModel;
+
+        this.control = control;
+
+        this.control.valueChanges
+          .pipe(
+            tap((value: T) => update.emit(value))
+            // takeUntil(this.destroy),
+          )
+          .subscribe();
+        break;
+      }
+      case FormControlName: {
+        this.control = this.injector
+          .get(FormGroupDirective)
+          .getControl(injectedControl as FormControlName);
+        break;
+      }
+      default: {
+        this.control = (injectedControl as FormControlDirective)
+          .form as FormControl;
+        break;
+      }
     }
-  }
 
-  registerOnChange(fn: OnChangeSelectFn<T>): void {
-    this.onChange = fn;
-  }
+    this.control.registerOnDisabledChange((isDisabled) => {
+      this.disabled = isDisabled;
+    });
 
-  registerOnTouched(fn: OnTouched): void {
-    this.onTouched = fn;
-  }
-
-  setDisabledState(disabled: boolean): void {
-    this.disabled = disabled;
-  }
-
-  markAsTouched() {
-    if (!this.touched) {
-      this.onTouched();
-      this.touched = true;
-    }
+    this.disabled = this.control.status === 'DISABLED';
   }
 
   get showSelectedOptions() {
@@ -106,6 +144,24 @@ export class SelectComponent<T extends object, U extends keyof T>
         .join(',');
 
     return this.getKeyValue(this.labelKey as U, this.selectedOptions[0]);
+  }
+
+  get hasErrors() {
+    return this.control.errors && this.control.touched;
+  }
+
+  writeValue(value: T[]): void {
+    if (value) {
+      this.selectedOptions = value;
+    }
+  }
+
+  registerOnChange(fn: OnChangeSelectFn<T>): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: OnTouched): void {
+    this.onTouched = fn;
   }
 
   onMultipleClick({ selected, ...option }: SelectOption, index: number) {
@@ -127,16 +183,22 @@ export class SelectComponent<T extends object, U extends keyof T>
 
       this.internalOptions[index].selected = !selected;
     }
-    this.markAsTouched();
+    this.onTouched();
     this.onChange([...this.selectedOptions]);
+    this.onItemClick();
   }
 
   onSingleClick({ selected, ...rest }: SelectOption, index: number) {
     this.clearSelection();
     this.selectedOptions = [rest as T];
     this.internalOptions[index].selected = !selected;
-    this.markAsTouched();
+    this.onTouched();
     this.onChange(this.selectedOptions);
+    this.onItemClick();
+  }
+
+  onItemClick() {
+    if (this.closeOnSelect) this.isOpen = false;
   }
 
   removeItem(item: SelectOption) {
