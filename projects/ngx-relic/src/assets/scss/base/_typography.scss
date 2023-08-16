@@ -1,12 +1,102 @@
+@use "sass:math";
+@import "../utils/variables";
+
 @font-face {
   font-family: "Quicksand";
-  src: url("../../../assets/fonts/Quicksand-Regular.ttf") format("ttf"),
-    url("../../../assets/fonts/Quicksand-SemiBold.ttf") format("ttf");
-  /* Agrega más formatos si es necesario */
+  src: url("../../../assets/fonts/Quicksand-Light.ttf") format("ttf"),
+    url("../../../assets/fonts/Quicksand-Medium.ttf") format("ttf"),
+    url("../../../assets/fonts/Quicksand-Regular.ttf") format("ttf"),
+    url("../../../assets/fonts/Quicksand-SemiBold.ttf") format("ttf"),
+    url("../../../assets/fonts/Quicksand-Bold.ttf") format("ttf");
   font-weight: normal;
   font-style: normal;
 }
 
+$font-family: "Quicksand", sans-serif;
+
+$font-weight-thin: 200;
+$font-weight-normal: 500;
+$font-weight-bold: 700;
+
+$base-font-size: 1em;
+$base-text-scale: 1.2;
+
+$text-xs: calc($base-font-size / ($base-text-scale * $base-text-scale));
+$text-sm: calc($base-font-size / ($base-text-scale));
+$text-md: calc($base-font-size * ($base-text-scale));
+$text-lg: calc($base-font-size * math.pow($base-text-scale, 2));
+$text-xl: calc($base-font-size * math.pow($base-text-scale, 3));
+$text-xxl: calc($base-font-size * math.pow($base-text-scale, 4));
+$text-xxxl: calc($base-font-size * math.pow($base-text-scale, 5));
+
 body {
-  font-family: "Quicksand", sans-serif;
+  font-family: $font-family;
+  font-size: $base-font-size;
+  color: map-get($colors, "color-neutral-950");
+}
+
+label {
+  font-size: $base-font-size;
+  color: map-get($colors, "color-slate-700");
+  font-weight: $font-weight-normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+form,
+legend {
+  color: map-get($colors, "color-slate-800");
+}
+
+h4 {
+  font-size: $text-md;
+}
+
+h3 {
+  font-size: $text-lg;
+}
+
+h2 {
+  font-size: $text-xl;
+}
+
+h1 {
+  font-size: $text-xxl;
+}
+
+.text {
+  &--xxxl {
+    font-size: $text-xxxl;
+  }
+
+  &--xxl {
+    font-size: $text-xxl;
+  }
+
+  &--xl {
+    font-size: $text-xl;
+  }
+
+  &--lg {
+    font-size: $text-lg;
+  }
+
+  &--md {
+    font-size: $text-md;
+  }
+
+  &--sm {
+    font-size: $text-sm;
+  }
+
+  &--xs {
+    font-size: $text-xs;
+  }
+
+  &--placeholder {
+    font-size: $text-sm;
+    color: map-get($colors, "color-neutral-500");
+  }
 }

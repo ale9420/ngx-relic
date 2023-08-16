@@ -1,14 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TagBackgroundColor, Color } from '../../types';
+import { Color } from '../../types';
 
 @Component({
-  selector: 'lib-ngx-tag',
+  selector: 'ngx-tag',
   templateUrl: './tag.component.html',
   styleUrls: ['./tag.component.scss'],
 })
 export class TagComponent {
   @Input()
-  color: Color = 'primary';
+  state: Color = 'primary';
 
   @Input()
   close = false;
@@ -19,14 +19,12 @@ export class TagComponent {
   @Output()
   closeClick = new EventEmitter();
 
-  TagBackgroundColor = TagBackgroundColor;
-
   get defaultClass() {
-    return `ngx-tag--${this.color}`;
+    return `ngx-tag--${this.state}`;
   }
 
   get outlineClass() {
-    return `ngx-tag--outline-${this.color}`;
+    return `ngx-tag--outline-${this.state}`;
   }
 
   get baseClass() {

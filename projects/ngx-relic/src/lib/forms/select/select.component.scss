@@ -1,0 +1,73 @@
+@import "../.././../assets/scss/utils/variables";
+
+:host {
+  display: inline-block;
+}
+
+.ngx-select {
+  position: relative;
+  min-width: 300px;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid transparent;
+    border-top: 1px solid map-get($colors, "color-primary-900");
+    border-bottom: 1px solid map-get($colors, "color-primary-900");
+    transition: border-top 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+    &:hover {
+      border-bottom: 1px solid map-get($colors, "color-primary-500");
+      border-top: 1px solid map-get($colors, "color-primary-500");
+      background-color: map-get($colors, "color-slate-100");
+    }
+  }
+
+  &__tags-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__options-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background-color: map-get($colors, "color-neutral-50");
+    z-index: 200;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    left: 0;
+    right: 0;
+  }
+
+  &__option {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid map-get($colors, "color-neutral-700");
+
+    &:hover {
+      background-color: map-get($colors, "color-neutral-200");
+    }
+
+    &--selected {
+      color: map-get($colors, "color-primary-500");
+      background-color: map-get($colors, "color-primary-100");
+    }
+  }
+
+  &__placeholder {
+    flex-grow: 1;
+    align-self: center;
+  }
+
+  &__expand {
+    cursor: pointer;
+    color: map-get($colors, "color-primary-900");
+  }
+
+  &__checkbox {
+    cursor: pointer;
+    width: 20px;
+  }
+}

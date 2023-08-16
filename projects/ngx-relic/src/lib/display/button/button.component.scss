@@ -1,0 +1,32 @@
+@import "../.././../assets/scss/utils/variables";
+
+:host {
+  display: inline-block;
+}
+
+.ngx-button {
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+
+  &__wrapper:not(:empty) {
+    margin-left: 6px;
+  }
+
+  &--primary {
+    background-color: map-get($colors, "color-primary-500");
+    border: 1px solid map-get($colors, "color-primary-800");
+    color: map-get($colors, "color-neutral-100");
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      border: 1px solid map-get($colors, "color-primary-500");
+      background: linear-gradient(
+        180deg,
+        rgba(map-get($colors, "color-primary-400"), 1) 0%,
+        rgba(map-get($colors, "color-primary-500"), 1) 100%
+      );
+    }
+  }
+}

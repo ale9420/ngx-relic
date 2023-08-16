@@ -26,6 +26,26 @@
   .p-#{$spacing-value} {
     padding: ($default-size * $i) + rem;
   }
+
+  .pt-#{$spacing-value} {
+    padding-top: ($default-size * $i) + rem;
+  }
+
+  .pb-#{$spacing-value} {
+    padding-bottom: ($default-size * $i) + rem;
+  }
+
+  .pl-#{$spacing-value} {
+    padding-left: ($default-size * $i) + rem;
+  }
+
+  .pr-#{$spacing-value} {
+    padding-right: ($default-size * $i) + rem;
+  }
+
+  .px-#{$spacing-value} {
+    padding: 0 ($default-size * $i) + rem;
+  }
 }
 
 @each $rounded-value in $rounded-values {
