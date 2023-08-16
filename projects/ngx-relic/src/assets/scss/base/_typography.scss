@@ -100,3 +100,11 @@ h1 {
     color: map-get($colors, "color-neutral-500");
   }
 }
+
+.helper-text {
+  font-size: $text-xs;
+
+  &--error {
+    color: map-get($colors, "color-danger-600");
+  }
+}

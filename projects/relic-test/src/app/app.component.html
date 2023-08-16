@@ -36,8 +36,9 @@
 
 <div class="mt-5">
   <ngx-button class="mr-2">Crear</ngx-button>
-  <ngx-button class="mr-2" icon="info">Crear</ngx-button>
-  <ngx-button class="mr-2" icon="info" />
+  <ngx-button [disabled]="true" class="mr-2" icon="info">Crear</ngx-button>
+  <ngx-button color="danger" class="mr-2" icon="info" />
+  <ngx-button [outline]="true" color="danger" class="mr-2" icon="info" />
   <ngx-button class="mr-2" icon="expand_less" />
 </div>
 
@@ -54,14 +55,23 @@
 </div>
 
 <div class="mt-5">
-  <ngx-select
-    [(ngModel)]="singleSelectModel"
-    [options]="options"
-    placeholder="Selecciona el permiso"
-    labelKey="name"
-    valueKey="id"
-    label="Permiso"
-  />
+  <form [formGroup]="form">
+    <ngx-select
+      [required]="true"
+      [options]="options"
+      formControlName="select"
+      placeholder="Selecciona el permiso"
+      errorText="Campo requerido"
+      labelKey="name"
+      valueKey="id"
+      label="Permiso"
+    />
+  </form>
+
+  <div class="mt-2">
+    <ngx-button class="mr-2" (click)="enable()">Habilitar </ngx-button>
+    <ngx-button (click)="disable()"> Deshabilitar</ngx-button>
+  </div>
 </div>
 
 <div class="mt-5">

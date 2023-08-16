@@ -1,0 +1,21 @@
+@import "../.././../assets/scss/utils/variables";
+@import "../../../assets/scss/base/typography";
+
+:host {
+  display: inline-block;
+}
+
+.ngx-label {
+  display: flex;
+  align-items: center;
+
+  &__required {
+    font-size: $text-sm;
+    margin-left: 2px;
+    color: map-get($colors, "color-danger-700");
+  }
+
+  &--disabled {
+    color: map-get($colors, "color-neutral-400");
+  }
+}

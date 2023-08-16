@@ -1,0 +1,12 @@
+<div
+  class="ngx-select-item p-1"
+  [ngClass]="{ 'ngx-select-item--selected': selected }"
+>
+  <em
+    *ngIf="multiple"
+    class="material-icons-outlined ngx-select-item__checkbox mr-1"
+    [ngClass]="{ 'ngx-select-item--selected': selected }"
+    >{{ selected ? "check_box_outline" : "check_box_outline_blank" }}</em
+  >
+  <ng-content></ng-content>
+</div>
