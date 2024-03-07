@@ -35,11 +35,22 @@
 </div>
 
 <div class="mt-5">
+  <ngx-button color="success" class="mr-2">Crear</ngx-button>
+  <ngx-button color="danger" class="mr-2">Crear</ngx-button>
   <ngx-button class="mr-2">Crear</ngx-button>
-  <ngx-button [disabled]="true" class="mr-2" icon="info">Crear</ngx-button>
-  <ngx-button color="danger" class="mr-2" icon="info" />
+
+  <ngx-button [outline]="true" color="success" class="mr-2">Crear</ngx-button>
+  <ngx-button [outline]="true" color="danger" class="mr-2">Crear</ngx-button>
+  <ngx-button [outline]="true" class="mr-2">Crear</ngx-button>
+
+  <ngx-button [disabled]="true" class="mr-2">Crear</ngx-button>
+
   <ngx-button [outline]="true" color="danger" class="mr-2" icon="info" />
-  <ngx-button class="mr-2" icon="expand_less" />
+  <ngx-button [outline]="true" color="success" class="mr-2" icon="info" />
+  <ngx-button [outline]="true" color="primary" class="mr-2" icon="info" />
+  <ngx-button color="danger" class="mr-2" icon="info" />
+  <ngx-button color="success" class="mr-2" icon="info" />
+  <ngx-button color="primary" class="mr-2" icon="info" />
 </div>
 
 <div class="mt-5">
@@ -59,6 +70,7 @@
     <ngx-select
       [required]="true"
       [options]="options"
+      [closeOnSelect]="false"
       formControlName="select"
       placeholder="Selecciona el permiso"
       errorText="Campo requerido"
@@ -66,7 +78,27 @@
       valueKey="id"
       label="Permiso"
     />
+
+    <ngx-input
+      [required]="true"
+      formControlName="input"
+      label="Permiso"
+      placeholder="Selecciona el permiso"
+      type="text"
+    />
   </form>
+
+  <div class="mt-5">
+    <ngx-input
+      [required]="true"
+      [(ngModel)]="input"
+      label="Permiso"
+      placeholder="Selecciona el permiso"
+      type="text"
+    />
+
+    {{ input }}
+  </div>
 
   <div class="mt-2">
     <ngx-button class="mr-2" (click)="enable()">Habilitar </ngx-button>

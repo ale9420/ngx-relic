@@ -6,7 +6,6 @@ import {
   ElementRef,
   inject,
   forwardRef,
-  Inject,
   Injector,
 } from '@angular/core';
 import {
@@ -20,7 +19,7 @@ import {
   NgModel,
 } from '@angular/forms';
 import { OnChangeSelectFn, OnTouched, SelectOption } from '../../types';
-import { takeUntil, tap } from 'rxjs';
+import { Subject, takeUntil, tap } from 'rxjs';
 
 @Component({
   selector: 'ngx-select',
@@ -76,25 +75,53 @@ export class SelectComponent<T extends object, U extends keyof T>
   isOpen = false;
   internalOptions: SelectOption[] = [];
   selectedOptions: T[] = [];
+  private elementRef = inject(ElementRef);
+  private injector = inject(Injector);
+  control!: FormControl;
+  destroy = new Subject();
   onChange!: OnChangeSelectFn<T>;
   onTouched!: OnTouched;
-  private elementRef = inject(ElementRef);
-  control!: FormControl;
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
     const clickedElement = event.target as HTMLElement;
     const element = this.elementRef.nativeElement.querySelector('#element');
-    if (element && !element.contains(clickedElement)) {
+    if (this.isOpen && element && !element.contains(clickedElement)) {
       this.onTouched();
       this.isOpen = false;
     }
   }
 
-  constructor(@Inject(Injector) private injector: Injector) {}
-
-  ngOnInit(): void {
+  ngOnInit() {
     this.internalOptions = this.options.map((i) => ({ ...i, selected: false }));
+    this.setupModel();
+  }
+
+  ngOnDestroy() {
+    this.destroy.next(true);
+    this.destroy.complete();
+  }
+
+  get showSelectedOptions() {
+    return this.selectedOptions.slice(0, this.showMax);
+  }
+
+  get selectedLabels() {
+    if (this.selectedOptions.length === 0) return this.placeholder;
+
+    if (this.multiple)
+      return this.selectedOptions
+        .map((i) => this.getKeyValue(this.labelKey as U, i))
+        .join(',');
+
+    return this.getKeyValue(this.labelKey as U, this.selectedOptions[0]);
+  }
+
+  get hasErrors() {
+    return this.control.errors && this.control.touched;
+  }
+
+  setupModel() {
     const injectedControl = this.injector.get(NgControl);
 
     switch (injectedControl.constructor) {
@@ -105,8 +132,8 @@ export class SelectComponent<T extends object, U extends keyof T>
 
         this.control.valueChanges
           .pipe(
-            tap((value: T) => update.emit(value))
-            // takeUntil(this.destroy),
+            tap((value: T) => update.emit(value)),
+            takeUntil(this.destroy)
           )
           .subscribe();
         break;
@@ -129,25 +156,6 @@ export class SelectComponent<T extends object, U extends keyof T>
     });
 
     this.disabled = this.control.status === 'DISABLED';
-  }
-
-  get showSelectedOptions() {
-    return this.selectedOptions.slice(0, this.showMax);
-  }
-
-  get selectedLabels() {
-    if (this.selectedOptions.length === 0) return this.placeholder;
-
-    if (this.multiple)
-      return this.selectedOptions
-        .map((i) => this.getKeyValue(this.labelKey as U, i))
-        .join(',');
-
-    return this.getKeyValue(this.labelKey as U, this.selectedOptions[0]);
-  }
-
-  get hasErrors() {
-    return this.control.errors && this.control.touched;
   }
 
   writeValue(value: T[]): void {
@@ -197,10 +205,6 @@ export class SelectComponent<T extends object, U extends keyof T>
     this.onItemClick();
   }
 
-  onItemClick() {
-    if (this.closeOnSelect) this.isOpen = false;
-  }
-
   removeItem(item: SelectOption) {
     this.selectedOptions = this.selectedOptions.filter(
       (i) =>
@@ -223,6 +227,10 @@ export class SelectComponent<T extends object, U extends keyof T>
 
   openSelect() {
     this.isOpen = !this.isOpen;
+  }
+
+  onItemClick() {
+    if (this.closeOnSelect) this.isOpen = false;
   }
 
   getKeyValue(key: U, object: T) {

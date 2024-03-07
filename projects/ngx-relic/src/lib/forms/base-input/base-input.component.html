@@ -1,0 +1,18 @@
+<div class="ngx-base-input ngx-input">
+  <ngx-label [disabled]="disabled" [required]="required">{{ label }}</ngx-label>
+  <div
+    [ngClass]="{
+      'ngx-base-input__inner--error': hasErrors && !disabled,
+      'ngx-base-input__inner--disabled': disabled
+    }"
+    class="ngx-base-input__inner"
+  >
+    <ng-content></ng-content>
+  </div>
+  <span *ngIf="hasErrors && !disabled" class="helper-text helper-text--error">{{
+    errorText
+  }}</span>
+  <span *ngIf="helperText !== '' && !hasErrors" class="helper-text">{{
+    helperText
+  }}</span>
+</div>
