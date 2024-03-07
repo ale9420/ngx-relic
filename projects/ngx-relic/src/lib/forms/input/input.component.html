@@ -1,0 +1,14 @@
+<ngx-base-input
+  [hasErrors]="_cvaDirective.hasErrors"
+  [label]="label"
+  [disabled]="_cvaDirective._disabled"
+  [required]="required"
+>
+  <input
+    [type]="type"
+    [placeholder]="placeholder"
+    [disabled]="_cvaDirective._disabled"
+    [(ngModel)]="_value"
+    (ngModelChange)="onChange($event)"
+  />
+</ngx-base-input>

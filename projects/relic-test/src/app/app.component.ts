@@ -24,6 +24,7 @@ export class AppComponent {
     },
   ];
 
+  input = '';
   selectModel = [];
 
   singleSelectModel = [];
@@ -32,16 +33,15 @@ export class AppComponent {
   constructor(fb: FormBuilder) {
     this.form = fb.group({
       select: fb.control({ value: [], disabled: true }, [Validators.required]),
+      input: fb.control('', [Validators.required]),
     });
-
-    //this.form.get('select')?.disable();
   }
 
   enable() {
-    this.form.get('select')?.enable();
+    this.form.enable();
   }
 
   disable() {
-    this.form.get('select')?.disable();
+    this.form.disable();
   }
 }

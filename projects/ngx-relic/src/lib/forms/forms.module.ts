@@ -7,15 +7,27 @@ import {
 import { SelectComponent } from './select/select.component';
 import { DisplayModule } from '../display/display.module';
 import { SelectItemComponent } from './select-item/select-item.component';
+import { InputComponent } from './input/input.component';
+import { BaseInputComponent } from './base-input/base-input.component';
 
 @NgModule({
-  declarations: [SelectComponent, SelectItemComponent],
+  declarations: [
+    SelectComponent,
+    SelectItemComponent,
+    InputComponent,
+    BaseInputComponent,
+  ],
   imports: [
     CommonModule,
     AngularFormsModule,
     ReactiveFormsModule,
     DisplayModule,
   ],
-  exports: [SelectComponent, SelectItemComponent],
+  exports: [
+    SelectComponent,
+    SelectItemComponent,
+    InputComponent,
+    BaseInputComponent,
+  ],
 })
 export class FormsModule {}

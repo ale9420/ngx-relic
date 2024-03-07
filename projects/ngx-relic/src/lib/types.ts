@@ -10,7 +10,7 @@ export type Color =
 export type ButtonColor = 'primary' | 'danger' | 'success';
 
 export type OnChangeSelectFn<T> = (options: T[]) => void;
-
+export type OnChange = (value: any) => void;
 export type OnTouched = () => void;
 
 export interface SelectOption extends Object {
