@@ -1,0 +1,81 @@
+@import "../.././../assets/scss/utils/variables";
+
+:host {
+  display: inline-block;
+}
+
+@mixin common-tooltip-arrow {
+  content: "";
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.ngx-tooltip {
+  position: relative;
+  display: inline-block;
+
+  &__content {
+    position: absolute;
+    background-color: map-get($colors, "color-neutral-700");
+    color: map-get($colors, "color-slate-50");
+    border-radius: 6px;
+
+    &--top {
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+
+      &::after {
+        @include common-tooltip-arrow;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-color: #555 transparent transparent transparent;
+      }
+    }
+
+    &--bottom {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+
+      &::after {
+        @include common-tooltip-arrow;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-color: transparent transparent #555 transparent;
+      }
+    }
+
+    &--right {
+      bottom: 50%;
+      left: 100%;
+      transform: translateY(50%);
+      margin-left: 10px;
+
+      &::after {
+        @include common-tooltip-arrow;
+        top: 50%;
+        right: 100%;
+        margin-left: 5px;
+        border-color: transparent #555 transparent transparent;
+      }
+    }
+
+    &--left {
+      bottom: 50%;
+      right: 100%;
+      transform: translateY(50%);
+      margin-right: 10px;
+
+      &::after {
+        @include common-tooltip-arrow;
+        top: 50%;
+        left: 100%;
+        border-color: transparent transparent transparent #555;
+      }
+    }
+  }
+}

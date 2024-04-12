@@ -1,0 +1,15 @@
+<div
+  (mouseenter)="showTooltip = true"
+  (mouseleave)="showTooltip = false"
+  class="ngx-tooltip"
+>
+  <ng-content select="[content]"></ng-content>
+  <div
+    *ngIf="showTooltip"
+    [style.width]="contentWidth"
+    [ngClass]="positionClass"
+    class="ngx-tooltip__content p-1"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>
