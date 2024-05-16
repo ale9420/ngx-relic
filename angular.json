@@ -41,6 +41,27 @@
               ]
             }
           }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/ngx-relic/.storybook",
+            "browserTarget": "ngx-relic:build",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "projects/ngx-relic"],
+            "port": 6006,
+            "styles": ["projects/ngx-relic/src/assets/scss/_main.scss"]
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/ngx-relic/.storybook",
+            "browserTarget": "ngx-relic:build",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "projects/ngx-relic"],
+            "outputDir": "dist/storybook/ngx-relic"
+          }
         }
       }
     },
