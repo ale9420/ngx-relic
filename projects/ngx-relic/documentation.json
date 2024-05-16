@@ -1,0 +1,412 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [],
+    "modules": [],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "Close",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/stories/tag.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    close: true,\r\n    state: 'info',\r\n  },\r\n}"
+            },
+            {
+                "name": "Danger",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    outline: false,\n    color: 'danger',\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DisplayModule>",
+                "defaultValue": "{\n  title: 'Display/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    outline: {\n      control: 'boolean',\n    },\n    color: {\n      control: 'select',\n      options: ['primary', 'danger', 'success'],\n    },\n    disabled: {\n      control: 'boolean',\n    },\n    icon: {\n      control: 'text',\n    },\n  },\n  render: (args) => {\n    const { ...props } = args;\n    return {\n      props,\n      template: `<ngx-button [outline]=\"outline\" [color]=\"color\" [disabled]=\"disabled\" [icon]=\"icon\">Texto de prueba</ngx-button>`,\n    };\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n}"
+            },
+            {
+                "name": "Outline",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    outline: true,\n    color: 'danger',\n  },\n}"
+            },
+            {
+                "name": "preview",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/.storybook/preview.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Preview",
+                "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    outline: false,\n    color: 'primary',\n  },\n}"
+            },
+            {
+                "name": "Success",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    outline: false,\n    color: 'success',\n  },\n}"
+            },
+            {
+                "name": "tag",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/stories/tag.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DisplayModule>",
+                "defaultValue": "{\r\n  title: 'Display/Tag',\r\n  component: TagComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    close: {\r\n      control: 'boolean',\r\n    },\r\n    outline: {\r\n      control: 'boolean',\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['primary', 'danger', 'success', 'info', 'warning', 'neutral'],\r\n    },\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\">Texto de prueba</ngx-tag>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+            },
+            {
+                "name": "tooltip",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/stories/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DisplayModule>",
+                "defaultValue": "{\r\n  title: 'Display/Tag',\r\n  component: TooltipComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    width: {\r\n      control: 'number',\r\n    },\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tooltip>\r\n      <p content class=\"text--sm\">ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD</p>\r\n      <span>\r\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur\r\n        molestiae facere libero itaque explicabo reiciendis porro, omnis,\r\n        distinctio quasi impedit aperiam autem dicta in quae excepturi neque\r\n        praesentium fuga. Asperiores?\r\n      </span>\r\n    </ngx-tooltip>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+            },
+            {
+                "name": "Tooltip",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/stories/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    width: 124,\r\n  },\r\n}"
+            }
+        ],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/ngx-relic/src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TagComponent>",
+                "file": "projects/ngx-relic/src/stories/tag.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TooltipComponent>",
+                "file": "projects/ngx-relic/src/stories/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "projects/ngx-relic/src/stories/tag.stories.ts": [
+                {
+                    "name": "Close",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/stories/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    close: true,\r\n    state: 'info',\r\n  },\r\n}"
+                },
+                {
+                    "name": "tag",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/stories/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DisplayModule>",
+                    "defaultValue": "{\r\n  title: 'Display/Tag',\r\n  component: TagComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    close: {\r\n      control: 'boolean',\r\n    },\r\n    outline: {\r\n      control: 'boolean',\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['primary', 'danger', 'success', 'info', 'warning', 'neutral'],\r\n    },\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\">Texto de prueba</ngx-tag>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+                }
+            ],
+            "projects/ngx-relic/src/stories/button.stories.ts": [
+                {
+                    "name": "Danger",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    outline: false,\n    color: 'danger',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DisplayModule>",
+                    "defaultValue": "{\n  title: 'Display/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    outline: {\n      control: 'boolean',\n    },\n    color: {\n      control: 'select',\n      options: ['primary', 'danger', 'success'],\n    },\n    disabled: {\n      control: 'boolean',\n    },\n    icon: {\n      control: 'text',\n    },\n  },\n  render: (args) => {\n    const { ...props } = args;\n    return {\n      props,\n      template: `<ngx-button [outline]=\"outline\" [color]=\"color\" [disabled]=\"disabled\" [icon]=\"icon\">Texto de prueba</ngx-button>`,\n    };\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n}"
+                },
+                {
+                    "name": "Outline",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    outline: true,\n    color: 'danger',\n  },\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    outline: false,\n    color: 'primary',\n  },\n}"
+                },
+                {
+                    "name": "Success",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    outline: false,\n    color: 'success',\n  },\n}"
+                }
+            ],
+            "projects/ngx-relic/.storybook/preview.ts": [
+                {
+                    "name": "preview",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Preview",
+                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                }
+            ],
+            "projects/ngx-relic/src/stories/tooltip.stories.ts": [
+                {
+                    "name": "tooltip",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/stories/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DisplayModule>",
+                    "defaultValue": "{\r\n  title: 'Display/Tag',\r\n  component: TooltipComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    width: {\r\n      control: 'number',\r\n    },\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tooltip>\r\n      <p content class=\"text--sm\">ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD</p>\r\n      <span>\r\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur\r\n        molestiae facere libero itaque explicabo reiciendis porro, omnis,\r\n        distinctio quasi impedit aperiam autem dicta in quae excepturi neque\r\n        praesentium fuga. Asperiores?\r\n      </span>\r\n    </ngx-tooltip>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+                },
+                {
+                    "name": "Tooltip",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/stories/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    width: 124,\r\n  },\r\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "projects/ngx-relic/src/stories/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "projects/ngx-relic/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ngx-relic/src/stories/tag.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TagComponent>",
+                    "file": "projects/ngx-relic/src/stories/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ngx-relic/src/stories/tooltip.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TooltipComponent>",
+                    "file": "projects/ngx-relic/src/stories/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ]
+        }
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "projects/ngx-relic/.storybook/preview.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Danger",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Outline",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Success",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/tag.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Close",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/tag.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "tag",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/tooltip.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "tooltip",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/tooltip.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tooltip",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}
