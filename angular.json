@@ -60,7 +60,8 @@
             "browserTarget": "ngx-relic:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "projects/ngx-relic"],
-            "outputDir": "dist/storybook/ngx-relic"
+            "outputDir": "dist/storybook/ngx-relic",
+            "styles": ["projects/ngx-relic/src/assets/scss/_main.scss"]
           }
         }
       }
