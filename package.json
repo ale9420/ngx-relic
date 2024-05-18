@@ -1,11 +1,11 @@
 {
   "name": "ngx-relic",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build ngx-relic",
     "build:storybook": "ng run ngx-relic:build-storybook",
     "watch": "ng build ngx-relic --watch --configuration development",
     "test": "ng test",
