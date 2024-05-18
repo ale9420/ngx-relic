@@ -20,12 +20,13 @@ const tooltip: Meta<DisplayModule> = {
     const { ...props } = args;
     return {
       props,
-      template: `<ngx-tooltip [width]="width" [position]="position">
-      <p content class="text--sm">ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD</p>
-      <span>
-        texto de tooltip
-      </span>
-    </ngx-tooltip>`,
+      template: `<div style="display: flex; justify-content: center; align-items: center; height: 300px">
+        <ngx-tooltip [width]="width" [position]="position">
+          <p content class="text--sm">ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD</p>
+          <span>texto de tooltip</span>
+        </ngx-tooltip>
+      </div>
+      `,
     };
   },
 
