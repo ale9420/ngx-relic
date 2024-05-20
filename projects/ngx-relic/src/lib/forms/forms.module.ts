@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import {
   FormsModule as AngularFormsModule,
   ReactiveFormsModule,
@@ -21,6 +22,7 @@ import { BaseInputComponent } from './base-input/base-input.component';
     CommonModule,
     AngularFormsModule,
     ReactiveFormsModule,
+    ScrollingModule,
     DisplayModule,
   ],
   exports: [
