@@ -22,6 +22,22 @@ export class AppComponent {
       id: 3,
       name: 'Mesa de gestion',
     },
+    {
+      id: 4,
+      name: 'Mesa de gestion 1',
+    },
+    {
+      id: 5,
+      name: 'Mesa de gestion 2',
+    },
+    {
+      id: 6,
+      name: 'Mesa de gestion 3',
+    },
+    {
+      id: 7,
+      name: 'Mesa de gestion 4',
+    },
   ];
 
   input = '';

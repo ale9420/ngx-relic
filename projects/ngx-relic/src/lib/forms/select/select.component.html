@@ -12,12 +12,12 @@
       [ngClass]="{ 'px-1': showSelectedOptions.length > 0 }"
     >
       <ngx-tag
+        *ngFor="let option of showSelectedOptions"
         (closeClick)="removeItem(option)"
         [close]="!disabled"
         [state]="disabled ? 'neutral' : 'primary'"
         [outline]="true"
         state="primary"
-        *ngFor="let option of showSelectedOptions"
         >{{ option[labelKey] }}</ngx-tag
       >
       <ngx-tag *ngIf="selectedOptions.length - showMax > 0" class="ml-1"
@@ -31,24 +31,31 @@
     >
     <ngx-button
       (click)="openSelect()"
-      class="ngx-select__expand"
       [disabled]="disabled"
       [color]="hasErrors ? 'danger' : 'primary'"
       [icon]="isOpen ? 'expand_less' : 'expand_more'"
+      class="ngx-select__expand"
     />
 
     <div #optionsContainer class="ngx-select__options-container" *ngIf="isOpen">
-      <ngx-select-item
-        [selected]="option.selected"
-        [multiple]="multiple"
-        [ngStyle]="{ width: optionsContainer.offsetWidth }"
-        *ngFor="let option of internalOptions; let i = index"
-        (click)="
-          multiple ? onMultipleClick(option, i) : onSingleClick(option, i)
-        "
+      <cdk-virtual-scroll-viewport
+        itemSize="4"
+        minBufferPx="168"
+        maxBufferPx="400"
+        class="ngx-select__scroll"
       >
-        {{ option[labelKey] }}
-      </ngx-select-item>
+        <ngx-select-item
+          *cdkVirtualFor="let option of internalOptions; let i = index"
+          (click)="
+            multiple ? onMultipleClick(option, i) : onSingleClick(option, i)
+          "
+          [selected]="option.selected"
+          [multiple]="multiple"
+          [ngStyle]="{ width: optionsContainer.offsetWidth }"
+        >
+          {{ option[labelKey] }}
+        </ngx-select-item>
+      </cdk-virtual-scroll-viewport>
     </div>
   </div>
   <span *ngIf="hasErrors && !disabled" class="helper-text helper-text--error">{{
