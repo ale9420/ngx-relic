@@ -1,21 +1,28 @@
-@import "../.././../assets/scss/utils/variables";
 @import "../../../assets/scss/base/typography";
 
 .ngx-select-item {
   cursor: pointer;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid map-get($colors, "color-neutral-700");
+  border-bottom: 1px solid var(--color-neutral-700);
   font-size: $text-sm;
   min-height: 25px;
 
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-slate-700);
+  }
+
   &:hover {
-    background-color: map-get($colors, "color-neutral-200");
+    background-color: var(--color-neutral-200);
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-neutral-600);
+    }
   }
 
   &--selected {
-    color: map-get($colors, "color-primary-400");
-    background-color: map-get($colors, "color-primary-200");
+    color: var(--color-primary-700);
+    background-color: var(--color-primary-200);
   }
 
   &__checkbox {

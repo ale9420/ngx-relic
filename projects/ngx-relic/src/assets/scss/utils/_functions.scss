@@ -1,0 +1,81 @@
+@use "sass:map";
+@import "../utils/variables";
+
+@function setup($theme: null) {
+  $generated-colors: ();
+  @if ($theme) {
+    $generated-colors: generate-color-map($theme);
+  }
+
+  @return $generated-colors;
+}
+
+@function generate-color-map($base-palette, $number-of-variations: 5) {
+  $color-map: ();
+
+  @each $color-name, $color-base in $base-palette {
+    $color-map: map-merge(
+      $color-map,
+      generate-color-shades($color-base, $number-of-variations, $color-name)
+    );
+  }
+
+  @return $color-map;
+}
+
+@function generate-color-shades($base-color, $number-of-shades, $color-name) {
+  $color-map: ();
+  // Generate lighter shades
+  @for $i from $number-of-shades through 1 {
+    $lightness-factor: $i / ($number-of-shades * 2.2);
+    $light-color: lighten($base-color, $lightness-factor * 100%);
+
+    @if $i == 5 {
+      $color-map: map-merge(
+        $color-map,
+        (
+          "color-#{$color-name}-50": $light-color,
+        )
+      );
+    } @else {
+      $color-map: map-merge(
+        $color-map,
+        (
+          "color-#{$color-name}-#{-($i - 5)}00": $light-color,
+        )
+      );
+    }
+  }
+
+  // Add the base color
+  $color-map: map-merge(
+    $color-map,
+    (
+      "color-#{$color-name}-500": $base-color,
+    )
+  );
+
+  // Generate darker shades
+  @for $i from 1 through $number-of-shades {
+    $darkness-factor: $i / ($number-of-shades * 2.2);
+    $dark-color: darken($base-color, $darkness-factor * 100%);
+
+    @if $i == $number-of-shades {
+      $color-map: map-merge(
+        $color-map,
+        (
+          "color-#{$color-name}-950": $dark-color,
+        )
+      );
+    } @else {
+      $color-map: map-merge(
+        $color-map,
+        (
+          "color-#{$color-name}-#{$i + 5}00": $dark-color,
+        )
+      );
+    }
+  }
+
+  @return $color-map;
+}
