@@ -1,50 +1,50 @@
 @import "./variables";
 
 @each $spacing-value in $spacing-values {
-  $i: index($spacing-values, $spacing-value);
+  $i: index($spacing-values, $spacing-value) - 1;
 
   .m-#{$spacing-value} {
-    margin: ($default-size * $i) + rem;
+    margin: ($default-size * $i) + rem !important;
   }
 
   .mt-#{$spacing-value} {
-    margin-top: ($default-size * $i) + rem;
+    margin-top: ($default-size * $i) + rem !important;
   }
 
   .mb-#{$spacing-value} {
-    margin-bottom: ($default-size * $i) + rem;
+    margin-bottom: ($default-size * $i) + rem !important;
   }
 
   .ml-#{$spacing-value} {
-    margin-left: ($default-size * $i) + rem;
+    margin-left: ($default-size * $i) + rem !important;
   }
 
   .mr-#{$spacing-value} {
-    margin-right: ($default-size * $i) + rem;
+    margin-right: ($default-size * $i) + rem !important;
   }
 
   .p-#{$spacing-value} {
-    padding: ($default-size * $i) + rem;
+    padding: ($default-size * $i) + rem !important;
   }
 
   .pt-#{$spacing-value} {
-    padding-top: ($default-size * $i) + rem;
+    padding-top: ($default-size * $i) + rem !important;
   }
 
   .pb-#{$spacing-value} {
-    padding-bottom: ($default-size * $i) + rem;
+    padding-bottom: ($default-size * $i) + rem !important;
   }
 
   .pl-#{$spacing-value} {
-    padding-left: ($default-size * $i) + rem;
+    padding-left: ($default-size * $i) + rem !important;
   }
 
   .pr-#{$spacing-value} {
-    padding-right: ($default-size * $i) + rem;
+    padding-right: ($default-size * $i) + rem !important;
   }
 
   .px-#{$spacing-value} {
-    padding: 0 ($default-size * $i) + rem;
+    padding: 0 ($default-size * $i) + rem !important;
   }
 }
 

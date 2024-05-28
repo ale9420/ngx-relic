@@ -1,7 +1,7 @@
 $color-variations: "primary", "success", "danger";
 
 :host {
-  display: inline-block;
+  display: inline-flex;
   pointer-events: none;
 }
 
