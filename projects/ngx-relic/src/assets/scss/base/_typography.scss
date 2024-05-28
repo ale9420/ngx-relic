@@ -99,14 +99,18 @@ h1 {
   &--xs {
     font-size: $text-xs;
   }
+}
 
-  &--placeholder {
-    font-size: $text-sm;
-    color: var(--color-neutral-500);
+.placeholder {
+  font-size: $text-sm;
+  color: var(--color-slate-600);
 
-    @media (prefers-color-scheme: dark) {
-      color: var(--color-slate-50);
-    }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-slate-50);
+  }
+
+  &--disabled {
+    color: var(--color-slate-400);
   }
 }
 

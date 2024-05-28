@@ -1,16 +1,15 @@
-<div class="ngx-base-input ngx-select" id="element">
-  <ngx-label [disabled]="disabled" [required]="required">{{ label }}</ngx-label>
-  <div
-    [ngClass]="{
-      'ngx-base-input__inner--error': hasErrors && !disabled,
-      'ngx-base-input__inner--disabled': disabled
-    }"
-    class="ngx-base-input__inner"
-  >
-    <div
-      class="ngx-select__tags-container"
-      [ngClass]="{ 'px-1': showSelectedOptions.length > 0 }"
-    >
+<ngx-base-input
+  [required]="required"
+  [label]="label"
+  [hasErrors]="hasErrors"
+  [errorText]="errorText"
+  [helperText]="helperText"
+  [disabled]="disabled"
+  class="ngx-select"
+  id="element"
+>
+  @if (showSelectedOptions.length > 0) {
+    <div class="ngx-select__tags-container px-1">
       <ngx-tag
         *ngFor="let option of showSelectedOptions"
         (closeClick)="removeItem(option)"
@@ -24,44 +23,40 @@
         >+ {{ selectedOptions.length - showMax }}</ngx-tag
       >
     </div>
-    <span
-      *ngIf="selectedOptions.length === 0"
-      class="ngx-select__placeholder text--placeholder p-1"
-      >{{ placeholder }}</span
-    >
-    <ngx-button
-      (click)="openSelect()"
-      [disabled]="disabled"
-      [color]="hasErrors ? 'danger' : 'primary'"
-      [icon]="isOpen ? 'expand_less' : 'expand_more'"
-      class="ngx-select__expand"
-    />
+  }
 
-    <div #optionsContainer class="ngx-select__options-container" *ngIf="isOpen">
-      <cdk-virtual-scroll-viewport
-        itemSize="4"
-        minBufferPx="168"
-        maxBufferPx="400"
-        class="ngx-select__scroll"
+  <span
+    *ngIf="selectedOptions.length === 0"
+    class="ngx-select__placeholder placeholder pl-0 pt-1 pr-1 pb-1"
+    [ngClass]="{ 'placeholder--disabled': disabled }"
+    >{{ placeholder }}</span
+  >
+  <ngx-button
+    (click)="openSelect()"
+    [disabled]="disabled"
+    [color]="hasErrors ? 'danger' : 'primary'"
+    [icon]="isOpen ? 'expand_less' : 'expand_more'"
+    class="ngx-select__expand"
+  />
+
+  <div #optionsContainer class="ngx-select__options-container" *ngIf="isOpen">
+    <cdk-virtual-scroll-viewport
+      itemSize="4"
+      minBufferPx="168"
+      maxBufferPx="400"
+      class="ngx-select__scroll"
+    >
+      <ngx-select-item
+        *cdkVirtualFor="let option of internalOptions; let i = index"
+        (click)="
+          multiple ? onMultipleClick(option, i) : onSingleClick(option, i)
+        "
+        [selected]="option.selected"
+        [multiple]="multiple"
+        [ngStyle]="{ width: optionsContainer.offsetWidth }"
       >
-        <ngx-select-item
-          *cdkVirtualFor="let option of internalOptions; let i = index"
-          (click)="
-            multiple ? onMultipleClick(option, i) : onSingleClick(option, i)
-          "
-          [selected]="option.selected"
-          [multiple]="multiple"
-          [ngStyle]="{ width: optionsContainer.offsetWidth }"
-        >
-          {{ option[labelKey] }}
-        </ngx-select-item>
-      </cdk-virtual-scroll-viewport>
-    </div>
+        {{ option[labelKey] }}
+      </ngx-select-item>
+    </cdk-virtual-scroll-viewport>
   </div>
-  <span *ngIf="hasErrors && !disabled" class="helper-text helper-text--error">{{
-    errorText
-  }}</span>
-  <span *ngIf="helperText !== '' && !hasErrors" class="helper-text">{{
-    helperText
-  }}</span>
-</div>
+</ngx-base-input>
