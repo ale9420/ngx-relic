@@ -3,7 +3,8 @@
 
 @font-face {
   font-family: "Quicksand";
-  src: url("../../../assets/fonts/Quicksand-Light.ttf") format("ttf"),
+  src:
+    url("../../../assets/fonts/Quicksand-Light.ttf") format("ttf"),
     url("../../../assets/fonts/Quicksand-Medium.ttf") format("ttf"),
     url("../../../assets/fonts/Quicksand-Regular.ttf") format("ttf"),
     url("../../../assets/fonts/Quicksand-SemiBold.ttf") format("ttf"),
@@ -29,16 +30,14 @@ $text-xl: calc($base-font-size * math.pow($base-text-scale, 3));
 $text-xxl: calc($base-font-size * math.pow($base-text-scale, 4));
 $text-xxxl: calc($base-font-size * math.pow($base-text-scale, 5));
 
-body {
-  font-family: $font-family;
-  font-size: $base-font-size;
-  color: map-get($colors, "color-neutral-950");
-}
-
 label {
   font-size: $base-font-size;
-  color: map-get($colors, "color-slate-700");
+  color: var(--color-slate-700);
   font-weight: $font-weight-normal;
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-slate-100);
+  }
 }
 
 h1,
@@ -46,8 +45,14 @@ h2,
 h3,
 h4,
 form,
-legend {
-  color: map-get($colors, "color-slate-800");
+legend,
+.text,
+.ngx-label {
+  color: var(--color-slate-700);
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-slate-100);
+  }
 }
 
 h4 {
@@ -97,7 +102,11 @@ h1 {
 
   &--placeholder {
     font-size: $text-sm;
-    color: map-get($colors, "color-neutral-500");
+    color: var(--color-neutral-500);
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-slate-50);
+    }
   }
 }
 
@@ -105,6 +114,10 @@ h1 {
   font-size: $text-xs;
 
   &--error {
-    color: map-get($colors, "color-danger-600");
+    color: var(--color-danger-600);
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-danger-400);
+    }
   }
 }

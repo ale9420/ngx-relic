@@ -14,20 +14,20 @@
     font-size: 13px;
 
     &:hover {
-      color: map-get($colors, "color-neutral-900");
+      color: var(--color-neutral-900);
     }
   }
 
   @each $variation in $variations {
     &--outline-#{$variation} {
-      border: 1px solid map-get($colors, "color-" + $variation + "-500");
-      color: map-get($colors, "color-" + $variation + "-400");
+      border: 1px solid var(--color-#{$variation}-500);
+      color: var(--color-#{$variation}-400);
     }
 
     &--#{$variation} {
-      border: 1px solid map-get($colors, "color-" + $variation + "-800");
-      background-color: map-get($colors, "color-" + $variation + "-500");
-      color: map-get($colors, "color-slate-50");
+      border: 1px solid var(--color-#{$variation}-800);
+      background-color: var(--color-#{$variation}-500);
+      color: var(--color-slate-50);
     }
   }
 }
