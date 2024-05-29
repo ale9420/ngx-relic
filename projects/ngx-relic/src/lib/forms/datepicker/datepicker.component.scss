@@ -1,0 +1,20 @@
+:host {
+  display: inline-block;
+  position: relative;
+
+  .ngx-datepicker {
+    display: flex;
+  }
+
+  .ngx-datepicker-calendar {
+    position: absolute;
+    background-color: var(--color-slate-50);
+    width: inherit;
+    z-index: 10;
+
+    &__days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+  }
+}

@@ -10,6 +10,7 @@ import { DisplayModule } from '../display/display.module';
 import { SelectItemComponent } from './select-item/select-item.component';
 import { InputComponent } from './input/input.component';
 import { BaseInputComponent } from './base-input/base-input.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { BaseInputComponent } from './base-input/base-input.component';
     SelectItemComponent,
     InputComponent,
     BaseInputComponent,
+    DatepickerComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +32,7 @@ import { BaseInputComponent } from './base-input/base-input.component';
     SelectItemComponent,
     InputComponent,
     BaseInputComponent,
+    DatepickerComponent,
   ],
 })
 export class FormsModule {}
