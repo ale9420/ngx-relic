@@ -16,6 +16,7 @@ import {
 } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA, forwardRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 const input: Meta<RelicFormsModule> = {
   title: 'Forms/Select',
@@ -48,7 +49,13 @@ const input: Meta<RelicFormsModule> = {
   decorators: [
     moduleMetadata({
       declarations: [SelectComponent, SelectItemComponent, BaseInputComponent],
-      imports: [CommonModule, FormsModule, ReactiveFormsModule, DisplayModule],
+      imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        DisplayModule,
+        ScrollingModule,
+      ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         {

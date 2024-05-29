@@ -50,7 +50,7 @@
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "projects/ngx-relic"],
             "port": 6006,
-            "styles": ["projects/ngx-relic/src/assets/scss/_main.scss"]
+            "styles": ["projects/ngx-relic/src/stories/styles.scss"]
           }
         },
         "build-storybook": {
@@ -61,7 +61,7 @@
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "projects/ngx-relic"],
             "outputDir": "dist/storybook/ngx-relic",
-            "styles": ["projects/ngx-relic/src/assets/scss/_main.scss"]
+            "styles": ["projects/ngx-relic/src/stories/styles.scss"]
           }
         }
       }
