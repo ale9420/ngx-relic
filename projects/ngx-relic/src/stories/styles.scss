@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@use "ngx-relic" as relic;
+
+$palette2: (
+  slate: #64748b,
+  neutral: #b6b6b6,
+  danger: #bb1d1d,
+  success: #10b981,
+  warning: #f59e0b,
+  info: #0ea5e9,
+  primary: #4e59b9,
+);
+
+:root {
+  $colors: relic.setup($palette2);
+  @include relic.apply-theme($colors);
+}
