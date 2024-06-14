@@ -11,6 +11,7 @@ import { SelectItemComponent } from './select-item/select-item.component';
 import { InputComponent } from './input/input.component';
 import { BaseInputComponent } from './base-input/base-input.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
+import { HiddenDirective } from '../directives/hidden.directive';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
     InputComponent,
     BaseInputComponent,
     DatepickerComponent,
+    HiddenDirective,
   ],
   imports: [
     CommonModule,

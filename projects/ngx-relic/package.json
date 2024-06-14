@@ -1,9 +1,9 @@
 {
   "name": "ngx-relic",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "peerDependencies": {
-    "@angular/common": "^16.1.0",
-    "@angular/core": "^16.1.0",
+    "@angular/common": "^17.3.9",
+    "@angular/core": "^17.3.9",
     "@angular/forms": "^17.3.9",
     "@angular/cdk": "^17.3.9",
     "material-icons": "^1.13.7",

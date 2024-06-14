@@ -8,6 +8,7 @@
 .ngx-placeholder {
   font-size: $text-sm;
   color: var(--color-slate-600);
+  user-select: none;
 
   @media (prefers-color-scheme: dark) {
     color: var(--color-slate-50);

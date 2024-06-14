@@ -2,11 +2,38 @@
 
 This project was created to learn and deep dive into different frontend topics
 
-## Install
+## Installing NGX-Relic
 
 Run `npm i ngx-relic`
 
-Import styles to your project styles.scss `@import "node_modules/ngx-relic/src/assets/scss/_main.scss";`
+## Setup
+
+Add the following code to your styles.scss file, it is possible to customize the theme colors of the library.
+
+```scss
+@use "~ngx-relic" as relic;
+
+$palette-colors: (
+  slate: #64748b,
+  neutral: #b6b6b6,
+  danger: #bb1d1d,
+  success: #10b981,
+  warning: #f59e0b,
+  info: #0ea5e9,
+  primary: #4e59b9,
+);
+
+:root {
+  $colors: relic.setup($palette-colors);
+  @include relic.apply-theme($colors);
+}
+```
+
+Import NGX-Relic module in the main module of your application
+
+```scss
+
+```
 
 ## Documentation
 

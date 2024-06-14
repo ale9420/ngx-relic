@@ -19,9 +19,13 @@ export class ButtonComponent {
   @Input()
   disabled = false;
 
+  @Input()
+  plain = false;
+
   get baseClass() {
-    return this.outline
-      ? `ngx-button--outline-${this.color}`
-      : `ngx-button--default-${this.color}`;
+    if (this.outline) return `ngx-button--outline-${this.color}`;
+    if (this.plain) return `ngx-button--plain-${this.color}`;
+
+    return `ngx-button--default-${this.color}`;
   }
 }

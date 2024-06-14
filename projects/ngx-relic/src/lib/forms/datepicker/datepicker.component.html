@@ -1,26 +1,69 @@
-<ngx-base-input
-  [required]="required"
-  [label]="label"
-  [hasErrors]="hasErrors"
-  [errorText]="errorText"
-  [helperText]="helperText"
-  [disabled]="disabled"
->
-  @if (!internalDate) {
-    <ngx-placeholder [disabled]="disabled" class="pl-0 pt-1 pr-1 pb-1">{{
-      placeholder
-    }}</ngx-placeholder>
-  }
+<div #datepicker>
+  <ngx-base-input
+    [required]="required"
+    [label]="label"
+    [hasErrors]="_cvaDirective.hasErrors"
+    [errorText]="errorText"
+    [helperText]="helperText"
+    [disabled]="_cvaDirective._disabled"
+  >
+    @if (!internalDate) {
+      <ngx-placeholder
+        [disabled]="_cvaDirective._disabled"
+        class="pl-0 pt-1 pr-1 pb-1"
+        >{{ currentPlaceholder }}</ngx-placeholder
+      >
+    }
 
-  <ngx-button (click)="toggleCalendar()" icon="date_range" />
-</ngx-base-input>
-
-@if (showCalendar) {
-  <div [style.width]="calendarWidth" class="ngx-datepicker-calendar">
-    <div class="ngx-datepicker-calendar__days">
-      <div *ngFor="let day of daysInMonth" (click)="selectDate(day)">
-        {{ day.day }}
+    <ngx-button
+      [disabled]="_cvaDirective._disabled"
+      (click)="toggleCalendar()"
+      icon="date_range"
+    />
+  </ngx-base-input>
+  <div
+    *ngIf="showCalendar"
+    [style.width]="calendarWidth"
+    class="ngx-datepicker-calendar"
+    id="calendar"
+  >
+    <div class="ngx-datepicker-calendar__header p-1">
+      <ngx-button
+        (click)="changeYear() ? previousYear() : previousMonth()"
+        [plain]="true"
+        icon="chevron_left"
+      />
+      <ngx-button (click)="onYearClick()" [plain]="true">
+        {{ currentMonth }} {{ currentYear }}
+      </ngx-button>
+      <ngx-button
+        (click)="changeYear() ? nextYear(currentYear) : nextMonth()"
+        [plain]="true"
+        icon="chevron_right"
+      />
+    </div>
+    <!-- Calendar days -->
+    <div [appHidden]="changeYear()" class="ngx-datepicker-calendar__days p-1">
+      <div *ngFor="let day of weekdays" class="ngx-datepicker-calendar__day">
+        {{ day.name[0].toUpperCase() }}
+      </div>
+      <div *ngFor="let day of daysInMonth" class="ngx-datepicker-calendar__day">
+        @if (day.value !== 0) {
+          <ngx-button
+            (click)="selectDate(day)"
+            [plain]="!isDaySelected(day.date)"
+            >{{ day.value }}</ngx-button
+          >
+        }
+      </div>
+    </div>
+    <!-- Calendar years -->
+    <div [appHidden]="!changeYear()" class="ngx-datepicker-calendar__years p-1">
+      <div *ngFor="let year of years" class="ngx-datepicker-calendar__year">
+        <ngx-button (click)="selectYear(year)" [plain]="currentYear !== year">{{
+          year
+        }}</ngx-button>
       </div>
     </div>
   </div>
-}
+</div>
