@@ -29,7 +29,7 @@
   >
     <div class="ngx-datepicker-calendar__header p-1">
       <ngx-button
-        (click)="changeYear() ? previousYear() : previousMonth()"
+        (click)="changeYear ? previousYear() : previousMonth()"
         [plain]="true"
         icon="chevron_left"
       />
@@ -37,13 +37,13 @@
         {{ currentMonth }} {{ currentYear }}
       </ngx-button>
       <ngx-button
-        (click)="changeYear() ? nextYear(currentYear) : nextMonth()"
+        (click)="changeYear ? nextYear(currentYear) : nextMonth()"
         [plain]="true"
         icon="chevron_right"
       />
     </div>
     <!-- Calendar days -->
-    <div [appHidden]="changeYear()" class="ngx-datepicker-calendar__days p-1">
+    <div [appHidden]="changeYear" class="ngx-datepicker-calendar__days p-1">
       <div *ngFor="let day of weekdays" class="ngx-datepicker-calendar__day">
         {{ day.name[0].toUpperCase() }}
       </div>
@@ -58,7 +58,7 @@
       </div>
     </div>
     <!-- Calendar years -->
-    <div [appHidden]="!changeYear()" class="ngx-datepicker-calendar__years p-1">
+    <div [appHidden]="!changeYear" class="ngx-datepicker-calendar__years p-1">
       <div *ngFor="let year of years" class="ngx-datepicker-calendar__year">
         <ngx-button (click)="selectYear(year)" [plain]="currentYear !== year">{{
           year

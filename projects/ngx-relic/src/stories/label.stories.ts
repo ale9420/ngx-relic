@@ -6,19 +6,6 @@ const tag: Meta<DisplayModule> = {
   title: 'Display/Label',
   component: LabelComponent,
   tags: ['autodocs'],
-
-  argTypes: {
-    close: {
-      control: 'boolean',
-    },
-    outline: {
-      control: 'boolean',
-    },
-    state: {
-      control: 'select',
-      options: ['primary', 'danger', 'success', 'info', 'warning', 'neutral'],
-    },
-  },
   render: (args) => {
     const { ...props } = args;
     return {

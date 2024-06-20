@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { DateTime } from 'luxon';
 import { CvaDirective } from '../cva.directive';
+import { Day } from '../../types';
 
 @Component({
   selector: 'ngx-datepicker',
@@ -35,24 +36,19 @@ export class DatepickerComponent {
   @Input()
   helperText = '';
 
+  @Input()
+  locale = 'en';
+
   internalDate = null;
   selectedDate!: string;
   showCalendar = false;
-  changeYear = signal(false);
+  changeYear = false;
   calendarWidth!: string;
   currentMonth!: string;
   currentYear!: number;
   daysInMonth: any[] = [];
   years: number[] = [];
-  weekdays = [
-    { day: 1, name: 'Lunes' },
-    { day: 2, name: 'Martes' },
-    { day: 3, name: 'Miercoles' },
-    { day: 4, name: 'Jueves' },
-    { day: 5, name: 'Viernes' },
-    { day: 6, name: 'Sabado' },
-    { day: 7, name: 'Domingo' },
-  ];
+  weekdays: Day[] = [];
 
   readonly _cvaDirective = inject<CvaDirective>(CvaDirective);
 
@@ -72,13 +68,26 @@ export class DatepickerComponent {
   }
 
   constructor() {
-    this.initCalendar(DateTime.now());
+    this.initWeekDays();
+    this.initCalendar(DateTime.now().setLocale(this.locale));
     this.initYears();
   }
 
   ngOnInit() {
     const styles = getComputedStyle(this.elementRef.nativeElement);
     this.calendarWidth = styles.width;
+  }
+
+  initWeekDays() {
+    this.weekdays = [];
+    const firstDayOfWeek = DateTime.local()
+      .setLocale(this.locale)
+      .startOf('week');
+
+    for (let i = 0; i < 7; i++) {
+      const name = firstDayOfWeek.plus({ days: i }).toFormat('cccc');
+      this.weekdays.push({ day: i + 1, name });
+    }
   }
 
   initCalendar(date: DateTime) {
@@ -124,7 +133,7 @@ export class DatepickerComponent {
   }
 
   onYearClick() {
-    this.changeYear.update((value) => !value);
+    this.changeYear = !this.changeYear;
   }
 
   isAvailable(num: number) {
