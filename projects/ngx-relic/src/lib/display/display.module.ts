@@ -4,6 +4,7 @@ import { TagComponent } from './tag/tag.component';
 import { ButtonComponent } from './button/button.component';
 import { LabelComponent } from './label/label.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { PlaceholderComponent } from './placeholder/placeholder.component';
 
 @NgModule({
   declarations: [
@@ -11,8 +12,15 @@ import { TooltipComponent } from './tooltip/tooltip.component';
     ButtonComponent,
     LabelComponent,
     TooltipComponent,
+    PlaceholderComponent,
   ],
   imports: [CommonModule],
-  exports: [TagComponent, ButtonComponent, LabelComponent, TooltipComponent],
+  exports: [
+    TagComponent,
+    ButtonComponent,
+    LabelComponent,
+    TooltipComponent,
+    PlaceholderComponent,
+  ],
 })
 export class DisplayModule {}

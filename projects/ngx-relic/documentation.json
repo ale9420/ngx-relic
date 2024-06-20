@@ -31,6 +31,16 @@
                 "defaultValue": "{\n  args: {\n    outline: false,\n    color: 'danger',\n  },\n}"
             },
             {
+                "name": "datepicker",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/stories/datepicker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<RelicFormsModule>",
+                "defaultValue": "{\r\n  title: 'Forms/Input',\r\n  component: DatepickerComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    placeholder: {\r\n      control: 'text',\r\n    },\r\n    label: {\r\n      control: 'text',\r\n    },\r\n    errorText: {\r\n      control: 'text',\r\n    },\r\n    helperText: {\r\n      control: 'text',\r\n    },\r\n    required: {\r\n      control: 'boolean',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [DatepickerComponent, BaseInputComponent],\r\n      imports: [CommonModule, FormsModule, ReactiveFormsModule, DisplayModule],\r\n      schemas: [CUSTOM_ELEMENTS_SCHEMA],\r\n      providers: [\r\n        {\r\n          provide: NG_VALUE_ACCESSOR,\r\n          useExisting: forwardRef(() => DatepickerComponent),\r\n          multi: true,\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        form: new FormBuilder().group({\r\n          date: ['', [Validators.required]],\r\n        }),\r\n      },\r\n      template: `\r\n          <form [formGroup]=\"form\">\r\n              <ngx-datepicker\r\n                  formControlName=\"date\"\r\n                  [required]=\"required\"\r\n                  [label]=\"label\"\r\n                  [placeholder]=\"placeholder\"\r\n                  [errorText]=\"errorText\"\r\n                  [helperText]=\"helperText\"\r\n                  />\r\n              <br />\r\n              <br />\r\n              {{input}}   \r\n          </form>\r\n              `,\r\n    };\r\n  },\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+            },
+            {
                 "name": "input",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -69,6 +79,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    outline: true,\n    color: 'danger',\n  },\n}"
+            },
+            {
+                "name": "Placeholder",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/stories/datepicker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Ingresa una fecha',\r\n    label: 'Fecha de nacimiento',\r\n    required: true,\r\n    errorText: 'Required field',\r\n  },\r\n}"
             },
             {
                 "name": "Placeholder",
@@ -179,6 +199,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonComponent>",
                 "file": "projects/ngx-relic/src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<DatepickerComponent>",
+                "file": "projects/ngx-relic/src/stories/datepicker.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -316,6 +347,28 @@
                     "defaultValue": "{\n  args: {\n    outline: false,\n    color: 'success',\n  },\n}"
                 }
             ],
+            "projects/ngx-relic/src/stories/datepicker.stories.ts": [
+                {
+                    "name": "datepicker",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/stories/datepicker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<RelicFormsModule>",
+                    "defaultValue": "{\r\n  title: 'Forms/Input',\r\n  component: DatepickerComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    placeholder: {\r\n      control: 'text',\r\n    },\r\n    label: {\r\n      control: 'text',\r\n    },\r\n    errorText: {\r\n      control: 'text',\r\n    },\r\n    helperText: {\r\n      control: 'text',\r\n    },\r\n    required: {\r\n      control: 'boolean',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [DatepickerComponent, BaseInputComponent],\r\n      imports: [CommonModule, FormsModule, ReactiveFormsModule, DisplayModule],\r\n      schemas: [CUSTOM_ELEMENTS_SCHEMA],\r\n      providers: [\r\n        {\r\n          provide: NG_VALUE_ACCESSOR,\r\n          useExisting: forwardRef(() => DatepickerComponent),\r\n          multi: true,\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        form: new FormBuilder().group({\r\n          date: ['', [Validators.required]],\r\n        }),\r\n      },\r\n      template: `\r\n          <form [formGroup]=\"form\">\r\n              <ngx-datepicker\r\n                  formControlName=\"date\"\r\n                  [required]=\"required\"\r\n                  [label]=\"label\"\r\n                  [placeholder]=\"placeholder\"\r\n                  [errorText]=\"errorText\"\r\n                  [helperText]=\"helperText\"\r\n                  />\r\n              <br />\r\n              <br />\r\n              {{input}}   \r\n          </form>\r\n              `,\r\n    };\r\n  },\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+                },
+                {
+                    "name": "Placeholder",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/stories/datepicker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Ingresa una fecha',\r\n    label: 'Fecha de nacimiento',\r\n    required: true,\r\n    errorText: 'Required field',\r\n  },\r\n}"
+                }
+            ],
             "projects/ngx-relic/src/stories/input.stories.ts": [
                 {
                     "name": "input",
@@ -427,6 +480,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ButtonComponent>",
                     "file": "projects/ngx-relic/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ngx-relic/src/stories/datepicker.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DatepickerComponent>",
+                    "file": "projects/ngx-relic/src/stories/datepicker.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -561,6 +627,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Success",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/datepicker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "datepicker",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/datepicker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Placeholder",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

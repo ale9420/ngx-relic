@@ -1,0 +1,68 @@
+:host {
+  display: inline-block;
+  position: relative;
+
+  .ngx-datepicker {
+    display: flex;
+  }
+
+  .ngx-datepicker-calendar {
+    position: absolute;
+    background-color: var(--color-neutral-200);
+    width: inherit;
+    z-index: 10;
+    box-shadow: 0px 7px 11px 0px var(--color-neutral-800);
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    &__years {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &__day {
+      display: flex;
+      justify-content: center;
+      align-self: center;
+
+      & > ngx-button {
+        height: 33px;
+        width: 33px;
+        display: flex;
+        align-self: center;
+        justify-content: center;
+      }
+
+      & > ngx-button > button[_ngcontent-c1] {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &__year {
+      display: flex;
+      justify-content: center;
+      align-self: center;
+
+      & > ngx-button {
+        height: 33px;
+        display: flex;
+        align-self: center;
+        justify-content: center;
+      }
+
+      & > ngx-button > button[_ngcontent-c1] {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}

@@ -16,3 +16,8 @@ export type OnTouched = () => void;
 export interface SelectOption extends Object {
   selected?: boolean;
 }
+
+export interface Day {
+  day: number;
+  name: string;
+}

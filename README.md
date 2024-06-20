@@ -2,12 +2,10 @@
 
 This project was created to learn and deep dive into different frontend topics
 
-## Install
+## Local Storybook
 
-Run `npm i ngx-relic`
+Run `ng run ngx-relic:storybook` to start storybook in localhost
 
-Import styles to your project styles.scss `@import "node_modules/ngx-relic/src/assets/scss/_main.scss";`
-
-## Documentation
+## Live Documentation
 
 [ngx-relic](https://ale9420.github.io/ngx-relic/)

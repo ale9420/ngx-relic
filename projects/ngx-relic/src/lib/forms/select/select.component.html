@@ -24,13 +24,11 @@
       >
     </div>
   }
-
-  <span
-    *ngIf="selectedOptions.length === 0"
-    class="ngx-select__placeholder placeholder pl-0 pt-1 pr-1 pb-1"
-    [ngClass]="{ 'placeholder--disabled': disabled }"
-    >{{ placeholder }}</span
-  >
+  @if (selectedOptions.length === 0) {
+    <ngx-placeholder [disabled]="disabled" class="pl-0 pt-1 pr-1 pb-1">{{
+      placeholder
+    }}</ngx-placeholder>
+  }
   <ngx-button
     (click)="openSelect()"
     [disabled]="disabled"

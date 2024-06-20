@@ -46,11 +46,14 @@ export class AppComponent {
   singleSelectModel = [];
   form: FormGroup;
 
+  date = null;
+
   constructor(fb: FormBuilder) {
     this.form = fb.group({
       select: fb.control({ value: [], disabled: true }, [Validators.required]),
       input: fb.control('', [Validators.required]),
       test: fb.control(''),
+      date: fb.control(''),
     });
   }
 

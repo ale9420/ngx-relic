@@ -26,7 +26,7 @@ const meta: Meta<DisplayModule> = {
     const { ...props } = args;
     return {
       props,
-      template: `<ngx-button [outline]="outline" [color]="color" [disabled]="disabled" [icon]="icon">Texto de prueba</ngx-button>`,
+      template: `<ngx-button [outline]="outline" [color]="color" [disabled]="disabled" [icon]="icon" [plain]="plain">Click me!</ngx-button>`,
     };
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
@@ -41,6 +41,8 @@ export const Primary: Story = {
     outline: false,
     disabled: false,
     color: 'primary',
+    icon: 'people',
+    plain: false,
   },
 };
 

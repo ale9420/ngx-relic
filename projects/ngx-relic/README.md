@@ -1,24 +1,56 @@
 # NgxRelic
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+This project was created to learn and deep dive into different frontend topics
 
-## Code scaffolding
+## Installing NGX-Relic
 
-Run `ng generate component component-name --project ngx-relic` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-relic`.
-> Note: Don't forget to add `--project ngx-relic` or else it will be added to the default project in your `angular.json` file. 
+Run `npm i ngx-relic`
 
-## Build
+## Setup
 
-Run `ng build ngx-relic` to build the project. The build artifacts will be stored in the `dist/` directory.
+Add the following code to your styles.scss file, it is possible to customize the theme colors of the library.
 
-## Publishing
+```scss
+@use "~ngx-relic" as relic;
 
-After building your library with `ng build ngx-relic`, go to the dist folder `cd dist/ngx-relic` and run `npm publish`.
+$palette-colors: (
+  slate: #64748b,
+  neutral: #b6b6b6,
+  danger: #bb1d1d,
+  success: #10b981,
+  warning: #f59e0b,
+  info: #0ea5e9,
+  primary: #4e59b9,
+);
 
-## Running unit tests
+:root {
+  $colors: relic.setup($palette-colors);
+  @include relic.apply-theme($colors);
+}
+```
 
-Run `ng test ngx-relic` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Import NGX-Relic module in the main module of your application
 
-## Further help
+```typescript
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { NgxRelicModule } from "ngx-relic";
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, NgxRelicModule],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+## Icons
+
+The library makes use of the material icons set, you can preview the [icons](https://marella.me/material-icons/demo/)
+
+## Documentation
+
+[ngx-relic](https://ale9420.github.io/ngx-relic/)

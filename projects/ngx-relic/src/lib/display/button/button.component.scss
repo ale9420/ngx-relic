@@ -10,7 +10,13 @@ $color-variations: "primary", "success", "danger";
   cursor: pointer;
   border: none;
   display: flex;
+  width: inherit;
   align-items: center;
+
+  &__wrapper {
+    width: inherit;
+    height: inherit;
+  }
 
   .material-icons + &__wrapper:not(:empty) {
     margin-left: 6px;
@@ -98,6 +104,16 @@ $color-variations: "primary", "success", "danger";
             var(--color-#{$color-variation}-400) 100%
           );
         }
+      }
+    }
+
+    &--plain-#{$color-variation} {
+      background-color: transparent;
+      border: none;
+      color: $bg-color;
+
+      &:hover {
+        background-color: var(--color-slate-100);
       }
     }
   }
