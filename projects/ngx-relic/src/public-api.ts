@@ -6,11 +6,11 @@ export * from './lib/ngx-relic.service';
 export * from './lib/ngx-relic.module';
 export * from './lib/display/display.module';
 export * from './lib/display/tag/tag.component';
-export * from './lib/display/tooltip/tooltip.component';
 export * from './lib/display/placeholder/placeholder.component';
 export * from './lib/core/cva.directive';
 export * from './lib/types';
 
+export * from './lib/tooltip';
 export * from './lib/button';
 export * from './lib/label';
 export * from './lib/base-input';

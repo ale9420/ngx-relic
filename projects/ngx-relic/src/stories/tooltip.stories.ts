@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { DisplayModule } from '../lib/display/display.module';
-import { TooltipComponent } from '../lib/display/tooltip/tooltip.component';
+import { TooltipComponent } from '../lib/tooltip/tooltip.component';
 
 const tooltip: Meta<DisplayModule> = {
   title: 'Display/Tooltip',
