@@ -12,9 +12,10 @@ export * from './lib/display/placeholder/placeholder.component';
 export * from './lib/forms/select/select.component';
 export * from './lib/forms/select-item/select-item.component';
 export * from './lib/forms/input/input.component';
-export * from './lib/forms/base-input/base-input.component';
 export * from './lib/forms/datepicker/datepicker.component';
 export * from './lib/forms/cva.directive';
 export * from './lib/types';
+
 export * from './lib/button';
 export * from './lib/label';
+export * from './lib/base-input';
