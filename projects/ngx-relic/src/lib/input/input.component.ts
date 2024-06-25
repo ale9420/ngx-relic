@@ -1,5 +1,5 @@
 import { Component, Input, inject } from '@angular/core';
-import { CvaDirective } from '../../core/cva.directive';
+import { CvaDirective } from '../core/cva.directive';
 
 @Component({
   selector: 'ngx-input',

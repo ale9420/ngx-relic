@@ -8,16 +8,10 @@ import {
 import { SelectComponent } from './select/select.component';
 import { DisplayModule } from '../display/display.module';
 import { SelectItemComponent } from './select-item/select-item.component';
-import { InputComponent } from './input/input.component';
 import { HiddenDirective } from '../directives/hidden.directive';
 
 @NgModule({
-  declarations: [
-    SelectComponent,
-    SelectItemComponent,
-    InputComponent,
-    HiddenDirective,
-  ],
+  declarations: [SelectComponent, SelectItemComponent, HiddenDirective],
   imports: [
     CommonModule,
     AngularFormsModule,
@@ -25,6 +19,6 @@ import { HiddenDirective } from '../directives/hidden.directive';
     ScrollingModule,
     DisplayModule,
   ],
-  exports: [SelectComponent, SelectItemComponent, InputComponent],
+  exports: [SelectComponent, SelectItemComponent],
 })
 export class FormsModule {}
