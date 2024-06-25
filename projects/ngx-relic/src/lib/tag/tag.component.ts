@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Color } from '../../types';
+import { Color } from '../types';
 
 @Component({
   selector: 'ngx-tag',
