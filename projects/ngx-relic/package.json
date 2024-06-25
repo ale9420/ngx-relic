@@ -1,6 +1,11 @@
 {
   "name": "ngx-relic",
   "version": "0.0.9",
+  "keywords": [
+    "angular",
+    "components",
+    "ui"
+  ],
   "peerDependencies": {
     "@angular/common": "^17.3.9",
     "@angular/core": "^17.3.9",
@@ -11,8 +16,7 @@
     "luxon": "^3.4.4"
   },
   "dependencies": {
-    "tslib": "^2.3.0",
-    "material-icons": "^1.13.7"
+    "tslib": "^2.3.0"
   },
   "exports": {
     ".": {
