@@ -9,7 +9,6 @@ import { SelectComponent } from './select/select.component';
 import { DisplayModule } from '../display/display.module';
 import { SelectItemComponent } from './select-item/select-item.component';
 import { InputComponent } from './input/input.component';
-import { DatepickerComponent } from './datepicker/datepicker.component';
 import { HiddenDirective } from '../directives/hidden.directive';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { HiddenDirective } from '../directives/hidden.directive';
     SelectComponent,
     SelectItemComponent,
     InputComponent,
-    DatepickerComponent,
     HiddenDirective,
   ],
   imports: [
@@ -27,11 +25,6 @@ import { HiddenDirective } from '../directives/hidden.directive';
     ScrollingModule,
     DisplayModule,
   ],
-  exports: [
-    SelectComponent,
-    SelectItemComponent,
-    InputComponent,
-    DatepickerComponent,
-  ],
+  exports: [SelectComponent, SelectItemComponent, InputComponent],
 })
 export class FormsModule {}

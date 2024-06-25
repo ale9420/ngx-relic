@@ -7,8 +7,8 @@ import {
   signal,
 } from '@angular/core';
 import { DateTime } from 'luxon';
-import { CvaDirective } from '../cva.directive';
-import { Day } from '../../types';
+import { CvaDirective } from '../core/cva.directive';
+import { Day } from '../core/types';
 
 @Component({
   selector: 'ngx-datepicker',

@@ -21,7 +21,6 @@ import { Subject, takeUntil, tap } from 'rxjs';
 
 @Directive({
   selector: '[ngxCva]',
-  standalone: true,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -57,7 +56,7 @@ export class CvaDirective implements ControlValueAccessor, OnInit, OnDestroy {
         this.control.valueChanges
           .pipe(
             tap((value) => update.emit(value)),
-            takeUntil(this.destroy)
+            takeUntil(this.destroy),
           )
           .subscribe();
         break;
