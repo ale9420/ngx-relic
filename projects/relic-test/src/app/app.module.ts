@@ -8,6 +8,7 @@ import {
   LabelModule,
   DatepickerModule,
   InputModule,
+  SelectModule,
 } from 'ngx-relic';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -22,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LabelModule,
     DatepickerModule,
     InputModule,
+    SelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
