@@ -1,8 +1,8 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
-import { DisplayModule } from '../lib/display/display.module';
 import { TooltipComponent } from '../lib/tooltip/tooltip.component';
+import { TooltipModule } from '../lib/tooltip';
 
-const tooltip: Meta<DisplayModule> = {
+const tooltip: Meta<TooltipModule> = {
   title: 'Display/Tooltip',
   component: TooltipComponent,
   tags: ['autodocs'],

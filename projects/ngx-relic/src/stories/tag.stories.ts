@@ -1,8 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
-import { DisplayModule } from '../lib/display/display.module';
-import { TagComponent } from '../lib/display/tag/tag.component';
+import { TagComponent, TagModule } from '../lib/tag';
 
-const tag: Meta<DisplayModule> = {
+const tag: Meta<TagModule> = {
   title: 'Display/Tag',
   component: TagComponent,
   tags: ['autodocs'],

@@ -1,11 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
-import {
-  FormsModule as RelicFormsModule,
-  DisplayModule,
-  InputComponent,
-  BaseInputComponent,
-} from '../public-api';
+
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -15,8 +10,10 @@ import {
 } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA, forwardRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { InputComponent, InputModule } from '../lib/input';
+import { BaseInputModule } from '../lib/base-input';
 
-const input: Meta<RelicFormsModule> = {
+const input: Meta<InputModule> = {
   title: 'Forms/Input',
   component: InputComponent,
   tags: ['autodocs'],
@@ -46,8 +43,13 @@ const input: Meta<RelicFormsModule> = {
   },
   decorators: [
     moduleMetadata({
-      declarations: [InputComponent, BaseInputComponent],
-      imports: [CommonModule, FormsModule, ReactiveFormsModule, DisplayModule],
+      declarations: [InputComponent],
+      imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BaseInputModule,
+      ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         {

@@ -3,6 +3,7 @@ import {
   ContentChildren,
   EventEmitter,
   Input,
+  OnInit,
   Output,
   QueryList,
 } from '@angular/core';
@@ -14,7 +15,7 @@ import { TableOptions } from '../types';
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
 })
-export class TableComponent<TItem extends object> {
+export class TableComponent<TItem extends object> implements OnInit {
   @ContentChildren(TableRowDirective)
   tableRows?: QueryList<TableRowDirective>;
 
@@ -37,14 +38,22 @@ export class TableComponent<TItem extends object> {
   pageChange: EventEmitter<number> = new EventEmitter();
 
   changePage(page: number) {
-    this.pageChange.emit(page);
+    this.currentPage = page;
+    const initialIndex = this.limit * this.currentPage;
+    const finalIndex = initialIndex + this.limit;
+    this.paginatedData = this.data.slice(initialIndex, finalIndex);
   }
 
   defaultColumnWidth = '225px';
   defaultTdAlign = 'center';
+  paginatedData: TItem[] = [];
 
   get headers() {
     return Object.keys(this.options.columns);
+  }
+
+  ngOnInit(): void {
+    this.paginatedData = this.data.slice(0, this.limit);
   }
 
   findRow(columnName: string) {

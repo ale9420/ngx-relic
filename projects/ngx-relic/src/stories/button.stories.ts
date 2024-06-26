@@ -1,9 +1,8 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
-import { ButtonComponent } from '../lib/display/button/button.component';
-import { DisplayModule } from '../lib/display/display.module';
+import { ButtonComponent, ButtonModule } from '../lib/button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
-const meta: Meta<DisplayModule> = {
+const meta: Meta<ButtonModule> = {
   title: 'Display/Button',
   component: ButtonComponent,
   tags: ['autodocs'],

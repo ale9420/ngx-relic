@@ -64,6 +64,61 @@ export class AppComponent {
       description: 'Permisos basicos',
       created_at: '2024-06-26',
     },
+    {
+      name: 'Guest 1',
+      description: 'Permisos basicos',
+      created_at: '2024-06-26',
+    },
+    {
+      name: 'Guest 2',
+      description: 'Permisos basicos',
+      created_at: '2024-06-26',
+    },
+    {
+      name: 'Guest 3',
+      description: 'Permisos basicos',
+      created_at: '2024-06-26',
+    },
+    {
+      name: 'Guest 4',
+      description: 'Permisos basicos',
+      created_at: '2024-06-26',
+    },
+    {
+      name: 'Guest 5',
+      description: 'Permisos basicos',
+      created_at: '2024-06-26',
+    },
+    {
+      name: 'Guest 6',
+      description: 'Permisos basicos',
+      created_at: '2024-06-26',
+    },
+    {
+      name: 'Guest 7',
+      description: 'Permisos basicos',
+      created_at: '2024-06-26',
+    },
+    {
+      name: 'Guest 8',
+      description: 'Permisos basicos',
+      created_at: '2024-06-26',
+    },
+    {
+      name: 'Guest 9',
+      description: 'Permisos basicos',
+      created_at: '2024-06-26',
+    },
+    {
+      name: 'Guest 10',
+      description: 'Permisos basicos',
+      created_at: '2024-06-26',
+    },
+    {
+      name: 'Guest 11',
+      description: 'Permisos basicos',
+      created_at: '2024-06-26',
+    },
   ];
 
   input = '';

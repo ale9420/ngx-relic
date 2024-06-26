@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of data; let i = index">
+      <tr *ngFor="let row of paginatedData; let i = index">
         <td
           *ngFor="let property of headers"
           class="border border-y-stone-300 border-x-0 p-3"
@@ -27,7 +27,6 @@
     </tbody>
   </table>
   <ngx-pagination
-    class="mx-auto"
     [currentPage]="currentPage"
     [limit]="limit"
     [total]="total"

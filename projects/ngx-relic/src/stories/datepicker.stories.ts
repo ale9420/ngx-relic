@@ -2,12 +2,6 @@ import { type Meta, type StoryObj } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import { CommonModule } from '@angular/common';
 import {
-  FormsModule as RelicFormsModule,
-  DisplayModule,
-  DatepickerComponent,
-  BaseInputComponent,
-} from '../public-api';
-import {
   FormsModule,
   ReactiveFormsModule,
   NG_VALUE_ACCESSOR,
@@ -15,9 +9,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA, forwardRef } from '@angular/core';
-import { HiddenDirective } from '../lib/directives/hidden.directive';
+import { DatepickerComponent, DatepickerModule } from '../lib/datepicker';
+import { BaseInputComponent, BaseInputModule } from '../lib/base-input';
+import { HiddenDirective } from '../lib/core';
 
-const datepicker: Meta<RelicFormsModule> = {
+const datepicker: Meta<DatepickerModule> = {
   title: 'Forms/Datepicker',
   component: DatepickerComponent,
   tags: ['autodocs'],
@@ -43,8 +39,13 @@ const datepicker: Meta<RelicFormsModule> = {
   },
   decorators: [
     moduleMetadata({
-      declarations: [DatepickerComponent, BaseInputComponent, HiddenDirective],
-      imports: [CommonModule, FormsModule, ReactiveFormsModule, DisplayModule],
+      declarations: [DatepickerComponent, HiddenDirective],
+      imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BaseInputModule,
+      ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         {
