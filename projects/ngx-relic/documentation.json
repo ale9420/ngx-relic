@@ -18,7 +18,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    limit: 4,\r\n    total: 10,\r\n    currentPage: 1,\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    limit: 4,\r\n    currentPage: 1,\r\n    data: generateRandomData(10) as any[],\r\n    options: {\r\n      columns: {\r\n        firstName: {\r\n          title: 'First name',\r\n          width: '100px',\r\n          align: 'center',\r\n        },\r\n        lastName: {\r\n          title: 'Last name',\r\n        },\r\n        age: {\r\n          title: 'Age',\r\n        },\r\n        city: {\r\n          title: 'City',\r\n        },\r\n      },\r\n      body: {\r\n        firstName: {\r\n          align: 'left',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "Close",
@@ -168,7 +168,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TableModule>",
-                "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    currentPage: {\r\n      control: 'number',\r\n    },\r\n    limit: {\r\n      control: 'number',\r\n    },\r\n    total: {\r\n      control: 'number',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent],\r\n      imports: [CommonModule, PaginationModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        tableData: generateRandomData(10),\r\n        tableOptions: {\r\n          columns: {\r\n            firstName: {\r\n              title: 'Nombre',\r\n            },\r\n            lastName: {\r\n              title: 'Nombre',\r\n            },\r\n            city: {\r\n              title: 'Ciudad',\r\n            },\r\n          },\r\n        },\r\n        permissions: [\r\n          {\r\n            id: 1,\r\n            name: 'Admin',\r\n          },\r\n          {\r\n            id: 2,\r\n            name: 'Comercial',\r\n          },\r\n          {\r\n            id: 3,\r\n            name: 'Mesa de gestion',\r\n          },\r\n        ],\r\n      },\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}\r\n\r\n            [options]=\"tableOptions\"\r\n            [data]=\"tableData\"\r\n        >\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
+                "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    currentPage: {\r\n      control: 'number',\r\n      description: 'Current paginated page from the table',\r\n    },\r\n    limit: {\r\n      control: 'number',\r\n      description: 'Limit of items displayed per page',\r\n    },\r\n    data: {\r\n      description: 'Array of objects to display in the table',\r\n      control: 'array',\r\n    },\r\n    options: {\r\n      control: 'object',\r\n      description:\r\n        'This object allow you to configure header and body properties',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent],\r\n      imports: [CommonModule, PaginationModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}>\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "tag",
@@ -228,6 +228,7 @@
                         "deprecationMessage": ""
                     }
                 ],
+                "returnType": "Data[]",
                 "jsdoctags": [
                     {
                         "name": "count",
@@ -357,6 +358,17 @@
         ],
         "typealiases": [
             {
+                "name": "Data",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 187
+            },
+            {
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
@@ -456,7 +468,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    limit: 4,\r\n    total: 10,\r\n    currentPage: 1,\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    limit: 4,\r\n    currentPage: 1,\r\n    data: generateRandomData(10) as any[],\r\n    options: {\r\n      columns: {\r\n        firstName: {\r\n          title: 'First name',\r\n          width: '100px',\r\n          align: 'center',\r\n        },\r\n        lastName: {\r\n          title: 'Last name',\r\n        },\r\n        age: {\r\n          title: 'Age',\r\n        },\r\n        city: {\r\n          title: 'City',\r\n        },\r\n      },\r\n      body: {\r\n        firstName: {\r\n          align: 'left',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "table",
@@ -466,7 +478,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<TableModule>",
-                    "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    currentPage: {\r\n      control: 'number',\r\n    },\r\n    limit: {\r\n      control: 'number',\r\n    },\r\n    total: {\r\n      control: 'number',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent],\r\n      imports: [CommonModule, PaginationModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        tableData: generateRandomData(10),\r\n        tableOptions: {\r\n          columns: {\r\n            firstName: {\r\n              title: 'Nombre',\r\n            },\r\n            lastName: {\r\n              title: 'Nombre',\r\n            },\r\n            city: {\r\n              title: 'Ciudad',\r\n            },\r\n          },\r\n        },\r\n        permissions: [\r\n          {\r\n            id: 1,\r\n            name: 'Admin',\r\n          },\r\n          {\r\n            id: 2,\r\n            name: 'Comercial',\r\n          },\r\n          {\r\n            id: 3,\r\n            name: 'Mesa de gestion',\r\n          },\r\n        ],\r\n      },\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}\r\n\r\n            [options]=\"tableOptions\"\r\n            [data]=\"tableData\"\r\n        >\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    currentPage: {\r\n      control: 'number',\r\n      description: 'Current paginated page from the table',\r\n    },\r\n    limit: {\r\n      control: 'number',\r\n      description: 'Limit of items displayed per page',\r\n    },\r\n    data: {\r\n      description: 'Array of objects to display in the table',\r\n      control: 'array',\r\n    },\r\n    options: {\r\n      control: 'object',\r\n      description:\r\n        'This object allow you to configure header and body properties',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent],\r\n      imports: [CommonModule, PaginationModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}>\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
                 }
             ],
             "projects/ngx-relic/src/stories/tag.stories.ts": [
@@ -684,6 +696,7 @@
                             "deprecationMessage": ""
                         }
                     ],
+                    "returnType": "Data[]",
                     "jsdoctags": [
                         {
                             "name": "count",
@@ -814,6 +827,30 @@
         },
         "groupedEnumerations": {},
         "groupedTypeAliases": {
+            "projects/ngx-relic/src/stories/table.stories.ts": [
+                {
+                    "name": "Data",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                },
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TableComponent<any[]>>",
+                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "projects/ngx-relic/src/stories/button.stories.ts": [
                 {
                     "name": "Story",
@@ -873,19 +910,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<SelectComponent<any, any>>",
                     "file": "projects/ngx-relic/src/stories/select.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "projects/ngx-relic/src/stories/table.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<TableComponent<any[]>>",
-                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",

@@ -107,10 +107,12 @@ export const Basic: Story = {
         firstName: {
           title: 'First name',
           width: '100px',
-          align: 'center',
+          align: 'left',
         },
         lastName: {
           title: 'Last name',
+          align: 'left',
+          width: '100px',
         },
         age: {
           title: 'Age',
@@ -121,6 +123,9 @@ export const Basic: Story = {
       },
       body: {
         firstName: {
+          align: 'left',
+        },
+        lastName: {
           align: 'left',
         },
       },
