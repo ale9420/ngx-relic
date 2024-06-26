@@ -21,8 +21,12 @@ export class PaginationComponent {
   numberPages: number[] = [];
   pageShow = 1;
 
+  get totalPages() {
+    return Math.ceil(this.total / this.limit);
+  }
+
   ngOnChanges() {
-    const page = this.totalPages();
+    const page = this.totalPages;
 
     this.numberPages = Array(page)
       .fill(0)
@@ -31,9 +35,5 @@ export class PaginationComponent {
 
   changePage(page: number) {
     this.pageChange.emit(page);
-  }
-
-  totalPages() {
-    return Math.ceil(this.total / this.limit);
   }
 }

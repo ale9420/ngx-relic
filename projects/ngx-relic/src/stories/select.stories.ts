@@ -1,12 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
-import {
-  FormsModule as RelicFormsModule,
-  DisplayModule,
-  BaseInputComponent,
-  SelectComponent,
-  SelectItemComponent,
-} from '../public-api';
+
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -17,8 +11,17 @@ import {
 import { CUSTOM_ELEMENTS_SCHEMA, forwardRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import {
+  SelectComponent,
+  SelectItemComponent,
+  SelectModule,
+} from '../lib/select';
+import { BaseInputModule } from '../lib/base-input';
+import { ButtonModule } from '../lib/button';
+import { PlaceholderModule } from '../lib/placeholder';
+import { TagModule } from '../lib/tag';
 
-const input: Meta<RelicFormsModule> = {
+const input: Meta<SelectModule> = {
   title: 'Forms/Select',
   component: SelectComponent,
   tags: ['autodocs'],
@@ -48,13 +51,16 @@ const input: Meta<RelicFormsModule> = {
   },
   decorators: [
     moduleMetadata({
-      declarations: [SelectComponent, SelectItemComponent, BaseInputComponent],
+      declarations: [SelectComponent, SelectItemComponent],
       imports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        DisplayModule,
         ScrollingModule,
+        BaseInputModule,
+        ButtonModule,
+        PlaceholderModule,
+        TagModule,
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
@@ -112,7 +118,6 @@ const input: Meta<RelicFormsModule> = {
             `,
     };
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
 };
 
 export default input;

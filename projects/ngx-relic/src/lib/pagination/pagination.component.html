@@ -2,14 +2,13 @@
   <ngx-button
     (click)="changePage(currentPage - 1)"
     [disabled]="currentPage === 0"
-    [outline]="true"
+    [plain]="true"
     icon="chevron_left"
   />
-
-  <div class="flex flex-row space-x-2" *ngFor="let number of numberPages">
+  <div *ngFor="let number of numberPages">
     <ngx-button
       (click)="changePage(number - 1)"
-      [outline]="number - 1 === currentPage"
+      [plain]="number - 1 !== currentPage"
       color="primary"
       class="ngx-pagination__number"
       >{{ number }}</ngx-button
@@ -17,10 +16,8 @@
   </div>
   <ngx-button
     (click)="changePage(currentPage + 1)"
-    [disabled]="
-      currentPage === totalPages() || currentPage === totalPages() - 1
-    "
-    [outline]="true"
+    [disabled]="currentPage === totalPages || currentPage === totalPages - 1"
+    [plain]="true"
     icon="chevron_right"
   />
 </div>

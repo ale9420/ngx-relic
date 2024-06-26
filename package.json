@@ -1,6 +1,6 @@
 {
   "name": "ngx-relic",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -22,7 +22,6 @@
     "@angular/platform-browser": "^17.3.9",
     "@angular/platform-browser-dynamic": "^17.3.9",
     "@angular/router": "^17.3.9",
-    "@fontsource/quicksand": "^5.0.18",
     "luxon": "^3.4.4",
     "material-icons": "^1.13.7",
     "rxjs": "~7.8.0",
@@ -54,10 +53,5 @@
     "ng-packagr": "^17.3.0",
     "storybook": "^8.1.1",
     "typescript": "~5.4.5"
-  },
-  "exports": {
-    ".": {
-      "sass": "./projects/ngx-relic/src/lib/styles.scss"
-    }
   }
 }

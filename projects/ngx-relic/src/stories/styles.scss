@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@use "ngx-relic" as relic;
+@import "../assets/scss/main";
 
 $palette2: (
   slate: #64748b,
@@ -12,6 +12,6 @@ $palette2: (
 );
 
 :root {
-  $colors: relic.setup($palette2);
-  @include relic.apply-theme($colors);
+  $colors: setup($palette2);
+  @include apply-theme($colors);
 }
