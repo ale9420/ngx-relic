@@ -5,6 +5,7 @@ import { CoreModule } from '../core/core.module';
 import { DatepickerComponent } from './datepicker.component';
 import { BaseInputModule } from '../base-input';
 import { PlaceholderModule } from '../placeholder';
+import { ButtonModule } from '../button';
 
 @NgModule({
   declarations: [DatepickerComponent],
@@ -13,6 +14,7 @@ import { PlaceholderModule } from '../placeholder';
     CoreModule,
     BaseInputModule,
     PlaceholderModule,
+    ButtonModule,
     FormsModule,
     ReactiveFormsModule,
   ],

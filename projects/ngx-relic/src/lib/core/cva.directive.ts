@@ -21,6 +21,7 @@ import { Subject, takeUntil, tap } from 'rxjs';
 
 @Directive({
   selector: '[ngxCva]',
+  standalone: true,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

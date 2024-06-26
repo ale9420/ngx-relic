@@ -5,6 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectComponent } from './select/select.component';
 import { SelectItemComponent } from './select-item/select-item.component';
 import { PlaceholderModule } from '../placeholder';
+import { BaseInputModule } from '../base-input';
+import { ButtonModule } from '../button';
+import { TagModule } from '../tag';
 
 @NgModule({
   declarations: [SelectComponent, SelectItemComponent],
@@ -14,7 +17,10 @@ import { PlaceholderModule } from '../placeholder';
     FormsModule,
     ReactiveFormsModule,
     PlaceholderModule,
+    BaseInputModule,
+    ButtonModule,
+    TagModule,
   ],
-  exports: [SelectComponent, SelectItemComponent],
+  exports: [SelectComponent],
 })
 export class SelectModule {}

@@ -2,12 +2,8 @@
  * Public API Surface of ngx-relic
  */
 
-export * from './lib/ngx-relic.service';
-export * from './lib/ngx-relic.module';
-export * from './lib/display/display.module';
-export * from './lib/core/cva.directive';
 export * from './lib/types';
-
+export * from './lib/core';
 export * from './lib/tag';
 export * from './lib/tooltip';
 export * from './lib/button';

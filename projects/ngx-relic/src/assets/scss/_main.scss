@@ -1,4 +1,4 @@
-@import "./base/main";
-@import "./vendors/main";
-@import "./utils/main";
-@import "./components/main";
+@forward "./base/main";
+@forward "./vendors/main";
+@forward "./utils/main";
+@forward "./components/main";

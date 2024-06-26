@@ -1,17 +1,4 @@
 @use "sass:math";
-@import "../utils/variables";
-
-@font-face {
-  font-family: "Quicksand";
-  src:
-    url("../../../assets/fonts/Quicksand-Light.ttf") format("ttf"),
-    url("../../../assets/fonts/Quicksand-Medium.ttf") format("ttf"),
-    url("../../../assets/fonts/Quicksand-Regular.ttf") format("ttf"),
-    url("../../../assets/fonts/Quicksand-SemiBold.ttf") format("ttf"),
-    url("../../../assets/fonts/Quicksand-Bold.ttf") format("ttf");
-  font-weight: normal;
-  font-style: normal;
-}
 
 $font-family: "Quicksand", sans-serif;
 

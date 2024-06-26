@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {
-  NgxRelicModule,
   ButtonModule,
   LabelModule,
   DatepickerModule,
@@ -18,18 +17,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    NgxRelicModule,
-    ButtonModule,
-    TooltipModule,
     FormsModule,
     ReactiveFormsModule,
+    ButtonModule,
+    TooltipModule,
     LabelModule,
     DatepickerModule,
     InputModule,
     TagModule,
     SelectModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
