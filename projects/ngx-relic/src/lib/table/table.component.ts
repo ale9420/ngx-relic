@@ -31,9 +31,6 @@ export class TableComponent<TItem extends object> implements OnInit {
   @Input()
   limit = 10;
 
-  @Input()
-  total = 0;
-
   @Output()
   pageChange: EventEmitter<number> = new EventEmitter();
 
@@ -46,6 +43,7 @@ export class TableComponent<TItem extends object> implements OnInit {
 
   defaultColumnWidth = '225px';
   defaultTdAlign = 'center';
+  total = 0;
   paginatedData: TItem[] = [];
 
   get headers() {
@@ -54,6 +52,7 @@ export class TableComponent<TItem extends object> implements OnInit {
 
   ngOnInit(): void {
     this.paginatedData = this.data.slice(0, this.limit);
+    this.total = this.data.length;
   }
 
   findRow(columnName: string) {

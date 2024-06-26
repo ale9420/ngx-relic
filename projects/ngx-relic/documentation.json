@@ -11,6 +11,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    limit: 4,\r\n    total: 10,\r\n    currentPage: 1,\r\n  },\r\n}"
+            },
+            {
                 "name": "Close",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -158,7 +168,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TableModule>",
-                "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    currentPage: {\r\n      control: 'number',\r\n    },\r\n    limit: {\r\n      control: 'number',\r\n    },\r\n    total: {\r\n      control: 'number',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent],\r\n      imports: [CommonModule, PaginationModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        permissions: [\r\n          {\r\n            id: 1,\r\n            name: 'Admin',\r\n          },\r\n          {\r\n            id: 2,\r\n            name: 'Comercial',\r\n          },\r\n          {\r\n            id: 3,\r\n            name: 'Mesa de gestion',\r\n          },\r\n        ],\r\n      },\r\n      template: `\r\n         <ngx-table\r\n            [currentPage]=\"1\"\r\n            [limit]=\"4\"\r\n            [total]=\"13\"\r\n            [options]=\"tableOptions\"\r\n            [data]=\"listPermission\"\r\n        >\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
+                "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    currentPage: {\r\n      control: 'number',\r\n    },\r\n    limit: {\r\n      control: 'number',\r\n    },\r\n    total: {\r\n      control: 'number',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent],\r\n      imports: [CommonModule, PaginationModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        tableData: generateRandomData(10),\r\n        tableOptions: {\r\n          columns: {\r\n            firstName: {\r\n              title: 'Nombre',\r\n            },\r\n            lastName: {\r\n              title: 'Nombre',\r\n            },\r\n            city: {\r\n              title: 'Ciudad',\r\n            },\r\n          },\r\n        },\r\n        permissions: [\r\n          {\r\n            id: 1,\r\n            name: 'Admin',\r\n          },\r\n          {\r\n            id: 2,\r\n            name: 'Comercial',\r\n          },\r\n          {\r\n            id: 3,\r\n            name: 'Mesa de gestion',\r\n          },\r\n        ],\r\n      },\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}\r\n\r\n            [options]=\"tableOptions\"\r\n            [data]=\"tableData\"\r\n        >\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "tag",
@@ -201,7 +211,150 @@
                 "defaultValue": "{\r\n  args: {\r\n    width: 124,\r\n  },\r\n}"
             }
         ],
-        "functions": [],
+        "functions": [
+            {
+                "name": "generateRandomData",
+                "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "count",
+                        "type": "number",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "count",
+                        "type": "number",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "getRandomDate",
+                "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "start",
+                        "type": "Date",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "end",
+                        "type": "Date",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "start",
+                        "type": "Date",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "end",
+                        "type": "Date",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "getRandomElement",
+                "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "array",
+                        "type": "Array",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "array",
+                        "type": "Array",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "getRandomInt",
+                "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "min",
+                        "type": "number",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "max",
+                        "type": "number",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "min",
+                        "type": "number",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "max",
+                        "type": "number",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
         "typealiases": [
             {
                 "name": "Story",
@@ -262,6 +415,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<TableComponent<any[]>>",
+                "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<TagComponent>",
                 "file": "projects/ngx-relic/src/stories/tag.stories.ts",
                 "deprecated": false,
@@ -283,6 +447,28 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/ngx-relic/src/stories/table.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    limit: 4,\r\n    total: 10,\r\n    currentPage: 1,\r\n  },\r\n}"
+                },
+                {
+                    "name": "table",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TableModule>",
+                    "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    currentPage: {\r\n      control: 'number',\r\n    },\r\n    limit: {\r\n      control: 'number',\r\n    },\r\n    total: {\r\n      control: 'number',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent],\r\n      imports: [CommonModule, PaginationModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        tableData: generateRandomData(10),\r\n        tableOptions: {\r\n          columns: {\r\n            firstName: {\r\n              title: 'Nombre',\r\n            },\r\n            lastName: {\r\n              title: 'Nombre',\r\n            },\r\n            city: {\r\n              title: 'Ciudad',\r\n            },\r\n          },\r\n        },\r\n        permissions: [\r\n          {\r\n            id: 1,\r\n            name: 'Admin',\r\n          },\r\n          {\r\n            id: 2,\r\n            name: 'Comercial',\r\n          },\r\n          {\r\n            id: 3,\r\n            name: 'Mesa de gestion',\r\n          },\r\n        ],\r\n      },\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}\r\n\r\n            [options]=\"tableOptions\"\r\n            [data]=\"tableData\"\r\n        >\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
+                }
+            ],
             "projects/ngx-relic/src/stories/tag.stories.ts": [
                 {
                     "name": "Close",
@@ -457,18 +643,6 @@
                     "defaultValue": "{\r\n  title: 'Display/Label',\r\n  component: LabelComponent,\r\n  tags: ['autodocs'],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-label [required]=\"required\" [disabled]=\"disabled\">Texto de prueba</ngx-label>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
                 }
             ],
-            "projects/ngx-relic/src/stories/table.stories.ts": [
-                {
-                    "name": "table",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TableModule>",
-                    "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    currentPage: {\r\n      control: 'number',\r\n    },\r\n    limit: {\r\n      control: 'number',\r\n    },\r\n    total: {\r\n      control: 'number',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent],\r\n      imports: [CommonModule, PaginationModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        permissions: [\r\n          {\r\n            id: 1,\r\n            name: 'Admin',\r\n          },\r\n          {\r\n            id: 2,\r\n            name: 'Comercial',\r\n          },\r\n          {\r\n            id: 3,\r\n            name: 'Mesa de gestion',\r\n          },\r\n        ],\r\n      },\r\n      template: `\r\n         <ngx-table\r\n            [currentPage]=\"1\"\r\n            [limit]=\"4\"\r\n            [total]=\"13\"\r\n            [options]=\"tableOptions\"\r\n            [data]=\"listPermission\"\r\n        >\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
-                }
-            ],
             "projects/ngx-relic/src/stories/tooltip.stories.ts": [
                 {
                     "name": "tooltip",
@@ -492,7 +666,152 @@
                 }
             ]
         },
-        "groupedFunctions": {},
+        "groupedFunctions": {
+            "projects/ngx-relic/src/stories/table.stories.ts": [
+                {
+                    "name": "generateRandomData",
+                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "count",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "count",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getRandomDate",
+                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "start",
+                            "type": "Date",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "end",
+                            "type": "Date",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "start",
+                            "type": "Date",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "end",
+                            "type": "Date",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getRandomElement",
+                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "array",
+                            "type": "Array",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "array",
+                            "type": "Array",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getRandomInt",
+                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "min",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "max",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "min",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "max",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
         "groupedEnumerations": {},
         "groupedTypeAliases": {
             "projects/ngx-relic/src/stories/button.stories.ts": [
@@ -554,6 +873,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<SelectComponent<any, any>>",
                     "file": "projects/ngx-relic/src/stories/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ngx-relic/src/stories/table.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TableComponent<any[]>>",
+                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -729,6 +1061,56 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Placeholder",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/table.stories.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "generateRandomData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/table.stories.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "getRandomDate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/table.stories.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "getRandomElement",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/table.stories.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "getRandomInt",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/stories/table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Basic",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

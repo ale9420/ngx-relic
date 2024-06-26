@@ -3,6 +3,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { CommonModule } from '@angular/common';
 import { TableModule, TableComponent } from '../lib/table';
 import { PaginationModule } from '../lib/pagination/pagination.module';
+import { argsToTemplate } from '@storybook/angular';
 
 function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -18,7 +19,16 @@ function getRandomElement(array: Array<any>) {
   return array[getRandomInt(0, array.length - 1)];
 }
 
-function generateRandomData(count: number) {
+type Data = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  age: number;
+  city: string;
+  dateOfBirth: string;
+};
+
+function generateRandomData(count: number): Data[] {
   const firstNames = ['Juan', 'María', 'Pedro', 'Ana', 'Luis'];
   const lastNames = ['Pérez', 'García', 'Rodríguez', 'López', 'Martínez'];
   const cities = ['Madrid', 'Barcelona', 'Valencia', 'Sevilla', 'Zaragoza'];
@@ -38,7 +48,6 @@ function generateRandomData(count: number) {
     };
     data.push(person);
   }
-  console.log(data);
   return data;
 }
 
@@ -49,12 +58,20 @@ const table: Meta<TableModule> = {
   argTypes: {
     currentPage: {
       control: 'number',
+      description: 'Current paginated page from the table',
     },
     limit: {
       control: 'number',
+      description: 'Limit of items displayed per page',
     },
-    total: {
-      control: 'number',
+    data: {
+      description: 'Array of objects to display in the table',
+      control: 'array',
+    },
+    options: {
+      control: 'object',
+      description:
+        'This object allow you to configure header and body properties',
     },
   },
   decorators: [
@@ -65,47 +82,10 @@ const table: Meta<TableModule> = {
   ],
   render: (args) => {
     const { ...props } = args;
-
     return {
-      props: {
-        ...props,
-        tableData: generateRandomData(10),
-        tableOptions: {
-          columns: {
-            firstName: {
-              title: 'Nombre',
-            },
-            lastName: {
-              title: 'Nombre',
-            },
-            city: {
-              title: 'Ciudad',
-            },
-          },
-        },
-        permissions: [
-          {
-            id: 1,
-            name: 'Admin',
-          },
-          {
-            id: 2,
-            name: 'Comercial',
-          },
-          {
-            id: 3,
-            name: 'Mesa de gestion',
-          },
-        ],
-      },
+      props,
       template: `
-         <ngx-table
-            [currentPage]="1"
-            [limit]="4"
-            [total]="10"
-            [options]="tableOptions"
-            [data]="tableData"
-        >
+         <ngx-table ${argsToTemplate(args)}>
         </ngx-table>
               `,
     };
@@ -120,7 +100,30 @@ type Story = StoryObj<TableComponent<any[]>>;
 export const Basic: Story = {
   args: {
     limit: 4,
-    total: 10,
     currentPage: 1,
+    data: generateRandomData(10) as any[],
+    options: {
+      columns: {
+        firstName: {
+          title: 'First name',
+          width: '100px',
+          align: 'center',
+        },
+        lastName: {
+          title: 'Last name',
+        },
+        age: {
+          title: 'Age',
+        },
+        city: {
+          title: 'City',
+        },
+      },
+      body: {
+        firstName: {
+          align: 'left',
+        },
+      },
+    },
   },
 };
