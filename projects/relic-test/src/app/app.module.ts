@@ -10,6 +10,7 @@ import {
   SelectModule,
   TooltipModule,
   TagModule,
+  TableModule,
 } from 'ngx-relic';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -26,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InputModule,
     TagModule,
     SelectModule,
+    TableModule,
   ],
   bootstrap: [AppComponent],
 })

@@ -138,6 +138,16 @@
   <p class="text--xs">ABCD</p>
 </div>
 
+<ngx-table
+  [currentPage]="1"
+  [limit]="10"
+  [total]="10"
+  (pageChange)="changePage($event)"
+  [options]="tableOptions"
+  [data]="listPermission"
+>
+</ngx-table>
+
 <div style="display: flex; justify-content: center">
   <ngx-tooltip>
     <p content class="text--sm">ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD</p>

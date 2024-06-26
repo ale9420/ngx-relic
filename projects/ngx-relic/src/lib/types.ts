@@ -21,3 +21,20 @@ export interface Day {
   day: number;
   name: string;
 }
+
+type CellAlign = 'left' | 'center' | 'right';
+
+export type TableOptions = {
+  columns: {
+    [key: string]: {
+      title: string;
+      width?: string | number;
+      align?: CellAlign;
+    };
+  };
+  body?: {
+    [key: string]: {
+      align?: CellAlign;
+    };
+  };
+};
