@@ -10,8 +10,11 @@ import {
 } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA, forwardRef } from '@angular/core';
 import { DatepickerComponent, DatepickerModule } from '../lib/datepicker';
-import { BaseInputComponent, BaseInputModule } from '../lib/base-input';
+import { BaseInputModule } from '../lib/base-input';
+import { PlaceholderModule } from '../lib/placeholder';
 import { HiddenDirective } from '../lib/core';
+import { CoreModule } from '../lib/core/core.module';
+import { ButtonModule } from '../public-api';
 
 const datepicker: Meta<DatepickerModule> = {
   title: 'Forms/Datepicker',
@@ -39,12 +42,15 @@ const datepicker: Meta<DatepickerModule> = {
   },
   decorators: [
     moduleMetadata({
-      declarations: [DatepickerComponent, HiddenDirective],
+      declarations: [DatepickerComponent],
       imports: [
         CommonModule,
+        CoreModule,
         FormsModule,
         ReactiveFormsModule,
         BaseInputModule,
+        PlaceholderModule,
+        ButtonModule,
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
