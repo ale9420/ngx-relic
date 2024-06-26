@@ -46,6 +46,10 @@
   .px-#{$spacing-value} {
     padding: 0 ($default-size * $i) + rem !important;
   }
+
+  .py-#{$spacing-value} {
+    padding: ($default-size * $i) + rem 0 !important;
+  }
 }
 
 @each $rounded-value in $rounded-values {

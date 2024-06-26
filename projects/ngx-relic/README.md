@@ -11,7 +11,7 @@ Run `npm i ngx-relic`
 Add the following code to your styles.scss file, it is possible to customize the theme colors of the library.
 
 ```scss
-@use "~ngx-relic" as relic;
+@import "node_modules/ngx-relic/src/assets/scss/_main.scss";
 
 $palette-colors: (
   slate: #64748b,
@@ -24,8 +24,8 @@ $palette-colors: (
 );
 
 :root {
-  $colors: relic.setup($palette-colors);
-  @include relic.apply-theme($colors);
+  $colors: setup($palette-colors);
+  @include apply-theme($colors);
 }
 ```
 

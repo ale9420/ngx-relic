@@ -1,0 +1,33 @@
+@import "../.././assets/scss/utils/variables";
+
+:host {
+  display: inline-block;
+}
+
+.ngx-tag {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+
+  & > em {
+    cursor: pointer;
+    font-size: 13px;
+
+    &:hover {
+      color: var(--color-neutral-900);
+    }
+  }
+
+  @each $variation in $variations {
+    &--outline-#{$variation} {
+      border: 1px solid var(--color-#{$variation}-500);
+      color: var(--color-#{$variation}-400);
+    }
+
+    &--#{$variation} {
+      border: 1px solid var(--color-#{$variation}-800);
+      background-color: var(--color-#{$variation}-500);
+      color: var(--color-slate-50);
+    }
+  }
+}

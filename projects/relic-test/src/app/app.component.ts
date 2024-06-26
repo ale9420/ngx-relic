@@ -40,10 +40,38 @@ export class AppComponent {
     },
   ];
 
+  tableOptions = {
+    columns: {
+      name: {
+        title: 'Nombre',
+      },
+      description: {
+        title: 'Descripción',
+      },
+      created_at: {
+        title: 'Fecha de registro',
+      },
+    },
+  };
+  listPermission = [
+    {
+      name: 'Admin',
+      description: 'Permiso de administrador',
+      created_at: '2024-06-26',
+    },
+    {
+      name: 'Guest',
+      description: 'Permisos basicos',
+      created_at: '2024-06-26',
+    },
+  ];
+
   input = '';
   selectModel = [];
 
   singleSelectModel = [];
+
+  pageActual = 1;
   form: FormGroup;
 
   date = null;
@@ -63,5 +91,11 @@ export class AppComponent {
 
   disable() {
     this.form.disable();
+  }
+
+  changePage(page: number) {
+    this.pageActual = page;
+
+    // this.getPermissions();
   }
 }

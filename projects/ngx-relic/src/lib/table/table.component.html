@@ -1,0 +1,40 @@
+<div class="ngx-table drop-shadow-xl content-center">
+  <table class="ngx-table__table">
+    <thead>
+      <tr>
+        <th
+          *ngFor="let column of headers"
+          class="p-3"
+          [ngStyle]="headerStyles(column)"
+        >
+          {{ options.columns[column].title }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data; let i = index">
+        <td
+          *ngFor="let property of headers"
+          class="border border-y-stone-300 border-x-0 p-3"
+          [ngStyle]="rowStyles(property)"
+        >
+          <ng-container
+            [ngTemplateOutlet]="findRow(property) || defaultRow"
+            [ngTemplateOutletContext]="{ $implicit: row, property }"
+          ></ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ngx-pagination
+    class="mx-auto"
+    [currentPage]="currentPage"
+    [limit]="limit"
+    [total]="total"
+    (pageChange)="changePage($event)"
+  ></ngx-pagination>
+</div>
+
+<ng-template #defaultRow let-row let-property="property">
+  {{ row[property] }}
+</ng-template>
