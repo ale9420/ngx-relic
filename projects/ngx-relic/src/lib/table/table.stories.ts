@@ -1,8 +1,8 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import { CommonModule } from '@angular/common';
-import { TableModule, TableComponent } from '../lib/table';
-import { PaginationModule } from '../lib/pagination/pagination.module';
+import { TableModule, TableComponent } from './index';
+import { PaginationModule } from '../pagination/pagination.module';
 import { argsToTemplate } from '@storybook/angular';
 
 function getRandomInt(min: number, max: number) {
@@ -31,7 +31,7 @@ type Data = {
 function generateRandomData(count: number): Data[] {
   const firstNames = ['Juan', 'María', 'Pedro', 'Ana', 'Luis'];
   const lastNames = ['Pérez', 'García', 'Rodríguez', 'López', 'Martínez'];
-  const cities = ['Madrid', 'Barcelona', 'Valencia', 'Sevilla', 'Zaragoza'];
+  const cities = ['Bogota', 'Cali', 'Medellin', 'Cucuta', 'Barranquilla'];
 
   let data = [];
 
@@ -55,25 +55,6 @@ const table: Meta<TableModule> = {
   title: 'Data/Table',
   component: TableComponent,
   tags: ['autodocs'],
-  argTypes: {
-    currentPage: {
-      control: 'number',
-      description: 'Current paginated page from the table',
-    },
-    limit: {
-      control: 'number',
-      description: 'Limit of items displayed per page',
-    },
-    data: {
-      description: 'Array of objects to display in the table',
-      control: 'array',
-    },
-    options: {
-      control: 'object',
-      description:
-        'This object allow you to configure header and body properties',
-    },
-  },
   decorators: [
     moduleMetadata({
       declarations: [TableComponent],
