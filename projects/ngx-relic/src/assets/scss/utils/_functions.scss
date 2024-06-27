@@ -27,7 +27,7 @@
   $color-map: ();
   // Generate lighter shades
   @for $i from $number-of-shades through 1 {
-    $lightness-factor: $i / ($number-of-shades * 2.2);
+    $lightness-factor: calc($i / ($number-of-shades * 2.2));
     $light-color: lighten($base-color, $lightness-factor * 100%);
 
     @if $i == 5 {
@@ -57,7 +57,7 @@
 
   // Generate darker shades
   @for $i from 1 through $number-of-shades {
-    $darkness-factor: $i / ($number-of-shades * 2.2);
+    $darkness-factor: calc($i / ($number-of-shades * 2.2));
     $dark-color: darken($base-color, $darkness-factor * 100%);
 
     @if $i == $number-of-shades {

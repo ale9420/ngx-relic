@@ -48,7 +48,13 @@
             "configDir": "projects/ngx-relic/.storybook",
             "browserTarget": "ngx-relic:build",
             "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "projects/ngx-relic"],
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/ngx-relic",
+              "--disableProtected"
+            ],
             "port": 6006,
             "styles": ["projects/ngx-relic/src/stories/styles.scss"]
           }
@@ -59,7 +65,13 @@
             "configDir": "projects/ngx-relic/.storybook",
             "browserTarget": "ngx-relic:build",
             "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "projects/ngx-relic"],
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/ngx-relic",
+              "--disableProtected"
+            ],
             "outputDir": "dist/storybook/ngx-relic",
             "styles": ["projects/ngx-relic/src/stories/styles.scss"]
           }
