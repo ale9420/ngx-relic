@@ -24,13 +24,15 @@ export interface Day {
 
 type CellAlign = 'left' | 'center' | 'right';
 
+export type HeaderStyles = {
+  title: string;
+  width?: string | number;
+  align?: CellAlign;
+};
+
 export type TableOptions = {
   columns: {
-    [key: string]: {
-      title: string;
-      width?: string | number;
-      align?: CellAlign;
-    };
+    [key: string]: HeaderStyles;
   };
   body?: {
     [key: string]: {

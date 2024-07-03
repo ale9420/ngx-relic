@@ -9,6 +9,7 @@
     "build": "ng build ngx-relic",
     "build:storybook": "ng run ngx-relic:build-storybook",
     "watch": "ng build ngx-relic --watch --configuration development",
+    "watch:docs": "chokidar 'src/**/*.ts' -c 'ng run ngx-relic:storybook'",
     "test": "ng test",
     "precompile": "node precompiler.js"
   },
@@ -34,7 +35,7 @@
     "@angular/compiler-cli": "^17.3.9",
     "@chromatic-com/storybook": "^1.4.0",
     "@compodoc/compodoc": "^1.1.24",
-    "@storybook/addon-docs": "^8.1.11",
+    "@storybook/addon-docs": "^8.1.1",
     "@storybook/addon-essentials": "^8.1.1",
     "@storybook/addon-interactions": "^8.1.1",
     "@storybook/addon-links": "^8.1.1",
@@ -51,7 +52,13 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^17.3.0",
+    "remark-gfm": "^4.0.0",
     "storybook": "^8.1.1",
     "typescript": "~5.4.5"
+  },
+  "exports": {
+    ".": {
+      "sass": "./projects/ngx-relic/src/assets/scss/_main.scss"
+    }
   }
 }

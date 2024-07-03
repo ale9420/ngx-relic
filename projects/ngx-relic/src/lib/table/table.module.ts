@@ -7,6 +7,6 @@ import { PaginationModule } from '../pagination/pagination.module';
 @NgModule({
   declarations: [TableComponent, TableRowDirective],
   imports: [CommonModule, PaginationModule],
-  exports: [TableComponent],
+  exports: [TableComponent, TableRowDirective],
 })
 export class TableModule {}

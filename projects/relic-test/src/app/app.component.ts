@@ -51,6 +51,9 @@ export class AppComponent {
       created_at: {
         title: 'Fecha de registro',
       },
+      actions: {
+        title: 'Acciones',
+      },
     },
   };
   listPermission = [
