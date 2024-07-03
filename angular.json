@@ -53,7 +53,8 @@
               "json",
               "-d",
               "projects/ngx-relic",
-              "--disableProtected"
+              "--disableProtected",
+              "--watch"
             ],
             "port": 6006,
             "styles": ["projects/ngx-relic/src/stories/styles.scss"]
@@ -168,6 +169,26 @@
               "includePaths": ["projects/ngx-relic/src/assets/scss"]
             },
             "scripts": []
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/relic-test/.storybook",
+            "browserTarget": "relic-test:build",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "projects/relic-test"],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/relic-test/.storybook",
+            "browserTarget": "relic-test:build",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "projects/relic-test"],
+            "outputDir": "dist/storybook/relic-test"
           }
         }
       }

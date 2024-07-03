@@ -142,10 +142,13 @@
   <ngx-table
     [currentPage]="1"
     [limit]="4"
-    [total]="13"
     [options]="tableOptions"
     [data]="listPermission"
   >
+    <ng-template appTableRow="actions" let-row>
+      <ngx-button icon="edit" [outline]="true" />
+      <ngx-button class="ml-1" icon="delete" color="danger" />
+    </ng-template>
   </ngx-table>
 </div>
 

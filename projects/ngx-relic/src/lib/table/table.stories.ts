@@ -1,9 +1,10 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import { CommonModule } from '@angular/common';
-import { TableModule, TableComponent } from './index';
+import { TableModule, TableComponent, TableRowDirective } from './index';
 import { PaginationModule } from '../pagination/pagination.module';
 import { argsToTemplate } from '@storybook/angular';
+import { ButtonComponent, ButtonModule } from '../button';
 
 function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -25,7 +26,7 @@ type Data = {
   lastName: string;
   age: number;
   city: string;
-  dateOfBirth: string;
+  dateOfBirth: Date;
 };
 
 function generateRandomData(count: number): Data[] {
@@ -42,9 +43,7 @@ function generateRandomData(count: number): Data[] {
       lastName: getRandomElement(lastNames),
       age: getRandomInt(18, 70),
       city: getRandomElement(cities),
-      dateOfBirth: getRandomDate(new Date(1950, 0, 1), new Date(2005, 0, 1))
-        .toISOString()
-        .split('T')[0],
+      dateOfBirth: getRandomDate(new Date(1950, 0, 1), new Date(2005, 0, 1)),
     };
     data.push(person);
   }
@@ -57,8 +56,8 @@ const table: Meta<TableModule> = {
   tags: ['autodocs'],
   decorators: [
     moduleMetadata({
-      declarations: [TableComponent],
-      imports: [CommonModule, PaginationModule],
+      declarations: [TableComponent, TableRowDirective],
+      imports: [CommonModule, PaginationModule, ButtonModule],
     }),
   ],
   render: (args) => {
@@ -77,11 +76,9 @@ export default table;
 
 type Story = StoryObj<TableComponent<any[]>>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Basic: Story = {
   args: {
-    limit: 4,
-    currentPage: 1,
+    paginator: false,
     data: generateRandomData(10) as any[],
     options: {
       columns: {
@@ -111,5 +108,106 @@ export const Basic: Story = {
         },
       },
     },
+  },
+};
+
+export const Pagination: Story = {
+  args: {
+    limit: 5,
+    paginator: true,
+    data: generateRandomData(20) as any[],
+    options: {
+      columns: {
+        firstName: {
+          title: 'First name',
+          width: '100px',
+          align: 'left',
+        },
+        lastName: {
+          title: 'Last name',
+          align: 'left',
+          width: '100px',
+        },
+        age: {
+          title: 'Age',
+        },
+        city: {
+          title: 'City',
+        },
+      },
+      body: {
+        firstName: {
+          align: 'left',
+        },
+        lastName: {
+          align: 'left',
+        },
+      },
+    },
+  },
+};
+
+export const CustomColumns: Story = {
+  args: {
+    limit: 5,
+    paginator: true,
+    data: generateRandomData(20) as any[],
+    options: {
+      columns: {
+        firstName: {
+          title: 'First name',
+          width: '100px',
+          align: 'left',
+        },
+        lastName: {
+          title: 'Last name',
+          align: 'left',
+          width: '100px',
+        },
+        age: {
+          title: 'Age',
+        },
+        city: {
+          title: 'City',
+        },
+        dateOfBirth: {
+          title: 'Date',
+        },
+        actions: {
+          title: 'Actions',
+        },
+      },
+      body: {
+        firstName: {
+          align: 'left',
+        },
+        lastName: {
+          align: 'left',
+        },
+      },
+    },
+  },
+  render: (args) => {
+    const { ...props } = args;
+    return {
+      props,
+      decorators: [
+        moduleMetadata({
+          declarations: [TableComponent],
+          imports: [CommonModule, TableModule, PaginationModule, ButtonModule],
+        }),
+      ],
+      template: `
+         <ngx-table ${argsToTemplate(args)}>
+           <ng-template appTableRow="dateOfBirth" let-row>
+             {{row.dateOfBirth | date}}
+           </ng-template>
+           <ng-template appTableRow="actions" let-row>
+            <ngx-button icon="edit" [outline]="true" />
+            <ngx-button class="ml-1" icon="delete" color="danger" />
+           </ng-template>
+        </ngx-table>
+              `,
+    };
   },
 };

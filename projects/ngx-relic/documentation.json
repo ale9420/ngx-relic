@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "Day",
-            "id": "interface-Day-cd209e0712171c7c0aef4ee255bbaf5645b20e0ad1b347a66e1b44937933cb0617c774e5ce97d28c4bc870a66cb78a65e1766545ec407e133c02bc7bd8c3bf92",
+            "id": "interface-Day-af59969285d0723f8024069134e6964a5efa2d62fe1fa4a9836ae641f73b98674854747744e2794502b6b9a1f532729668bd11aef0bf183d5eda7c3dd3573f6a",
             "file": "projects/ngx-relic/src/lib/types.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export type Color =\r\n  | 'primary'\r\n  | 'success'\r\n  | 'info'\r\n  | 'warning'\r\n  | 'danger'\r\n  | 'slate'\r\n  | 'neutral';\r\n\r\nexport type ButtonColor = 'primary' | 'danger' | 'success';\r\n\r\nexport type OnChangeSelectFn<T> = (options: T[]) => void;\r\nexport type OnChange = (value: any) => void;\r\nexport type OnTouched = () => void;\r\n\r\nexport interface SelectOption extends Object {\r\n  selected?: boolean;\r\n}\r\n\r\nexport interface Day {\r\n  day: number;\r\n  name: string;\r\n}\r\n\r\ntype CellAlign = 'left' | 'center' | 'right';\r\n\r\nexport type TableOptions = {\r\n  columns: {\r\n    [key: string]: {\r\n      title: string;\r\n      width?: string | number;\r\n      align?: CellAlign;\r\n    };\r\n  };\r\n  body?: {\r\n    [key: string]: {\r\n      align?: CellAlign;\r\n    };\r\n  };\r\n};\r\n",
+            "sourceCode": "export type Color =\r\n  | 'primary'\r\n  | 'success'\r\n  | 'info'\r\n  | 'warning'\r\n  | 'danger'\r\n  | 'slate'\r\n  | 'neutral';\r\n\r\nexport type ButtonColor = 'primary' | 'danger' | 'success';\r\n\r\nexport type OnChangeSelectFn<T> = (options: T[]) => void;\r\nexport type OnChange = (value: any) => void;\r\nexport type OnTouched = () => void;\r\n\r\nexport interface SelectOption extends Object {\r\n  selected?: boolean;\r\n}\r\n\r\nexport interface Day {\r\n  day: number;\r\n  name: string;\r\n}\r\n\r\ntype CellAlign = 'left' | 'center' | 'right';\r\n\r\nexport type HeaderStyles = {\r\n  title: string;\r\n  width?: string | number;\r\n  align?: CellAlign;\r\n};\r\n\r\nexport type TableOptions = {\r\n  columns: {\r\n    [key: string]: HeaderStyles;\r\n  };\r\n  body?: {\r\n    [key: string]: {\r\n      align?: CellAlign;\r\n    };\r\n  };\r\n};\r\n",
             "properties": [
                 {
                     "name": "day",
@@ -72,12 +72,12 @@
         },
         {
             "name": "SelectOption",
-            "id": "interface-SelectOption-cd209e0712171c7c0aef4ee255bbaf5645b20e0ad1b347a66e1b44937933cb0617c774e5ce97d28c4bc870a66cb78a65e1766545ec407e133c02bc7bd8c3bf92",
+            "id": "interface-SelectOption-af59969285d0723f8024069134e6964a5efa2d62fe1fa4a9836ae641f73b98674854747744e2794502b6b9a1f532729668bd11aef0bf183d5eda7c3dd3573f6a",
             "file": "projects/ngx-relic/src/lib/types.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export type Color =\r\n  | 'primary'\r\n  | 'success'\r\n  | 'info'\r\n  | 'warning'\r\n  | 'danger'\r\n  | 'slate'\r\n  | 'neutral';\r\n\r\nexport type ButtonColor = 'primary' | 'danger' | 'success';\r\n\r\nexport type OnChangeSelectFn<T> = (options: T[]) => void;\r\nexport type OnChange = (value: any) => void;\r\nexport type OnTouched = () => void;\r\n\r\nexport interface SelectOption extends Object {\r\n  selected?: boolean;\r\n}\r\n\r\nexport interface Day {\r\n  day: number;\r\n  name: string;\r\n}\r\n\r\ntype CellAlign = 'left' | 'center' | 'right';\r\n\r\nexport type TableOptions = {\r\n  columns: {\r\n    [key: string]: {\r\n      title: string;\r\n      width?: string | number;\r\n      align?: CellAlign;\r\n    };\r\n  };\r\n  body?: {\r\n    [key: string]: {\r\n      align?: CellAlign;\r\n    };\r\n  };\r\n};\r\n",
+            "sourceCode": "export type Color =\r\n  | 'primary'\r\n  | 'success'\r\n  | 'info'\r\n  | 'warning'\r\n  | 'danger'\r\n  | 'slate'\r\n  | 'neutral';\r\n\r\nexport type ButtonColor = 'primary' | 'danger' | 'success';\r\n\r\nexport type OnChangeSelectFn<T> = (options: T[]) => void;\r\nexport type OnChange = (value: any) => void;\r\nexport type OnTouched = () => void;\r\n\r\nexport interface SelectOption extends Object {\r\n  selected?: boolean;\r\n}\r\n\r\nexport interface Day {\r\n  day: number;\r\n  name: string;\r\n}\r\n\r\ntype CellAlign = 'left' | 'center' | 'right';\r\n\r\nexport type HeaderStyles = {\r\n  title: string;\r\n  width?: string | number;\r\n  align?: CellAlign;\r\n};\r\n\r\nexport type TableOptions = {\r\n  columns: {\r\n    [key: string]: HeaderStyles;\r\n  };\r\n  body?: {\r\n    [key: string]: {\r\n      align?: CellAlign;\r\n    };\r\n  };\r\n};\r\n",
             "properties": [
                 {
                     "name": "selected",
@@ -442,12 +442,12 @@
         },
         {
             "name": "TableRowDirective",
-            "id": "directive-TableRowDirective-d6fb02b07cc874362279a7afe6641adea5924a5f82386788a177eea98b8b8afea1205c56acd8355a4adb62a9f9da28a250be99e131ace82af815ed0f8ae3cfa4",
+            "id": "directive-TableRowDirective-259695f1294f262e8aa2e65d63e97996d5d0dd45b77a67eab3f0991fbd10877fa1bc04ae8c764ac5767c0dff12ce667176f876d6ed7f57a7b1c6b7071ab6f080",
             "file": "projects/ngx-relic/src/lib/table/table-row.directive.ts",
             "type": "directive",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Directive, Input, TemplateRef, inject } from '@angular/core';\r\n\r\n@Directive({\r\n  selector: 'ng-template[appTableRow]',\r\n})\r\nexport class TableRowDirective {\r\n  @Input() appTableRow = '';\r\n  element = inject(TemplateRef);\r\n}\r\n",
+            "sourceCode": "import { Directive, Input, TemplateRef, inject } from '@angular/core';\r\n\r\n@Directive({\r\n  selector: 'ng-template[appTableRow]',\r\n})\r\nexport class TableRowDirective {\r\n  @Input() appTableRow = '';\r\n  element = inject(TemplateRef);\r\n\r\n  constructor() {\r\n    console.log(this.appTableRow);\r\n  }\r\n}\r\n",
             "selector": "ng-template[appTableRow]",
             "providers": [],
             "hostDirectives": [],
@@ -481,7 +481,15 @@
                 }
             ],
             "methodsClass": [],
-            "extends": []
+            "extends": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            }
         }
     ],
     "components": [
@@ -2362,7 +2370,7 @@
         },
         {
             "name": "TableComponent",
-            "id": "component-TableComponent-e689b0bf7805dfaa4b05154001408c369f8da6e73f0227caa26324343a9f01b6c9669beb523d33b1543e465585fb8671ea8d0cf16869c2c6dde0db751610c7eb",
+            "id": "component-TableComponent-6eed9831948b6cdd022855fb4908eaf755e106a79648ff55f719d05d4e23f69828d0585a779581dc1d8a75ed13f154d40d413670523e1b38c193f6924dd894a4",
             "file": "projects/ngx-relic/src/lib/table/table.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2385,7 +2393,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nCurrent paginated page from the table\n",
                     "description": "<p>Current paginated page from the table</p>\n",
-                    "line": 53,
+                    "line": 47,
                     "type": "number",
                     "decorators": []
                 },
@@ -2396,7 +2404,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nArray of objects to display in the table\n",
                     "description": "<p>Array of objects to display in the table</p>\n",
-                    "line": 47,
+                    "line": 41,
                     "type": "TItem[]",
                     "decorators": []
                 },
@@ -2417,21 +2425,23 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nOptions object to allow you to configure header and body properties\n",
                     "description": "<p>Options object to allow you to configure header and body properties</p>\n",
-                    "line": 41,
+                    "line": 35,
                     "type": "TableOptions",
+                    "decorators": []
+                },
+                {
+                    "name": "paginator",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nEnable pagination for the table\n",
+                    "description": "<p>Enable pagination for the table</p>\n",
+                    "line": 53,
+                    "type": "boolean",
                     "decorators": []
                 }
             ],
-            "outputsClass": [
-                {
-                    "name": "pageChange",
-                    "defaultValue": "new EventEmitter()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 62,
-                    "type": "EventEmitter<number>"
-                }
-            ],
+            "outputsClass": [],
             "propertiesClass": [
                 {
                     "name": "tableRows",
@@ -2439,9 +2449,9 @@
                     "deprecationMessage": "",
                     "type": "QueryList<TableRowDirective>",
                     "optional": true,
-                    "description": "<p>Row list</p>\n<b>Example :</b><div><pre class=\"line-numbers\"><code class=\"language-html\">```html\n&lt;ng-template appTableRow=&quot;created_at&quot; let-row&gt;\n  {{ row.created_at | date }}\n&lt;/ng-template&gt;</code></pre></div><b>Example :</b><div><pre class=\"line-numbers\"><code class=\"language-none\"></code></pre></div>",
-                    "line": 35,
-                    "rawdescription": "\n\nRow list\n```html\n```html\n<ng-template appTableRow=\"created_at\" let-row>\n  {{ row.created_at | date }}\n</ng-template>\n```\n```",
+                    "description": "<p>Custom table rows to render\n<code>&lt;ng-template appTableRow=&quot;created_at&quot; let-row&gt;{{ row.created_at | date }}&lt;/ng-template&gt;</code></p>\n",
+                    "line": 29,
+                    "rawdescription": "\n\nCustom table rows to render\n`<ng-template appTableRow=\"created_at\" let-row>{{ row.created_at | date }}</ng-template>`\n",
                     "decorators": [
                         {
                             "name": "ContentChildren",
@@ -2450,40 +2460,49 @@
                     ],
                     "modifierKind": [
                         170
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "findRow",
+                    "args": [
+                        {
+                            "name": "columnName",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
                     ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 100,
+                    "deprecated": false,
+                    "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 551,
-                            "end": 698,
-                            "flags": 16842752,
-                            "modifierFlagsCache": 0,
-                            "transformFlags": 0,
-                            "kind": 334,
+                            "name": "columnName",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
                             "tagName": {
-                                "pos": 552,
-                                "end": 559,
-                                "flags": 16842752,
-                                "modifierFlagsCache": 0,
-                                "transformFlags": 0,
-                                "kind": 80,
-                                "escapedText": "example"
-                            },
-                            "comment": "<b>Example :</b><div><pre class=\"line-numbers\"><code class=\"language-html\">&lt;ng-template appTableRow=&quot;created_at&quot; let-row&gt;\n  {{ row.created_at | date }}\n&lt;/ng-template&gt;</code></pre></div>"
+                                "text": "param"
+                            }
                         }
                     ]
                 }
             ],
-            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
             "standalone": false,
             "imports": [],
-            "description": "<p>This is the table component</p>\n",
-            "rawdescription": "\n\n\nThis is the table component\n",
+            "description": "<p>The <code>&lt;ngx-table&gt;</code> component render data through the <strong>Data Input</strong>, it is necessary to use the <strong>options Input</strong>\nto configure the columns to be displayed and editable visual changes for each one (title, width, align). Also, the <strong>body property</strong>\nallows editable alignment for each cell of a column</p>\n",
+            "rawdescription": "\n\n\nThe `<ngx-table>` component render data through the **Data Input**, it is necessary to use the **options Input**\nto configure the columns to be displayed and editable visual changes for each one (title, width, align). Also, the **body property**\nallows editable alignment for each cell of a column\n",
             "type": "component",
-            "sourceCode": "import {\r\n  Component,\r\n  ContentChildren,\r\n  EventEmitter,\r\n  Input,\r\n  OnInit,\r\n  Output,\r\n  QueryList,\r\n} from '@angular/core';\r\nimport { TableRowDirective } from './table-row.directive';\r\nimport { TableOptions } from '../types';\r\n\r\n/**\r\n *\r\n * @component\r\n * This is the table component\r\n * @link ../import-module.mdx\r\n */\r\n@Component({\r\n  selector: 'ngx-table',\r\n  templateUrl: './table.component.html',\r\n  styleUrl: './table.component.scss',\r\n})\r\nexport class TableComponent<TItem extends object> implements OnInit {\r\n  /**\r\n   * Row list\r\n   * @example\r\n   * ```html\r\n   * <ng-template appTableRow=\"created_at\" let-row>\r\n   *   {{ row.created_at | date }}\r\n   * </ng-template>\r\n   * ```\r\n   */\r\n  @ContentChildren(TableRowDirective)\r\n  tableRows?: QueryList<TableRowDirective>;\r\n\r\n  /**\r\n   * Options object to allow you to configure header and body properties\r\n   */\r\n  @Input()\r\n  options!: TableOptions;\r\n\r\n  /**\r\n   * Array of objects to display in the table\r\n   */\r\n  @Input()\r\n  data: TItem[] = [];\r\n\r\n  /**\r\n   * Current paginated page from the table\r\n   */\r\n  @Input()\r\n  currentPage = 1;\r\n\r\n  /**\r\n   * Limit of items displayed per page\r\n   */\r\n  @Input()\r\n  limit = 10;\r\n\r\n  @Output()\r\n  pageChange: EventEmitter<number> = new EventEmitter();\r\n\r\n  protected defaultColumnWidth = '225px';\r\n  protected defaultTdAlign = 'center';\r\n\r\n  /**\r\n   * Total number of data items\r\n   */\r\n  protected total = 0;\r\n  protected paginatedData: TItem[] = [];\r\n\r\n  get headers() {\r\n    return Object.keys(this.options.columns);\r\n  }\r\n\r\n  /**\r\n   * @private\r\n   * @ignore\r\n   */\r\n  ngOnInit(): void {\r\n    this.paginatedData = this.data.slice(0, this.limit);\r\n    this.total = this.data.length;\r\n  }\r\n\r\n  /**\r\n   * Change the current paginated page\r\n   * @param page\r\n   */\r\n  protected changePage(page: number) {\r\n    this.currentPage = page;\r\n    const initialIndex = this.limit * this.currentPage;\r\n    const finalIndex = initialIndex + this.limit;\r\n    this.paginatedData = this.data.slice(initialIndex, finalIndex);\r\n  }\r\n\r\n  protected findRow(columnName: string) {\r\n    const column = this.tableRows?.find((i) => i.appTableRow === columnName);\r\n    if (column) return column.element;\r\n    return null;\r\n  }\r\n\r\n  protected headerStyles(columnName: string) {\r\n    return {\r\n      minWidth:\r\n        this.options?.columns && this.options?.columns[columnName]\r\n          ? this.options?.columns[columnName]?.width\r\n          : this.defaultColumnWidth,\r\n      textAlign:\r\n        this.options?.columns && this.options?.columns[columnName]\r\n          ? this.options?.columns[columnName].align\r\n          : this.defaultTdAlign,\r\n    };\r\n  }\r\n\r\n  protected rowStyles(columnName: string) {\r\n    return {\r\n      textAlign:\r\n        this.options?.body && this.options?.body[columnName]\r\n          ? this.options?.body[columnName]?.align\r\n          : this.defaultTdAlign,\r\n    };\r\n  }\r\n}\r\n",
+            "sourceCode": "import {\r\n  Component,\r\n  ContentChildren,\r\n  Input,\r\n  OnInit,\r\n  QueryList,\r\n} from '@angular/core';\r\nimport { TableRowDirective } from './table-row.directive';\r\nimport { TableOptions } from '../types';\r\n\r\n/**\r\n *\r\n * @component\r\n * The `<ngx-table>` component render data through the **Data Input**, it is necessary to use the **options Input**\r\n * to configure the columns to be displayed and editable visual changes for each one (title, width, align). Also, the **body property**\r\n * allows editable alignment for each cell of a column\r\n */\r\n@Component({\r\n  selector: 'ngx-table',\r\n  templateUrl: './table.component.html',\r\n  styleUrl: './table.component.scss',\r\n})\r\nexport class TableComponent<TItem extends object> implements OnInit {\r\n  /**\r\n   * Custom table rows to render\r\n   * `<ng-template appTableRow=\"created_at\" let-row>{{ row.created_at | date }}</ng-template>`\r\n   */\r\n  @ContentChildren(TableRowDirective)\r\n  tableRows?: QueryList<TableRowDirective>;\r\n\r\n  /**\r\n   * Options object to allow you to configure header and body properties\r\n   */\r\n  @Input()\r\n  options!: TableOptions;\r\n\r\n  /**\r\n   * Array of objects to display in the table\r\n   */\r\n  @Input()\r\n  data: TItem[] = [];\r\n\r\n  /**\r\n   * Current paginated page from the table\r\n   */\r\n  @Input()\r\n  currentPage = 1;\r\n\r\n  /**\r\n   * Enable pagination for the table\r\n   */\r\n  @Input()\r\n  paginator = true;\r\n\r\n  /**\r\n   * Limit of items displayed per page\r\n   */\r\n  @Input()\r\n  limit = 10;\r\n\r\n  /**\r\n   * Total number of data items\r\n   */\r\n  protected total = 0;\r\n\r\n  /**\r\n   * Current paginated data to render\r\n   */\r\n  protected paginatedData: TItem[] = [];\r\n\r\n  protected DEFAULT_COLUMN_WIDTH = '225px';\r\n  protected DEFAULT_TD_ALIGN = 'center';\r\n\r\n  get headers() {\r\n    return Object.keys(this.options.columns);\r\n  }\r\n\r\n  /**\r\n   * @private\r\n   * @ignore\r\n   */\r\n  ngOnInit(): void {\r\n    this.paginatedData = this.paginator\r\n      ? this.data.slice(0, this.limit)\r\n      : this.data;\r\n    this.total = this.data.length;\r\n  }\r\n\r\n  /**\r\n   * Change the current paginated page\r\n   * @param page\r\n   */\r\n  protected changePage(page: number) {\r\n    this.currentPage = page;\r\n    const initialIndex = this.limit * this.currentPage;\r\n    const finalIndex = initialIndex + this.limit;\r\n    this.paginatedData = this.data.slice(initialIndex, finalIndex);\r\n  }\r\n\r\n  findRow(columnName: string) {\r\n    // console.log(this.tableRows);\r\n    const column = this.tableRows?.find((i) => i.appTableRow === columnName);\r\n    // console.log(column);\r\n    if (column) return column.element;\r\n    return null;\r\n  }\r\n\r\n  /**\r\n   * Apply header styles for one column\r\n   * @param columnName property of the columns object contained in the options input\r\n   * @returns minWidth and textAlign css properties\r\n   */\r\n  protected headerStyles(columnName: string) {\r\n    return {\r\n      minWidth:\r\n        this.options?.columns && this.options?.columns[columnName]\r\n          ? this.options?.columns[columnName]?.width\r\n          : this.DEFAULT_COLUMN_WIDTH,\r\n      textAlign:\r\n        this.options?.columns && this.options?.columns[columnName]\r\n          ? this.options?.columns[columnName].align\r\n          : this.DEFAULT_TD_ALIGN,\r\n    };\r\n  }\r\n\r\n  /**\r\n   * Apply styles for a cell of the table\r\n   * @param columnName property of the columns object contained in the options input\r\n   * @returns textAlign css property\r\n   */\r\n  protected cellStyles(columnName: string) {\r\n    return {\r\n      textAlign:\r\n        this.options?.body && this.options?.body[columnName]\r\n          ? this.options?.body[columnName]?.align\r\n          : this.DEFAULT_TD_ALIGN,\r\n    };\r\n  }\r\n}\r\n",
             "styleUrl": "./table.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -2499,11 +2518,11 @@
                         "name": "headers",
                         "type": "",
                         "returnType": "",
-                        "line": 73
+                        "line": 74
                     }
                 }
             },
-            "templateData": "<div class=\"ngx-table drop-shadow-xl content-center\">\r\n  <table class=\"ngx-table__table\">\r\n    <thead>\r\n      <tr>\r\n        <th\r\n          *ngFor=\"let column of headers\"\r\n          class=\"p-3\"\r\n          [ngStyle]=\"headerStyles(column)\"\r\n        >\r\n          {{ options.columns[column].title }}\r\n        </th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let row of paginatedData; let i = index\">\r\n        <td\r\n          *ngFor=\"let property of headers\"\r\n          class=\"border border-y-stone-300 border-x-0 p-3\"\r\n          [ngStyle]=\"rowStyles(property)\"\r\n        >\r\n          <ng-container\r\n            [ngTemplateOutlet]=\"findRow(property) || defaultRow\"\r\n            [ngTemplateOutletContext]=\"{ $implicit: row, property }\"\r\n          ></ng-container>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <ngx-pagination\r\n    [currentPage]=\"currentPage\"\r\n    [limit]=\"limit\"\r\n    [total]=\"total\"\r\n    (pageChange)=\"changePage($event)\"\r\n  ></ngx-pagination>\r\n</div>\r\n\r\n<ng-template #defaultRow let-row let-property=\"property\">\r\n  {{ row[property] }}\r\n</ng-template>\r\n"
+            "templateData": "<div class=\"ngx-table drop-shadow-xl content-center\">\r\n  <table class=\"ngx-table__table\">\r\n    <thead>\r\n      <tr>\r\n        <th\r\n          *ngFor=\"let column of headers\"\r\n          class=\"p-3\"\r\n          [ngStyle]=\"headerStyles(column)\"\r\n        >\r\n          {{ options.columns[column].title }}\r\n        </th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let row of paginatedData; let i = index\">\r\n        <td\r\n          *ngFor=\"let property of headers\"\r\n          class=\"border border-y-stone-300 border-x-0 p-3\"\r\n          [ngStyle]=\"cellStyles(property)\"\r\n        >\r\n          <ng-container\r\n            [ngTemplateOutlet]=\"findRow(property) || defaultRow\"\r\n            [ngTemplateOutletContext]=\"{ $implicit: row, property }\"\r\n          ></ng-container>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  @if (paginator) {\r\n    <ngx-pagination\r\n      [currentPage]=\"currentPage\"\r\n      [limit]=\"limit\"\r\n      [total]=\"total\"\r\n      (pageChange)=\"changePage($event)\"\r\n    ></ngx-pagination>\r\n  }\r\n</div>\r\n\r\n<ng-template #defaultRow let-row let-property=\"property\">\r\n  {{ row[property] }}\r\n</ng-template>\r\n"
         },
         {
             "name": "TagComponent",
@@ -3170,13 +3189,13 @@
         },
         {
             "name": "TableModule",
-            "id": "module-TableModule-1442270ee587b85fe17c6e86d8661ba5804c20f5ac5ec68670242b60a58d1ee24947cfaacc49eec1c236f47256aec65a32269e267deead9aa699ca8da63f19f1",
+            "id": "module-TableModule-1020cccd786e2d645633e839f147988504c7cafcbb6e1081087d2120a8bd441e7ee005fe2dd38accb09b5fa97403d6bc5764be2df832dd1a981a841d21dbec70",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/ngx-relic/src/lib/table/table.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { TableComponent } from './table.component';\r\nimport { TableRowDirective } from './table-row.directive';\r\nimport { PaginationModule } from '../pagination/pagination.module';\r\n\r\n@NgModule({\r\n  declarations: [TableComponent, TableRowDirective],\r\n  imports: [CommonModule, PaginationModule],\r\n  exports: [TableComponent],\r\n})\r\nexport class TableModule {}\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { TableComponent } from './table.component';\r\nimport { TableRowDirective } from './table-row.directive';\r\nimport { PaginationModule } from '../pagination/pagination.module';\r\n\r\n@NgModule({\r\n  declarations: [TableComponent, TableRowDirective],\r\n  imports: [CommonModule, PaginationModule],\r\n  exports: [TableComponent, TableRowDirective],\r\n})\r\nexport class TableModule {}\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -3206,6 +3225,9 @@
                     "elements": [
                         {
                             "name": "TableComponent"
+                        },
+                        {
+                            "name": "TableRowDirective"
                         }
                     ]
                 },
@@ -3311,14 +3333,14 @@
     "miscellaneous": {
         "variables": [
             {
-                "name": "BasicTable",
+                "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    limit: 4,\r\n    currentPage: 1,\r\n    data: generateRandomData(10) as any[],\r\n    options: {\r\n      columns: {\r\n        firstName: {\r\n          title: 'First name',\r\n          width: '100px',\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          title: 'Last name',\r\n          align: 'left',\r\n          width: '100px',\r\n        },\r\n        age: {\r\n          title: 'Age',\r\n        },\r\n        city: {\r\n          title: 'City',\r\n        },\r\n      },\r\n      body: {\r\n        firstName: {\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          align: 'left',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    paginator: false,\r\n    data: generateRandomData(10) as any[],\r\n    options: {\r\n      columns: {\r\n        firstName: {\r\n          title: 'First name',\r\n          width: '100px',\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          title: 'Last name',\r\n          align: 'left',\r\n          width: '100px',\r\n        },\r\n        age: {\r\n          title: 'Age',\r\n        },\r\n        city: {\r\n          title: 'City',\r\n        },\r\n      },\r\n      body: {\r\n        firstName: {\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          align: 'left',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "Close",
@@ -3329,6 +3351,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    close: true,\r\n    state: 'info',\r\n  },\r\n}"
+            },
+            {
+                "name": "CustomColumns",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    limit: 5,\r\n    paginator: true,\r\n    data: generateRandomData(20) as any[],\r\n    options: {\r\n      columns: {\r\n        firstName: {\r\n          title: 'First name',\r\n          width: '100px',\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          title: 'Last name',\r\n          align: 'left',\r\n          width: '100px',\r\n        },\r\n        age: {\r\n          title: 'Age',\r\n        },\r\n        city: {\r\n          title: 'City',\r\n        },\r\n        dateOfBirth: {\r\n          title: 'Date',\r\n        },\r\n        actions: {\r\n          title: 'Actions',\r\n        },\r\n      },\r\n      body: {\r\n        firstName: {\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          align: 'left',\r\n        },\r\n      },\r\n    },\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      decorators: [\r\n        moduleMetadata({\r\n          declarations: [TableComponent],\r\n          imports: [CommonModule, PaginationModule, ButtonModule],\r\n        }),\r\n      ],\r\n\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}>\r\n           <ng-template appTableRow=\"dateOfBirth\" let-row>\r\n             {{row.dateOfBirth | date}}\r\n           </ng-template>\r\n           <ng-template appTableRow=\"actions\" let-row>\r\n            <ngx-button icon=\"edit\" [outline]=\"true\" />\r\n            <ngx-button class=\"ml-1\" icon=\"delete\" color=\"danger\" />\r\n           </ng-template>\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "Danger",
@@ -3391,6 +3423,16 @@
                 "defaultValue": "{\n  args: {\n    outline: true,\n    color: 'danger',\n  },\n}"
             },
             {
+                "name": "Pagination",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    limit: 5,\r\n    paginator: true,\r\n    data: generateRandomData(20) as any[],\r\n    options: {\r\n      columns: {\r\n        firstName: {\r\n          title: 'First name',\r\n          width: '100px',\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          title: 'Last name',\r\n          align: 'left',\r\n          width: '100px',\r\n        },\r\n        age: {\r\n          title: 'Age',\r\n        },\r\n        city: {\r\n          title: 'City',\r\n        },\r\n      },\r\n      body: {\r\n        firstName: {\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          align: 'left',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
+            },
+            {
                 "name": "Placeholder",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -3428,7 +3470,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\r\n  parameters: {\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n  tags: ['autodocs'],\r\n}"
+                "defaultValue": "{\r\n  parameters: {\r\n    previewTabs: {\r\n      'storybook/docs/panel': { hidden: true },\r\n    },\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n  tags: ['autodocs'],\r\n}"
             },
             {
                 "name": "Primary",
@@ -3464,21 +3506,11 @@
                 "name": "table",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-relic/src/stories/table.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<TableModule>",
-                "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    currentPage: {\r\n      control: 'number',\r\n    },\r\n    limit: {\r\n      control: 'number',\r\n    },\r\n    data: {\r\n      control: 'array',\r\n    },\r\n    options: {\r\n      control: 'object',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent],\r\n      imports: [CommonModule, PaginationModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}>\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
-            },
-            {
-                "name": "table",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TableModule>",
-                "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    currentPage: {\r\n      control: 'number',\r\n    },\r\n    limit: {\r\n      control: 'number',\r\n    },\r\n    data: {\r\n      control: 'array',\r\n    },\r\n    options: {\r\n      control: 'object',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent],\r\n      imports: [CommonModule, PaginationModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}>\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
+                "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent],\r\n      imports: [CommonModule, PaginationModule, ButtonModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}>\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "tag",
@@ -3524,35 +3556,6 @@
         "functions": [
             {
                 "name": "generateRandomData",
-                "file": "projects/ngx-relic/src/stories/table.stories.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "args": [
-                    {
-                        "name": "count",
-                        "type": "number",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    }
-                ],
-                "returnType": "Data[]",
-                "jsdoctags": [
-                    {
-                        "name": "count",
-                        "type": "number",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            {
-                "name": "generateRandomData",
                 "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
@@ -3572,49 +3575,6 @@
                     {
                         "name": "count",
                         "type": "number",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            {
-                "name": "getRandomDate",
-                "file": "projects/ngx-relic/src/stories/table.stories.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "args": [
-                    {
-                        "name": "start",
-                        "type": "Date",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    },
-                    {
-                        "name": "end",
-                        "type": "Date",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    }
-                ],
-                "jsdoctags": [
-                    {
-                        "name": "start",
-                        "type": "Date",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    },
-                    {
-                        "name": "end",
-                        "type": "Date",
                         "deprecated": false,
                         "deprecationMessage": "",
                         "tagName": {
@@ -3668,34 +3628,6 @@
             },
             {
                 "name": "getRandomElement",
-                "file": "projects/ngx-relic/src/stories/table.stories.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "args": [
-                    {
-                        "name": "array",
-                        "type": "Array",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    }
-                ],
-                "jsdoctags": [
-                    {
-                        "name": "array",
-                        "type": "Array",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            {
-                "name": "getRandomElement",
                 "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
@@ -3714,49 +3646,6 @@
                     {
                         "name": "array",
                         "type": "Array",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            {
-                "name": "getRandomInt",
-                "file": "projects/ngx-relic/src/stories/table.stories.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "args": [
-                    {
-                        "name": "min",
-                        "type": "number",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    },
-                    {
-                        "name": "max",
-                        "type": "number",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    }
-                ],
-                "jsdoctags": [
-                    {
-                        "name": "min",
-                        "type": "number",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    },
-                    {
-                        "name": "max",
-                        "type": "number",
                         "deprecated": false,
                         "deprecationMessage": "",
                         "tagName": {
@@ -3870,18 +3759,18 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/ngx-relic/src/stories/table.stories.ts",
+                "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 187
             },
             {
-                "name": "Data",
+                "name": "HeaderStyles",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                "file": "projects/ngx-relic/src/lib/types.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4057,14 +3946,34 @@
         "groupedVariables": {
             "projects/ngx-relic/src/lib/table/table.stories.ts": [
                 {
-                    "name": "BasicTable",
+                    "name": "Basic",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    limit: 4,\r\n    currentPage: 1,\r\n    data: generateRandomData(10) as any[],\r\n    options: {\r\n      columns: {\r\n        firstName: {\r\n          title: 'First name',\r\n          width: '100px',\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          title: 'Last name',\r\n          align: 'left',\r\n          width: '100px',\r\n        },\r\n        age: {\r\n          title: 'Age',\r\n        },\r\n        city: {\r\n          title: 'City',\r\n        },\r\n      },\r\n      body: {\r\n        firstName: {\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          align: 'left',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    paginator: false,\r\n    data: generateRandomData(10) as any[],\r\n    options: {\r\n      columns: {\r\n        firstName: {\r\n          title: 'First name',\r\n          width: '100px',\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          title: 'Last name',\r\n          align: 'left',\r\n          width: '100px',\r\n        },\r\n        age: {\r\n          title: 'Age',\r\n        },\r\n        city: {\r\n          title: 'City',\r\n        },\r\n      },\r\n      body: {\r\n        firstName: {\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          align: 'left',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
+                },
+                {
+                    "name": "CustomColumns",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    limit: 5,\r\n    paginator: true,\r\n    data: generateRandomData(20) as any[],\r\n    options: {\r\n      columns: {\r\n        firstName: {\r\n          title: 'First name',\r\n          width: '100px',\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          title: 'Last name',\r\n          align: 'left',\r\n          width: '100px',\r\n        },\r\n        age: {\r\n          title: 'Age',\r\n        },\r\n        city: {\r\n          title: 'City',\r\n        },\r\n        dateOfBirth: {\r\n          title: 'Date',\r\n        },\r\n        actions: {\r\n          title: 'Actions',\r\n        },\r\n      },\r\n      body: {\r\n        firstName: {\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          align: 'left',\r\n        },\r\n      },\r\n    },\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      decorators: [\r\n        moduleMetadata({\r\n          declarations: [TableComponent],\r\n          imports: [CommonModule, PaginationModule, ButtonModule],\r\n        }),\r\n      ],\r\n\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}>\r\n           <ng-template appTableRow=\"dateOfBirth\" let-row>\r\n             {{row.dateOfBirth | date}}\r\n           </ng-template>\r\n           <ng-template appTableRow=\"actions\" let-row>\r\n            <ngx-button icon=\"edit\" [outline]=\"true\" />\r\n            <ngx-button class=\"ml-1\" icon=\"delete\" color=\"danger\" />\r\n           </ng-template>\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
+                },
+                {
+                    "name": "Pagination",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    limit: 5,\r\n    paginator: true,\r\n    data: generateRandomData(20) as any[],\r\n    options: {\r\n      columns: {\r\n        firstName: {\r\n          title: 'First name',\r\n          width: '100px',\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          title: 'Last name',\r\n          align: 'left',\r\n          width: '100px',\r\n        },\r\n        age: {\r\n          title: 'Age',\r\n        },\r\n        city: {\r\n          title: 'City',\r\n        },\r\n      },\r\n      body: {\r\n        firstName: {\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          align: 'left',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "table",
@@ -4074,7 +3983,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<TableModule>",
-                    "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    currentPage: {\r\n      control: 'number',\r\n    },\r\n    limit: {\r\n      control: 'number',\r\n    },\r\n    data: {\r\n      control: 'array',\r\n    },\r\n    options: {\r\n      control: 'object',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent],\r\n      imports: [CommonModule, PaginationModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}>\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent],\r\n      imports: [CommonModule, PaginationModule, ButtonModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}>\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
                 }
             ],
             "projects/ngx-relic/src/stories/tag.stories.ts": [
@@ -4226,7 +4135,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\r\n  parameters: {\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n  tags: ['autodocs'],\r\n}"
+                    "defaultValue": "{\r\n  parameters: {\r\n    previewTabs: {\r\n      'storybook/docs/panel': { hidden: true },\r\n    },\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n  tags: ['autodocs'],\r\n}"
                 }
             ],
             "projects/ngx-relic/src/stories/label.stories.ts": [
@@ -4249,18 +4158,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<LabelModule>",
                     "defaultValue": "{\r\n  title: 'Display/Label',\r\n  component: LabelComponent,\r\n  tags: ['autodocs'],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-label [required]=\"required\" [disabled]=\"disabled\">Texto de prueba</ngx-label>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
-                }
-            ],
-            "projects/ngx-relic/src/stories/table.stories.ts": [
-                {
-                    "name": "table",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TableModule>",
-                    "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    currentPage: {\r\n      control: 'number',\r\n    },\r\n    limit: {\r\n      control: 'number',\r\n    },\r\n    data: {\r\n      control: 'array',\r\n    },\r\n    options: {\r\n      control: 'object',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent],\r\n      imports: [CommonModule, PaginationModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}>\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
                 }
             ],
             "projects/ngx-relic/src/stories/tooltip.stories.ts": [
@@ -4287,151 +4184,6 @@
             ]
         },
         "groupedFunctions": {
-            "projects/ngx-relic/src/stories/table.stories.ts": [
-                {
-                    "name": "generateRandomData",
-                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "count",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "returnType": "Data[]",
-                    "jsdoctags": [
-                        {
-                            "name": "count",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "getRandomDate",
-                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "start",
-                            "type": "Date",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        },
-                        {
-                            "name": "end",
-                            "type": "Date",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "start",
-                            "type": "Date",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "end",
-                            "type": "Date",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "getRandomElement",
-                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "array",
-                            "type": "Array",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "array",
-                            "type": "Array",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "getRandomInt",
-                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "min",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        },
-                        {
-                            "name": "max",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "min",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "max",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
             "projects/ngx-relic/src/lib/table/table.stories.ts": [
                 {
                     "name": "generateRandomData",
@@ -4615,6 +4367,17 @@
                     "kind": 192
                 },
                 {
+                    "name": "HeaderStyles",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/ngx-relic/src/lib/types.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                },
+                {
                     "name": "OnChange",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
@@ -4714,19 +4477,6 @@
                     "deprecationMessage": "",
                     "description": "",
                     "kind": 184
-                }
-            ],
-            "projects/ngx-relic/src/stories/table.stories.ts": [
-                {
-                    "name": "Data",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "literal type",
-                    "file": "projects/ngx-relic/src/stories/table.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 187
                 }
             ],
             "projects/ngx-relic/src/lib/table/table.stories.ts": [
@@ -4984,7 +4734,7 @@
                 "linktype": "directive",
                 "name": "TableRowDirective",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -4992,8 +4742,8 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "TableComponent",
-                "coveragePercent": 85,
-                "coverageCount": "6/7",
+                "coveragePercent": 87,
+                "coverageCount": "7/8",
                 "status": "very-good"
             },
             {
@@ -5041,7 +4791,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "BasicTable",
+                "name": "Basic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CustomColumns",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Pagination",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -5218,56 +4988,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Placeholder",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/stories/table.stories.ts",
-                "type": "function",
-                "linktype": "miscellaneous",
-                "linksubtype": "function",
-                "name": "generateRandomData",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/stories/table.stories.ts",
-                "type": "function",
-                "linktype": "miscellaneous",
-                "linksubtype": "function",
-                "name": "getRandomDate",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/stories/table.stories.ts",
-                "type": "function",
-                "linktype": "miscellaneous",
-                "linksubtype": "function",
-                "name": "getRandomElement",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/stories/table.stories.ts",
-                "type": "function",
-                "linktype": "miscellaneous",
-                "linksubtype": "function",
-                "name": "getRandomInt",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/stories/table.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "table",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

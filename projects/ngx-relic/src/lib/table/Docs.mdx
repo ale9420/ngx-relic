@@ -1,0 +1,46 @@
+import * as TableStories from "./table.stories";
+import {
+  Meta,
+  Story,
+  Controls,
+  Canvas,
+  Title,
+  Description,
+  Source,
+} from "@storybook/blocks";
+import { Markdown } from "@storybook/blocks";
+
+<Meta of={TableStories} />
+
+<Title />
+<Description />
+**Table of content:**
+
+- [Overview](#setup)
+- [Properties](#properties)
+
+## Overview
+
+<a id="setup"></a>
+
+Import `TableModule` to your module before using `<ngx-table>` component
+
+```ts
+import { TableModule } from "ngx-relic";
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, TableModule],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+Using `<ngx-table>` component in the html template
+
+<Source of={TableStories.CustomColumns} />
+<Canvas of={TableStories.CustomColumns} />
+
+## Properties
+
+<Controls />
