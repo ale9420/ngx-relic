@@ -1262,7 +1262,7 @@
         },
         {
             "name": "InputComponent",
-            "id": "component-InputComponent-072d905977177af07d2e83dc51696310eda753d04aca4eeba6da1935eb8d65e891729dc42a221e3d17ff531b057564a353fd34a5ea6f41ca5b3fee5fe207ddfb",
+            "id": "component-InputComponent-b7702d68729717d68b67103063db41a1d8888595ba12bcd9c4e15fdd71937c02c6db7040253b31df7d651dd19a5f3c48ebd942f7d5205dd19a537b0e0545adc8",
             "file": "projects/ngx-relic/src/lib/input/input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1291,7 +1291,9 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
+                    "rawdescription": "\n\nIndicates if the input field is disabled.\n",
+                    "description": "<p>Indicates if the input field is disabled.</p>\n",
+                    "line": 54,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -1300,7 +1302,9 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "rawdescription": "\n\nText displayed in the bottom of the input component when the\ninput value does not comply with the expected validation\n",
+                    "description": "<p>Text displayed in the bottom of the input component when the\ninput value does not comply with the expected validation</p>\n",
+                    "line": 36,
                     "type": "string",
                     "decorators": []
                 },
@@ -1309,7 +1313,9 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 25,
+                    "rawdescription": "\n\nText displayed in the bottom of the input component as a helper for the user\n",
+                    "description": "<p>Text displayed in the bottom of the input component as a helper for the user</p>\n",
+                    "line": 42,
                     "type": "string",
                     "decorators": []
                 },
@@ -1318,7 +1324,9 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
+                    "rawdescription": "\n\nThe label associated with the input field.\n",
+                    "description": "<p>The label associated with the input field.</p>\n",
+                    "line": 23,
                     "type": "string",
                     "decorators": []
                 },
@@ -1327,7 +1335,9 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "rawdescription": "\n\nThe placeholder text displayed when the field is empty.\n",
+                    "description": "<p>The placeholder text displayed when the field is empty.</p>\n",
+                    "line": 29,
                     "type": "string",
                     "decorators": []
                 },
@@ -1336,7 +1346,9 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 28,
+                    "rawdescription": "\n\nIndicates whether the input field is mandatory\n",
+                    "description": "<p>Indicates whether the input field is mandatory</p>\n",
+                    "line": 48,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -1345,7 +1357,9 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 34,
+                    "rawdescription": "\n\nThe type of input field. Common values include **text**, **password**, **email**, **number**, **tel**, among others.\n",
+                    "description": "<p>The type of input field. Common values include <strong>text</strong>, <strong>password</strong>, <strong>email</strong>, <strong>number</strong>, <strong>tel</strong>, among others.</p>\n",
+                    "line": 60,
                     "type": "string",
                     "decorators": []
                 }
@@ -1360,62 +1374,23 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 38,
+                    "line": 64,
                     "modifierKind": [
                         148
                     ]
-                },
-                {
-                    "name": "_value",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "number | string",
-                    "optional": false,
-                    "description": "",
-                    "line": 36
                 }
             ],
-            "methodsClass": [
-                {
-                    "name": "onChange",
-                    "args": [
-                        {
-                            "name": "value",
-                            "type": "string | number",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 40,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "value",
-                            "type": "string | number",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
             "standalone": false,
             "imports": [],
-            "description": "",
-            "rawdescription": "\n",
+            "description": "<p>The <code>&lt;ngx-input&gt;</code> component is used to capture user data through an input field. It is a\nversatile component that supports multiple data types, validations, and custom styles.</p>\n",
+            "rawdescription": "\n\nThe `<ngx-input>` component is used to capture user data through an input field. It is a\nversatile component that supports multiple data types, validations, and custom styles.\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, inject } from '@angular/core';\nimport { CvaDirective } from '../core/cva.directive';\n\n@Component({\n  selector: 'ngx-input',\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss'],\n  hostDirectives: [\n    {\n      directive: CvaDirective,\n    },\n  ],\n})\nexport class InputComponent {\n  @Input()\n  label = '';\n\n  @Input()\n  placeholder = '';\n\n  @Input()\n  errorText = '';\n\n  @Input()\n  helperText = '';\n\n  @Input()\n  required = false;\n\n  @Input()\n  disabled = false;\n\n  @Input()\n  type = '';\n\n  _value: number | string = '';\n\n  readonly _cvaDirective = inject<CvaDirective>(CvaDirective);\n\n  onChange(value: string | number) {\n    this._cvaDirective.onChange(value);\n    this._cvaDirective.onTouched();\n  }\n}\n",
+            "sourceCode": "import { Component, Input, inject } from '@angular/core';\nimport { CvaDirective } from '../core/cva.directive';\n\n/**\n * The `<ngx-input>` component is used to capture user data through an input field. It is a\n * versatile component that supports multiple data types, validations, and custom styles.\n */\n@Component({\n  selector: 'ngx-input',\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss'],\n  hostDirectives: [\n    {\n      directive: CvaDirective,\n    },\n  ],\n})\nexport class InputComponent {\n  /**\n   * The label associated with the input field.\n   */\n  @Input()\n  label = '';\n\n  /**\n   * The placeholder text displayed when the field is empty.\n   */\n  @Input()\n  placeholder = '';\n\n  /**\n   * Text displayed in the bottom of the input component when the\n   * input value does not comply with the expected validation\n   */\n  @Input()\n  errorText = '';\n\n  /**\n   * Text displayed in the bottom of the input component as a helper for the user\n   */\n  @Input()\n  helperText = '';\n\n  /**\n   * Indicates whether the input field is mandatory\n   */\n  @Input()\n  required = false;\n\n  /**\n   * Indicates if the input field is disabled.\n   */\n  @Input()\n  disabled = false;\n\n  /**\n   * The type of input field. Common values include **text**, **password**, **email**, **number**, **tel**, among others.\n   */\n  @Input()\n  type = '';\n\n  protected _value: number | string = '';\n\n  readonly _cvaDirective = inject<CvaDirective>(CvaDirective);\n\n  protected onChange(value: string | number) {\n    this._cvaDirective.onChange(value);\n    this._cvaDirective.onTouched();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2670,7 +2645,7 @@
         },
         {
             "name": "TooltipComponent",
-            "id": "component-TooltipComponent-192d413e1b80ab2e2379649b96d27c7f78416f10ee5b1f534038280b7da3130a682174f7a077d672c7ed19f9f9159fd839725c25d5621ef67dbe7a9b702c2132",
+            "id": "component-TooltipComponent-1a2a29d1e9fea72f9fe274d122182c648e971363bd4eef96896620ad3d827613c483f16ebef6f4ba57a2a2ef467a6d255dc9643e792172dbf018de3cb2a844ff",
             "file": "projects/ngx-relic/src/lib/tooltip/tooltip.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2690,6 +2665,7 @@
             "inputsClass": [
                 {
                     "name": "position",
+                    "defaultValue": "'bottom'",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n\nPosition to be displayed\n",
@@ -2700,6 +2676,7 @@
                 },
                 {
                     "name": "width",
+                    "defaultValue": "'125px'",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n\nWidth of the tooltip\n",
@@ -2721,7 +2698,7 @@
             "description": "<p>The <code>&lt;ngx-tooltip&gt;</code> component is used to display additional information when the user hovers over or selects an element.\nIt is a useful tool to provide contextual details without cluttering the user interface.</p>\n",
             "rawdescription": "\n\nThe `<ngx-tooltip>` component is used to display additional information when the user hovers over or selects an element.\nIt is a useful tool to provide contextual details without cluttering the user interface.\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n/**\n * @component\n * The `<ngx-tooltip>` component is used to display additional information when the user hovers over or selects an element.\n * It is a useful tool to provide contextual details without cluttering the user interface.\n */\n@Component({\n  selector: 'ngx-tooltip',\n  templateUrl: './tooltip.component.html',\n  styleUrls: ['./tooltip.component.scss'],\n})\nexport class TooltipComponent {\n  /**\n   * Width of the tooltip\n   */\n  @Input()\n  width: number | string;\n\n  /**\n   * Position to be displayed\n   */\n  @Input()\n  position: 'top' | 'left' | 'right' | 'bottom';\n\n  protected showTooltip = false;\n\n  constructor() {\n    this.width = '125px';\n    this.position = 'bottom';\n  }\n\n  get contentWidth() {\n    return typeof this.width === 'number' ? `${this.width}px` : this.width;\n  }\n\n  get positionClass() {\n    return `ngx-tooltip__content--${this.position}`;\n  }\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n/**\n * @component\n * The `<ngx-tooltip>` component is used to display additional information when the user hovers over or selects an element.\n * It is a useful tool to provide contextual details without cluttering the user interface.\n */\n@Component({\n  selector: 'ngx-tooltip',\n  templateUrl: './tooltip.component.html',\n  styleUrls: ['./tooltip.component.scss'],\n})\nexport class TooltipComponent {\n  /**\n   * Width of the tooltip\n   */\n  @Input()\n  width: number | string = '125px';\n\n  /**\n   * Position to be displayed\n   */\n  @Input()\n  position: 'top' | 'left' | 'right' | 'bottom' = 'bottom';\n\n  protected showTooltip = false;\n\n  get contentWidth() {\n    return typeof this.width === 'number' ? `${this.width}px` : this.width;\n  }\n\n  get positionClass() {\n    return `ngx-tooltip__content--${this.position}`;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2730,14 +2707,6 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 26
-            },
             "extends": [],
             "accessors": {
                 "contentWidth": {
@@ -2746,7 +2715,7 @@
                         "name": "contentWidth",
                         "type": "",
                         "returnType": "",
-                        "line": 33
+                        "line": 28
                     }
                 },
                 "positionClass": {
@@ -2755,7 +2724,7 @@
                         "name": "positionClass",
                         "type": "",
                         "returnType": "",
-                        "line": 37
+                        "line": 32
                     }
                 }
             },
@@ -3389,14 +3358,14 @@
                 "defaultValue": "{\r\n  title: 'Forms/Datepicker',\r\n  component: DatepickerComponent,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    layout: 'centered',\r\n  },\r\n  argTypes: {\r\n    placeholder: {\r\n      control: 'text',\r\n    },\r\n    label: {\r\n      control: 'text',\r\n    },\r\n    errorText: {\r\n      control: 'text',\r\n    },\r\n    helperText: {\r\n      control: 'text',\r\n    },\r\n    required: {\r\n      control: 'boolean',\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [DatepickerComponent],\r\n      imports: [\r\n        CommonModule,\r\n        CoreModule,\r\n        FormsModule,\r\n        ReactiveFormsModule,\r\n        BaseInputModule,\r\n        PlaceholderModule,\r\n        ButtonModule,\r\n      ],\r\n      schemas: [CUSTOM_ELEMENTS_SCHEMA],\r\n      providers: [\r\n        {\r\n          provide: NG_VALUE_ACCESSOR,\r\n          useExisting: forwardRef(() => DatepickerComponent),\r\n          multi: true,\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        form: new FormBuilder().group({\r\n          date: ['', [Validators.required]],\r\n        }),\r\n      },\r\n      template: `\r\n          <form style=\"height: 350px;\" [formGroup]=\"form\">\r\n              <ngx-datepicker\r\n                  formControlName=\"date\"\r\n                  [required]=\"required\"\r\n                  [label]=\"label\"\r\n                  [placeholder]=\"placeholder\"\r\n                  [errorText]=\"errorText\"\r\n                  [helperText]=\"helperText\"\r\n                  />\r\n              <br />\r\n              <br />\r\n              {{input}}   \r\n          </form>\r\n              `,\r\n    };\r\n  },\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
             },
             {
-                "name": "input",
+                "name": "EmailValidation",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-relic/src/stories/input.stories.ts",
+                "file": "projects/ngx-relic/src/lib/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<InputModule>",
-                "defaultValue": "{\r\n  title: 'Forms/Input',\r\n  component: InputComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    placeholder: {\r\n      control: 'text',\r\n    },\r\n    label: {\r\n      control: 'text',\r\n    },\r\n    errorText: {\r\n      control: 'text',\r\n    },\r\n    helperText: {\r\n      control: 'text',\r\n    },\r\n    required: {\r\n      control: 'boolean',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n    },\r\n    type: {\r\n      control: 'select',\r\n      options: ['text', 'email', 'number', 'phone'],\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [InputComponent],\r\n      imports: [\r\n        CommonModule,\r\n        FormsModule,\r\n        ReactiveFormsModule,\r\n        BaseInputModule,\r\n      ],\r\n      schemas: [CUSTOM_ELEMENTS_SCHEMA],\r\n      providers: [\r\n        {\r\n          provide: NG_VALUE_ACCESSOR,\r\n          useExisting: forwardRef(() => InputComponent),\r\n          multi: true,\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        form: new FormBuilder().group({\r\n          email: ['', [Validators.required, Validators.email]],\r\n        }),\r\n      },\r\n      template: `\r\n        <form [formGroup]=\"form\">\r\n            <ngx-input\r\n                formControlName=\"email\"\r\n                [required]=\"required\"\r\n                [label]=\"label\"\r\n                [placeholder]=\"placeholder\"\r\n                [type]=\"type\"\r\n                [errorText]=\"errorText\"\r\n                [helperText]=\"helperText\"\r\n                />\r\n            <br />\r\n            <br />\r\n            {{input}}   \r\n        </form>\r\n            `,\r\n    };\r\n  },\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Type an email',\r\n    label: 'Email',\r\n    required: true,\r\n    disabled: false,\r\n    errorText: 'Invalid email',\r\n    helperText: 'Type an existent email',\r\n  },\r\n}"
             },
             {
                 "name": "input",
@@ -3407,6 +3376,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<SelectModule>",
                 "defaultValue": "{\r\n  title: 'Forms/Select',\r\n  component: SelectComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    placeholder: {\r\n      control: 'text',\r\n    },\r\n    label: {\r\n      control: 'text',\r\n    },\r\n    errorText: {\r\n      control: 'text',\r\n    },\r\n    helperText: {\r\n      control: 'text',\r\n    },\r\n    required: {\r\n      control: 'boolean',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n    },\r\n    type: {\r\n      control: 'select',\r\n      options: ['text', 'email', 'number', 'phone'],\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [SelectComponent, SelectItemComponent],\r\n      imports: [\r\n        CommonModule,\r\n        FormsModule,\r\n        ReactiveFormsModule,\r\n        ScrollingModule,\r\n        BaseInputModule,\r\n        ButtonModule,\r\n        PlaceholderModule,\r\n        TagModule,\r\n      ],\r\n      schemas: [CUSTOM_ELEMENTS_SCHEMA],\r\n      providers: [\r\n        {\r\n          provide: NG_VALUE_ACCESSOR,\r\n          useExisting: forwardRef(() => SelectComponent),\r\n          multi: true,\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        permissions: [\r\n          {\r\n            id: 1,\r\n            name: 'Admin',\r\n          },\r\n          {\r\n            id: 2,\r\n            name: 'Comercial',\r\n          },\r\n          {\r\n            id: 3,\r\n            name: 'Mesa de gestion',\r\n          },\r\n        ],\r\n        form: new FormBuilder().group({\r\n          select: ['', [Validators.required]],\r\n        }),\r\n      },\r\n      template: `\r\n        <form [formGroup]=\"form\">\r\n            <ngx-select\r\n            [options]=\"permissions\"\r\n            [closeOnSelect]=\"false\"\r\n            formControlName=\"select\"\r\n                [required]=\"required\"\r\n                [label]=\"label\"\r\n                [placeholder]=\"placeholder\"\r\n                [type]=\"type\"\r\n                [errorText]=\"errorText\"\r\n                [helperText]=\"helperText\"\r\n                labelKey=\"name\"\r\n      valueKey=\"id\"\r\n                />\r\n            <br />\r\n            <br />\r\n            {{input}}   \r\n        </form>\r\n            `,\r\n    };\r\n  },\r\n}"
+            },
+            {
+                "name": "input",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/lib/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<InputModule>",
+                "defaultValue": "{\r\n  title: 'Forms/Input',\r\n  component: InputComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [InputComponent],\r\n      imports: [\r\n        CommonModule,\r\n        FormsModule,\r\n        ReactiveFormsModule,\r\n        BaseInputModule,\r\n      ],\r\n      schemas: [CUSTOM_ELEMENTS_SCHEMA],\r\n      providers: [\r\n        {\r\n          provide: NG_VALUE_ACCESSOR,\r\n          useExisting: forwardRef(() => InputComponent),\r\n          multi: true,\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props: {\r\n        ...props,\r\n        form: new FormBuilder().group({\r\n          email: ['', [Validators.required, Validators.email]],\r\n        }),\r\n      },\r\n      template: `\r\n        <form [formGroup]=\"form\">\r\n            <ngx-input\r\n                formControlName=\"email\"\r\n                [required]=\"required\"\r\n                [label]=\"label\"\r\n                [placeholder]=\"placeholder\"\r\n                [type]=\"type\"\r\n                [errorText]=\"errorText\"\r\n                [helperText]=\"helperText\"\r\n                />\r\n            <br />\r\n            <br />\r\n            {{input}}   \r\n        </form>\r\n            `,\r\n    };\r\n  },\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
             },
             {
                 "name": "meta",
@@ -3447,16 +3426,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Ingresa una fecha',\r\n    label: 'Fecha de nacimiento',\r\n    required: true,\r\n    errorText: 'Required field',\r\n  },\r\n}"
-            },
-            {
-                "name": "Placeholder",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ngx-relic/src/stories/input.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Ingresa un email',\r\n    label: 'Email',\r\n    required: true,\r\n    disabled: false,\r\n    errorText: 'Correo invalido',\r\n    helperText: 'ingresa un correo existente',\r\n  },\r\n}"
             },
             {
                 "name": "Placeholder",
@@ -3566,7 +3535,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    width: 124,\r\n    position: 'top',\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    width: 224,\r\n    position: 'top',\r\n  },\r\n}"
             }
         ],
         "functions": [
@@ -3873,17 +3842,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<InputComponent>",
-                "file": "projects/ngx-relic/src/stories/input.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<SelectComponent<any, any>>",
                 "file": "projects/ngx-relic/src/stories/select.stories.ts",
                 "deprecated": false,
@@ -3897,6 +3855,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonComponent>",
                 "file": "projects/ngx-relic/src/lib/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<InputComponent>",
+                "file": "projects/ngx-relic/src/lib/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4087,26 +4056,26 @@
                     "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Ingresa una fecha',\r\n    label: 'Fecha de nacimiento',\r\n    required: true,\r\n    errorText: 'Required field',\r\n  },\r\n}"
                 }
             ],
-            "projects/ngx-relic/src/stories/input.stories.ts": [
+            "projects/ngx-relic/src/lib/input/input.stories.ts": [
+                {
+                    "name": "EmailValidation",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/lib/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Type an email',\r\n    label: 'Email',\r\n    required: true,\r\n    disabled: false,\r\n    errorText: 'Invalid email',\r\n    helperText: 'Type an existent email',\r\n  },\r\n}"
+                },
                 {
                     "name": "input",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/ngx-relic/src/stories/input.stories.ts",
+                    "file": "projects/ngx-relic/src/lib/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<InputModule>",
-                    "defaultValue": "{\r\n  title: 'Forms/Input',\r\n  component: InputComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    placeholder: {\r\n      control: 'text',\r\n    },\r\n    label: {\r\n      control: 'text',\r\n    },\r\n    errorText: {\r\n      control: 'text',\r\n    },\r\n    helperText: {\r\n      control: 'text',\r\n    },\r\n    required: {\r\n      control: 'boolean',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n    },\r\n    type: {\r\n      control: 'select',\r\n      options: ['text', 'email', 'number', 'phone'],\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [InputComponent],\r\n      imports: [\r\n        CommonModule,\r\n        FormsModule,\r\n        ReactiveFormsModule,\r\n        BaseInputModule,\r\n      ],\r\n      schemas: [CUSTOM_ELEMENTS_SCHEMA],\r\n      providers: [\r\n        {\r\n          provide: NG_VALUE_ACCESSOR,\r\n          useExisting: forwardRef(() => InputComponent),\r\n          multi: true,\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        form: new FormBuilder().group({\r\n          email: ['', [Validators.required, Validators.email]],\r\n        }),\r\n      },\r\n      template: `\r\n        <form [formGroup]=\"form\">\r\n            <ngx-input\r\n                formControlName=\"email\"\r\n                [required]=\"required\"\r\n                [label]=\"label\"\r\n                [placeholder]=\"placeholder\"\r\n                [type]=\"type\"\r\n                [errorText]=\"errorText\"\r\n                [helperText]=\"helperText\"\r\n                />\r\n            <br />\r\n            <br />\r\n            {{input}}   \r\n        </form>\r\n            `,\r\n    };\r\n  },\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
-                },
-                {
-                    "name": "Placeholder",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ngx-relic/src/stories/input.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Ingresa un email',\r\n    label: 'Email',\r\n    required: true,\r\n    disabled: false,\r\n    errorText: 'Correo invalido',\r\n    helperText: 'ingresa un correo existente',\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  title: 'Forms/Input',\r\n  component: InputComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [InputComponent],\r\n      imports: [\r\n        CommonModule,\r\n        FormsModule,\r\n        ReactiveFormsModule,\r\n        BaseInputModule,\r\n      ],\r\n      schemas: [CUSTOM_ELEMENTS_SCHEMA],\r\n      providers: [\r\n        {\r\n          provide: NG_VALUE_ACCESSOR,\r\n          useExisting: forwardRef(() => InputComponent),\r\n          multi: true,\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props: {\r\n        ...props,\r\n        form: new FormBuilder().group({\r\n          email: ['', [Validators.required, Validators.email]],\r\n        }),\r\n      },\r\n      template: `\r\n        <form [formGroup]=\"form\">\r\n            <ngx-input\r\n                formControlName=\"email\"\r\n                [required]=\"required\"\r\n                [label]=\"label\"\r\n                [placeholder]=\"placeholder\"\r\n                [type]=\"type\"\r\n                [errorText]=\"errorText\"\r\n                [helperText]=\"helperText\"\r\n                />\r\n            <br />\r\n            <br />\r\n            {{input}}   \r\n        </form>\r\n            `,\r\n    };\r\n  },\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
                 }
             ],
             "projects/ngx-relic/src/stories/select.stories.ts": [
@@ -4206,7 +4175,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    width: 124,\r\n    position: 'top',\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    width: 224,\r\n    position: 'top',\r\n  },\r\n}"
                 }
             ]
         },
@@ -4554,19 +4523,6 @@
                     "kind": 183
                 }
             ],
-            "projects/ngx-relic/src/stories/input.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<InputComponent>",
-                    "file": "projects/ngx-relic/src/stories/input.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "projects/ngx-relic/src/stories/select.stories.ts": [
                 {
                     "name": "Story",
@@ -4587,6 +4543,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ButtonComponent>",
                     "file": "projects/ngx-relic/src/lib/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ngx-relic/src/lib/input/input.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<InputComponent>",
+                    "file": "projects/ngx-relic/src/lib/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -4636,7 +4605,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 10,
+        "count": 12,
         "status": "low",
         "files": [
             {
@@ -4767,8 +4736,28 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "InputComponent",
+                "coveragePercent": 88,
+                "coverageCount": "8/9",
+                "status": "very-good"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/lib/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "EmailValidation",
                 "coveragePercent": 0,
-                "coverageCount": "0/11",
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/lib/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "input",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -4968,9 +4957,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "TooltipComponent",
-                "coveragePercent": 75,
-                "coverageCount": "3/4",
-                "status": "good"
+                "coveragePercent": 100,
+                "coverageCount": "3/3",
+                "status": "very-good"
             },
             {
                 "filePath": "projects/ngx-relic/src/lib/tooltip/tooltip.stories.ts",
@@ -5022,26 +5011,6 @@
             },
             {
                 "filePath": "projects/ngx-relic/src/stories/datepicker.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Placeholder",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/stories/input.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "input",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/stories/input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

@@ -1,6 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/angular';
-import { moduleMetadata } from '@storybook/angular';
-
+import { type Meta, type StoryObj, moduleMetadata } from '@storybook/angular';
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -10,37 +8,13 @@ import {
 } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA, forwardRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InputComponent, InputModule } from '../lib/input';
-import { BaseInputModule } from '../lib/base-input';
+import { InputComponent, InputModule } from '../input';
+import { BaseInputModule } from '../base-input';
 
 const input: Meta<InputModule> = {
   title: 'Forms/Input',
   component: InputComponent,
   tags: ['autodocs'],
-  argTypes: {
-    placeholder: {
-      control: 'text',
-    },
-    label: {
-      control: 'text',
-    },
-    errorText: {
-      control: 'text',
-    },
-    helperText: {
-      control: 'text',
-    },
-    required: {
-      control: 'boolean',
-    },
-    disabled: {
-      control: 'boolean',
-    },
-    type: {
-      control: 'select',
-      options: ['text', 'email', 'number', 'phone'],
-    },
-  },
   decorators: [
     moduleMetadata({
       declarations: [InputComponent],
@@ -62,7 +36,6 @@ const input: Meta<InputModule> = {
   ],
   render: (args) => {
     const { ...props } = args;
-
     return {
       props: {
         ...props,
@@ -94,13 +67,13 @@ const input: Meta<InputModule> = {
 export default input;
 type Story = StoryObj<InputComponent>;
 
-export const Placeholder: Story = {
+export const EmailValidation: Story = {
   args: {
-    placeholder: 'Ingresa un email',
+    placeholder: 'Type an email',
     label: 'Email',
     required: true,
     disabled: false,
-    errorText: 'Correo invalido',
-    helperText: 'ingresa un correo existente',
+    errorText: 'Invalid email',
+    helperText: 'Type an existent email',
   },
 };
