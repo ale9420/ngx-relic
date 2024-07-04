@@ -1,4 +1,9 @@
 <label class="ngx-label" [ngClass]="{ 'ngx-label--disabled': disabled }">
   <ng-content></ng-content>
-  <span *ngIf="required" class="ngx-label__required">*</span>
+  <span
+    *ngIf="required"
+    class="ngx-label__required"
+    [ngClass]="{ 'ngx-label__required--disabled': disabled }"
+    >*</span
+  >
 </label>

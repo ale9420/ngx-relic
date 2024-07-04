@@ -1,0 +1,43 @@
+import * as ButtonStories from "./button.stories";
+import {
+  Meta,
+  Story,
+  Controls,
+  Canvas,
+  Title,
+  Description,
+  Source,
+} from "@storybook/blocks";
+
+<Meta of={ButtonStories} title="Docs" />
+
+<Title />
+<Description />
+**Table of content:**
+
+- [Overview](#overview)
+- [Properties](#properties)
+
+## Overview
+
+Import `ButtonModule` to your module before using `<ngx-button>` component
+
+```ts
+import { ButtonModule } from "ngx-relic";
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, ButtonModule],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+Using `<ngx-button>` component in the html template
+
+<Source of={ButtonStories.Primary} />
+<Canvas of={ButtonStories.Primary} />
+
+## Properties
+
+<Controls />
