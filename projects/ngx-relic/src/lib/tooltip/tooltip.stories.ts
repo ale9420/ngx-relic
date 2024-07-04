@@ -1,29 +1,31 @@
-import { type Meta, type StoryObj } from '@storybook/angular';
-import { TooltipComponent } from '../lib/tooltip/tooltip.component';
-import { TooltipModule } from '../lib/tooltip';
+import {
+  type Meta,
+  type StoryObj,
+  argsToTemplate,
+  moduleMetadata,
+} from '@storybook/angular';
+import { CommonModule } from '@angular/common';
+import { TooltipComponent, TooltipModule } from './index';
+import { ButtonModule } from '../button';
 
 const tooltip: Meta<TooltipModule> = {
   title: 'Display/Tooltip',
   component: TooltipComponent,
   tags: ['autodocs'],
-
-  argTypes: {
-    width: {
-      control: 'number',
-    },
-    position: {
-      control: 'select',
-      options: ['top', 'bottom', 'left', 'right'],
-    },
-  },
+  decorators: [
+    moduleMetadata({
+      declarations: [TooltipComponent],
+      imports: [CommonModule, ButtonModule],
+    }),
+  ],
   render: (args) => {
     const { ...props } = args;
     return {
       props,
       template: `<div style="display: flex; justify-content: center; align-items: center; height: 300px">
-        <ngx-tooltip [width]="width" [position]="position">
-          <p content class="text--sm">ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD</p>
-          <span>texto de tooltip</span>
+        <ngx-tooltip ${argsToTemplate(args)}>
+          <ngx-button content>Create</ngx-button>
+          <span>Create action tooltip!</span>
         </ngx-tooltip>
       </div>
       `,
@@ -38,8 +40,9 @@ export default tooltip;
 type Story = StoryObj<TooltipComponent>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Tooltip: Story = {
+export const TooltipExample: Story = {
   args: {
-    width: 124,
+    width: 224,
+    position: 'top',
   },
 };

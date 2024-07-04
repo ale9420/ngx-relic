@@ -2510,7 +2510,7 @@
         },
         {
             "name": "TagComponent",
-            "id": "component-TagComponent-9fa44448fb63123ca66a28d789658384ccd4e23fe5097b4bb15529b49d765654e6eb0f11ff4b06715bf9d4332d52d45e3387ef6ff52a2035c604f26a42d68bf9",
+            "id": "component-TagComponent-9dbae0d310f15ae699682b7cb8851fb121d30b5ea3a00c5fa5b566d323076714c83357231e118355dad926efdc8fe84832c3fb2c84dfce884b477ddc99c1731e",
             "file": "projects/ngx-relic/src/lib/tag/tag.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2627,11 +2627,11 @@
             "description": "<p> The <code>&lt;ngx-tag&gt;</code> component is used to display a tag that can contain text, an icon, or both. It is ideal for highlighting information,\ncategorizing elements, or displaying status. This component is highly configurable and allows customizations in style, size and behavior.</p>\n",
             "rawdescription": "\n\n The `<ngx-tag>` component is used to display a tag that can contain text, an icon, or both. It is ideal for highlighting information,\ncategorizing elements, or displaying status. This component is highly configurable and allows customizations in style, size and behavior.\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { Color, TagSize } from '../types';\n\n/**\n * @component\n *  The `<ngx-tag>` component is used to display a tag that can contain text, an icon, or both. It is ideal for highlighting information,\n * categorizing elements, or displaying status. This component is highly configurable and allows customizations in style, size and behavior.\n */\n@Component({\n  selector: 'ngx-tag',\n  templateUrl: './tag.component.html',\n  styleUrls: ['./tag.component.scss'],\n})\nexport class TagComponent {\n  /**\n   * name of the icon\n   * @see {@link https://marella.me/material-icons/demo/} Icon list\n   */\n  @Input()\n  icon = '';\n\n  /**\n   * State color to be applied\n   */\n  @Input()\n  state: Color = 'primary';\n\n  /**\n   * Size of the tag\n   */\n  @Input()\n  size: TagSize = 'medium';\n\n  /**\n   * Enable close feature\n   */\n  @Input()\n  close = false;\n\n  /**\n   * Apply outline style\n   */\n  @Input()\n  outline = false;\n\n  /**\n   * Called event when close button is clicked\n   */\n  @Output()\n  onClose = new EventEmitter();\n\n  get defaultClass() {\n    return `ngx-tag--${this.state}`;\n  }\n\n  get outlineClass() {\n    return `ngx-tag--outline-${this.state}`;\n  }\n\n  get baseClass() {\n    return this.outline ? this.outlineClass : this.defaultClass;\n  }\n\n  protected onCloseClick() {\n    this.onClose.emit();\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { Color, TagSize } from '../types';\n\n/**\n * @component\n *  The `<ngx-tag>` component is used to display a tag that can contain text, an icon, or both. It is ideal for highlighting information,\n * categorizing elements, or displaying status. This component is highly configurable and allows customizations in style, size and behavior.\n */\n@Component({\n  selector: 'ngx-tag',\n  templateUrl: './tag.component.html',\n  styleUrls: ['./tag.component.scss'],\n})\nexport class TagComponent {\n  /**\n   * name of the icon\n   * @see {@link https://marella.me/material-icons/demo/} Icon list\n   */\n  @Input()\n  icon = '';\n\n  /**\n   * State color to be applied\n   */\n  @Input()\n  state: Color = 'primary';\n\n  /**\n   * Size of the tag\n   */\n  @Input()\n  size: TagSize = 'medium';\n\n  /**\n   * Enable close feature\n   */\n  @Input()\n  close = false;\n\n  /**\n   * Apply outline style\n   */\n  @Input()\n  outline = false;\n\n  /**\n   * Called event when close button is clicked\n   */\n  @Output()\n  onClose = new EventEmitter();\n\n  get defaultClass() {\n    return `ngx-tag--${this.state}-${this.size}`;\n  }\n\n  get outlineClass() {\n    return `ngx-tag--outline-${this.state}-${this.size}`;\n  }\n\n  get baseClass() {\n    return this.outline ? this.outlineClass : this.defaultClass;\n  }\n\n  protected onCloseClick() {\n    this.onClose.emit();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../.././assets/scss/utils/variables\";\r\n\r\n:host {\r\n  display: inline-block;\r\n}\r\n\r\n.ngx-tag {\r\n  font-size: 12px;\r\n  display: flex;\r\n  align-items: center;\r\n\r\n  & > em {\r\n    cursor: pointer;\r\n    font-size: 13px;\r\n\r\n    &:hover {\r\n      color: var(--color-neutral-900);\r\n    }\r\n  }\r\n\r\n  @each $variation in $variations {\r\n    &--outline-#{$variation} {\r\n      border: 1px solid var(--color-#{$variation}-500);\r\n      color: var(--color-#{$variation}-400);\r\n    }\r\n\r\n    &--#{$variation} {\r\n      border: 1px solid var(--color-#{$variation}-800);\r\n      background-color: var(--color-#{$variation}-500);\r\n      color: var(--color-slate-50);\r\n    }\r\n  }\r\n}\r\n",
+                    "data": "@import \"../.././assets/scss/utils/variables\";\r\n\r\n:host {\r\n  display: inline-block;\r\n}\r\n\r\n.ngx-tag {\r\n  font-size: 12px;\r\n  display: flex;\r\n  align-items: center;\r\n\r\n  & > em {\r\n    cursor: pointer;\r\n    font-size: 13px;\r\n\r\n    &:hover {\r\n      color: var(--color-neutral-900);\r\n    }\r\n  }\r\n\r\n  @each $variation in $variations {\r\n    &--outline-#{$variation}-small {\r\n      border: 1px solid var(--color-#{$variation}-500);\r\n      color: var(--color-#{$variation}-400);\r\n      font-size: 8px;\r\n\r\n      & > em {\r\n        cursor: pointer;\r\n        font-size: 12px;\r\n      }\r\n    }\r\n\r\n    &--outline-#{$variation}-medium {\r\n      border: 1px solid var(--color-#{$variation}-500);\r\n      color: var(--color-#{$variation}-400);\r\n      font-size: 12px;\r\n\r\n      & > em {\r\n        cursor: pointer;\r\n        font-size: 16px;\r\n      }\r\n    }\r\n\r\n    &--outline-#{$variation}-large {\r\n      border: 1px solid var(--color-#{$variation}-500);\r\n      color: var(--color-#{$variation}-400);\r\n      font-size: 18px;\r\n\r\n      & > em {\r\n        cursor: pointer;\r\n        font-size: 24px;\r\n      }\r\n    }\r\n\r\n    &--#{$variation}-small {\r\n      border: 1px solid var(--color-#{$variation}-800);\r\n      background-color: var(--color-#{$variation}-500);\r\n      color: var(--color-slate-50);\r\n      font-size: 8px;\r\n    }\r\n\r\n    &--#{$variation}-medium {\r\n      border: 1px solid var(--color-#{$variation}-800);\r\n      background-color: var(--color-#{$variation}-500);\r\n      color: var(--color-slate-50);\r\n      font-size: 12px;\r\n    }\r\n\r\n    &--#{$variation}-large {\r\n      border: 1px solid var(--color-#{$variation}-800);\r\n      background-color: var(--color-#{$variation}-500);\r\n      color: var(--color-slate-50);\r\n      font-size: 18px;\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "./tag.component.scss"
                 }
             ],
@@ -2666,11 +2666,11 @@
                     }
                 }
             },
-            "templateData": "<div [ngClass]=\"baseClass\" class=\"ngx-tag rounded-xs p-1\">\n  <ng-content></ng-content>\n  <em *ngIf=\"close\" (click)=\"onCloseClick()\" class=\"material-icons ml-1\"\n    >close</em\n  >\n</div>\n"
+            "templateData": "<div [ngClass]=\"baseClass\" class=\"ngx-tag rounded-xs p-1\">\n  <em *ngIf=\"icon\" class=\"material-icons mr-1\">{{ icon }}</em>\n  <ng-content></ng-content>\n  <em *ngIf=\"close\" (click)=\"onCloseClick()\" class=\"material-icons ml-1\"\n    >close</em\n  >\n</div>\n"
         },
         {
             "name": "TooltipComponent",
-            "id": "component-TooltipComponent-8b0e31726bb6b05ce3a3eb16ff2189e58edfc9a0ec8ac91a2e90e61c6e99adcef43013599118ced6ae00e53aa6e008ff26024e1cad887b2bd33f8cb2845a46d6",
+            "id": "component-TooltipComponent-192d413e1b80ab2e2379649b96d27c7f78416f10ee5b1f534038280b7da3130a682174f7a077d672c7ed19f9f9159fd839725c25d5621ef67dbe7a9b702c2132",
             "file": "projects/ngx-relic/src/lib/tooltip/tooltip.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2692,7 +2692,9 @@
                     "name": "position",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
+                    "rawdescription": "\n\nPosition to be displayed\n",
+                    "description": "<p>Position to be displayed</p>\n",
+                    "line": 24,
                     "type": "\"top\" | \"left\" | \"right\" | \"bottom\"",
                     "decorators": []
                 },
@@ -2700,24 +2702,15 @@
                     "name": "width",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "rawdescription": "\n\nWidth of the tooltip\n",
+                    "description": "<p>Width of the tooltip</p>\n",
+                    "line": 18,
                     "type": "number | string",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "showTooltip",
-                    "defaultValue": "true",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 15
-                }
-            ],
+            "propertiesClass": [],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -2725,14 +2718,14 @@
             "hostListeners": [],
             "standalone": false,
             "imports": [],
-            "description": "",
-            "rawdescription": "\n",
+            "description": "<p>The <code>&lt;ngx-tooltip&gt;</code> component is used to display additional information when the user hovers over or selects an element.\nIt is a useful tool to provide contextual details without cluttering the user interface.</p>\n",
+            "rawdescription": "\n\nThe `<ngx-tooltip>` component is used to display additional information when the user hovers over or selects an element.\nIt is a useful tool to provide contextual details without cluttering the user interface.\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'ngx-tooltip',\n  templateUrl: './tooltip.component.html',\n  styleUrls: ['./tooltip.component.scss'],\n})\nexport class TooltipComponent {\n  @Input()\n  width: number | string;\n\n  @Input()\n  position: 'top' | 'left' | 'right' | 'bottom';\n\n  showTooltip = true;\n\n  constructor() {\n    this.width = '125px';\n    this.position = 'bottom';\n  }\n\n  get contentWidth() {\n    return typeof this.width === 'number' ? `${this.width}px` : this.width;\n  }\n\n  get positionClass() {\n    return `ngx-tooltip__content--${this.position}`;\n  }\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n/**\n * @component\n * The `<ngx-tooltip>` component is used to display additional information when the user hovers over or selects an element.\n * It is a useful tool to provide contextual details without cluttering the user interface.\n */\n@Component({\n  selector: 'ngx-tooltip',\n  templateUrl: './tooltip.component.html',\n  styleUrls: ['./tooltip.component.scss'],\n})\nexport class TooltipComponent {\n  /**\n   * Width of the tooltip\n   */\n  @Input()\n  width: number | string;\n\n  /**\n   * Position to be displayed\n   */\n  @Input()\n  position: 'top' | 'left' | 'right' | 'bottom';\n\n  protected showTooltip = false;\n\n  constructor() {\n    this.width = '125px';\n    this.position = 'bottom';\n  }\n\n  get contentWidth() {\n    return typeof this.width === 'number' ? `${this.width}px` : this.width;\n  }\n\n  get positionClass() {\n    return `ngx-tooltip__content--${this.position}`;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ":host {\r\n  display: inline-block;\r\n}\r\n\r\n@mixin common-tooltip-arrow {\r\n  content: \"\";\r\n  position: absolute;\r\n  border-width: 5px;\r\n  border-style: solid;\r\n}\r\n\r\n.ngx-tooltip {\r\n  position: relative;\r\n  display: inline-block;\r\n\r\n  &__content {\r\n    position: absolute;\r\n    background-color: var(--color-neutral-700);\r\n    color: var(--color-slate-50);\r\n    border-radius: 6px;\r\n\r\n    &--top {\r\n      bottom: 100%;\r\n      left: 50%;\r\n      transform: translateX(-50%);\r\n\r\n      &::after {\r\n        @include common-tooltip-arrow;\r\n        top: 100%;\r\n        left: 50%;\r\n        margin-left: -5px;\r\n        border-color: #555 transparent transparent transparent;\r\n      }\r\n    }\r\n\r\n    &--bottom {\r\n      top: 100%;\r\n      left: 50%;\r\n      transform: translateX(-50%);\r\n\r\n      &::after {\r\n        @include common-tooltip-arrow;\r\n        bottom: 100%;\r\n        left: 50%;\r\n        margin-left: -5px;\r\n        border-color: transparent transparent #555 transparent;\r\n      }\r\n    }\r\n\r\n    &--right {\r\n      bottom: 50%;\r\n      left: 100%;\r\n      transform: translateY(50%);\r\n      margin-left: 10px;\r\n\r\n      &::after {\r\n        @include common-tooltip-arrow;\r\n        top: 50%;\r\n        right: 100%;\r\n        margin-left: 5px;\r\n        border-color: transparent #555 transparent transparent;\r\n      }\r\n    }\r\n\r\n    &--left {\r\n      bottom: 50%;\r\n      right: 100%;\r\n      transform: translateY(50%);\r\n      margin-right: 10px;\r\n\r\n      &::after {\r\n        @include common-tooltip-arrow;\r\n        top: 50%;\r\n        left: 100%;\r\n        border-color: transparent transparent transparent #555;\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+                    "data": ":host {\r\n  display: inline-block;\r\n}\r\n\r\n@mixin common-tooltip-arrow {\r\n  content: \"\";\r\n  position: absolute;\r\n  border-width: 5px;\r\n  border-style: solid;\r\n}\r\n\r\n.ngx-tooltip {\r\n  position: relative;\r\n  display: inline-block;\r\n\r\n  &__content {\r\n    position: absolute;\r\n    background-color: var(--color-neutral-700);\r\n    color: var(--color-slate-50);\r\n    border-radius: 6px;\r\n\r\n    &--top {\r\n      margin-bottom: 11px;\r\n      bottom: 100%;\r\n      left: 50%;\r\n      transform: translateX(-50%);\r\n\r\n      &::after {\r\n        @include common-tooltip-arrow;\r\n        top: 100%;\r\n        left: 50%;\r\n        margin-left: -5px;\r\n        border-color: #555 transparent transparent transparent;\r\n      }\r\n    }\r\n\r\n    &--bottom {\r\n      margin-top: 11px;\r\n      top: 100%;\r\n      left: 50%;\r\n      transform: translateX(-50%);\r\n\r\n      &::after {\r\n        @include common-tooltip-arrow;\r\n        bottom: 100%;\r\n        left: 50%;\r\n        margin-left: -5px;\r\n        border-color: transparent transparent #555 transparent;\r\n      }\r\n    }\r\n\r\n    &--right {\r\n      bottom: 50%;\r\n      left: 100%;\r\n      transform: translateY(50%);\r\n      margin-left: 10px;\r\n\r\n      &::after {\r\n        @include common-tooltip-arrow;\r\n        top: 50%;\r\n        right: 100%;\r\n        margin-left: 11px;\r\n        border-color: transparent #555 transparent transparent;\r\n      }\r\n    }\r\n\r\n    &--left {\r\n      bottom: 50%;\r\n      right: 100%;\r\n      transform: translateY(50%);\r\n      margin-right: 11px;\r\n\r\n      &::after {\r\n        @include common-tooltip-arrow;\r\n        top: 50%;\r\n        left: 100%;\r\n        border-color: transparent transparent transparent #555;\r\n      }\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "./tooltip.component.scss"
                 }
             ],
@@ -2743,7 +2736,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 15
+                "line": 26
             },
             "extends": [],
             "accessors": {
@@ -2753,7 +2746,7 @@
                         "name": "contentWidth",
                         "type": "",
                         "returnType": "",
-                        "line": 22
+                        "line": 33
                     }
                 },
                 "positionClass": {
@@ -2762,7 +2755,7 @@
                         "name": "positionClass",
                         "type": "",
                         "returnType": "",
-                        "line": 26
+                        "line": 37
                     }
                 }
             },
@@ -3553,27 +3546,27 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    close: true,\r\n    state: 'info',\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\">Bogotá</ngx-tag>\r\n      <ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\" class=\"ml-1\">Medellin</ngx-tag>\r\n      <ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\" class=\"ml-1\">Cali</ngx-tag>\r\n      `,\r\n    };\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    close: true,\r\n    state: 'info',\r\n    icon: 'location_city',\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tag ${argsToTemplate(args)}>Bogotá</ngx-tag>\r\n      <ngx-tag ${argsToTemplate(args)} class=\"ml-1\">Medellin</ngx-tag>\r\n      <ngx-tag ${argsToTemplate(args)} class=\"ml-1\">Cali</ngx-tag>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "tooltip",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-relic/src/stories/tooltip.stories.ts",
+                "file": "projects/ngx-relic/src/lib/tooltip/tooltip.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TooltipModule>",
-                "defaultValue": "{\r\n  title: 'Display/Tooltip',\r\n  component: TooltipComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    width: {\r\n      control: 'number',\r\n    },\r\n    position: {\r\n      control: 'select',\r\n      options: ['top', 'bottom', 'left', 'right'],\r\n    },\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<div style=\"display: flex; justify-content: center; align-items: center; height: 300px\">\r\n        <ngx-tooltip [width]=\"width\" [position]=\"position\">\r\n          <p content class=\"text--sm\">ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD</p>\r\n          <span>texto de tooltip</span>\r\n        </ngx-tooltip>\r\n      </div>\r\n      `,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+                "defaultValue": "{\r\n  title: 'Display/Tooltip',\r\n  component: TooltipComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TooltipComponent],\r\n      imports: [CommonModule, ButtonModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<div style=\"display: flex; justify-content: center; align-items: center; height: 300px\">\r\n        <ngx-tooltip ${argsToTemplate(args)}>\r\n          <ngx-button content>Create</ngx-button>\r\n          <span>Create action tooltip!</span>\r\n        </ngx-tooltip>\r\n      </div>\r\n      `,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
             },
             {
-                "name": "Tooltip",
+                "name": "TooltipExample",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-relic/src/stories/tooltip.stories.ts",
+                "file": "projects/ngx-relic/src/lib/tooltip/tooltip.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    width: 124,\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    width: 124,\r\n    position: 'top',\r\n  },\r\n}"
             }
         ],
         "functions": [
@@ -3902,17 +3895,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TooltipComponent>",
-                "file": "projects/ngx-relic/src/stories/tooltip.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonComponent>",
                 "file": "projects/ngx-relic/src/lib/button/button.stories.ts",
                 "deprecated": false,
@@ -3948,6 +3930,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<TagComponent>",
                 "file": "projects/ngx-relic/src/lib/tag/tag.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TooltipComponent>",
+                "file": "projects/ngx-relic/src/lib/tooltip/tooltip.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4191,29 +4184,29 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    close: true,\r\n    state: 'info',\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\">Bogotá</ngx-tag>\r\n      <ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\" class=\"ml-1\">Medellin</ngx-tag>\r\n      <ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\" class=\"ml-1\">Cali</ngx-tag>\r\n      `,\r\n    };\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    close: true,\r\n    state: 'info',\r\n    icon: 'location_city',\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tag ${argsToTemplate(args)}>Bogotá</ngx-tag>\r\n      <ngx-tag ${argsToTemplate(args)} class=\"ml-1\">Medellin</ngx-tag>\r\n      <ngx-tag ${argsToTemplate(args)} class=\"ml-1\">Cali</ngx-tag>\r\n      `,\r\n    };\r\n  },\r\n}"
                 }
             ],
-            "projects/ngx-relic/src/stories/tooltip.stories.ts": [
+            "projects/ngx-relic/src/lib/tooltip/tooltip.stories.ts": [
                 {
                     "name": "tooltip",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/ngx-relic/src/stories/tooltip.stories.ts",
+                    "file": "projects/ngx-relic/src/lib/tooltip/tooltip.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<TooltipModule>",
-                    "defaultValue": "{\r\n  title: 'Display/Tooltip',\r\n  component: TooltipComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    width: {\r\n      control: 'number',\r\n    },\r\n    position: {\r\n      control: 'select',\r\n      options: ['top', 'bottom', 'left', 'right'],\r\n    },\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<div style=\"display: flex; justify-content: center; align-items: center; height: 300px\">\r\n        <ngx-tooltip [width]=\"width\" [position]=\"position\">\r\n          <p content class=\"text--sm\">ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD</p>\r\n          <span>texto de tooltip</span>\r\n        </ngx-tooltip>\r\n      </div>\r\n      `,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+                    "defaultValue": "{\r\n  title: 'Display/Tooltip',\r\n  component: TooltipComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TooltipComponent],\r\n      imports: [CommonModule, ButtonModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<div style=\"display: flex; justify-content: center; align-items: center; height: 300px\">\r\n        <ngx-tooltip ${argsToTemplate(args)}>\r\n          <ngx-button content>Create</ngx-button>\r\n          <span>Create action tooltip!</span>\r\n        </ngx-tooltip>\r\n      </div>\r\n      `,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
                 },
                 {
-                    "name": "Tooltip",
+                    "name": "TooltipExample",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/ngx-relic/src/stories/tooltip.stories.ts",
+                    "file": "projects/ngx-relic/src/lib/tooltip/tooltip.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    width: 124,\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    width: 124,\r\n    position: 'top',\r\n  },\r\n}"
                 }
             ]
         },
@@ -4587,19 +4580,6 @@
                     "kind": 183
                 }
             ],
-            "projects/ngx-relic/src/stories/tooltip.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<TooltipComponent>",
-                    "file": "projects/ngx-relic/src/stories/tooltip.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "projects/ngx-relic/src/lib/button/button.stories.ts": [
                 {
                     "name": "Story",
@@ -4638,12 +4618,25 @@
                     "description": "",
                     "kind": 183
                 }
+            ],
+            "projects/ngx-relic/src/lib/tooltip/tooltip.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TooltipComponent>",
+                    "file": "projects/ngx-relic/src/lib/tooltip/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
             ]
         }
     },
     "routes": [],
     "coverage": {
-        "count": 8,
+        "count": 10,
         "status": "low",
         "files": [
             {
@@ -4975,8 +4968,28 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "TooltipComponent",
+                "coveragePercent": 75,
+                "coverageCount": "3/4",
+                "status": "good"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/lib/tooltip/tooltip.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "tooltip",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/lib/tooltip/tooltip.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TooltipExample",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -5053,26 +5066,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Placeholder",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/stories/tooltip.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "tooltip",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/stories/tooltip.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Tooltip",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

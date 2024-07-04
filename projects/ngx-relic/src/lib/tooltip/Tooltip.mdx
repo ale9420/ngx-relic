@@ -1,0 +1,43 @@
+import * as TooltipStories from "./tooltip.stories";
+import {
+  Meta,
+  Story,
+  Controls,
+  Canvas,
+  Title,
+  Description,
+  Source,
+} from "@storybook/blocks";
+
+<Meta of={TooltipStories} />
+
+<Title />
+<Description />
+**Table of content:**
+
+- [Overview](#overview)
+- [Properties](#properties)
+
+## Overview
+
+Import `TooltipModule` to your module before using `<ngx-tooltip>` component
+
+```ts
+import { TooltipModule } from "ngx-relic";
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, TooltipModule],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+Using `<ngx-tooltip>` component in the html template
+
+<Source of={TooltipStories.TooltipExample} />
+<Canvas of={TooltipStories.TooltipExample} />
+
+## Properties
+
+<Controls />
