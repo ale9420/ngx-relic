@@ -1,0 +1,43 @@
+import * as TagStories from "./tag.stories";
+import {
+  Meta,
+  Story,
+  Controls,
+  Canvas,
+  Title,
+  Description,
+  Source,
+} from "@storybook/blocks";
+
+<Meta of={TagStories} title="Docs" />
+
+<Title />
+<Description />
+**Table of content:**
+
+- [Overview](#overview)
+- [Properties](#properties)
+
+## Overview
+
+Import `TagModule` to your module before using `<ngx-tag>` component
+
+```ts
+import { TagModule } from "ngx-relic";
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, TagModule],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+Using `<ngx-tag>` component in the html template
+
+<Source of={TagStories.TagGroup} />
+<Canvas of={TagStories.TagGroup} />
+
+## Properties
+
+<Controls />

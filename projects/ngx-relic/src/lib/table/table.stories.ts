@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TableModule, TableComponent, TableRowDirective } from './index';
 import { PaginationModule } from '../pagination/pagination.module';
 import { argsToTemplate } from '@storybook/angular';
-import { ButtonComponent, ButtonModule } from '../button';
+import { ButtonModule } from '../button';
 
 function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
