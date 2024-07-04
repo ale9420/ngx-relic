@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "Day",
-            "id": "interface-Day-af59969285d0723f8024069134e6964a5efa2d62fe1fa4a9836ae641f73b98674854747744e2794502b6b9a1f532729668bd11aef0bf183d5eda7c3dd3573f6a",
+            "id": "interface-Day-f2f364713148e4f2524070116198842b2352803ed4815a5570443bac33e0ebd522a2b4dbc36c5cbb493aacbbb26425f33857e92c6d68dea10ce8e1588bfc6101",
             "file": "projects/ngx-relic/src/lib/types.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export type Color =\r\n  | 'primary'\r\n  | 'success'\r\n  | 'info'\r\n  | 'warning'\r\n  | 'danger'\r\n  | 'slate'\r\n  | 'neutral';\r\n\r\nexport type ButtonColor = 'primary' | 'danger' | 'success';\r\n\r\nexport type OnChangeSelectFn<T> = (options: T[]) => void;\r\nexport type OnChange = (value: any) => void;\r\nexport type OnTouched = () => void;\r\n\r\nexport interface SelectOption extends Object {\r\n  selected?: boolean;\r\n}\r\n\r\nexport interface Day {\r\n  day: number;\r\n  name: string;\r\n}\r\n\r\ntype CellAlign = 'left' | 'center' | 'right';\r\n\r\nexport type HeaderStyles = {\r\n  title: string;\r\n  width?: string | number;\r\n  align?: CellAlign;\r\n};\r\n\r\nexport type TableOptions = {\r\n  columns: {\r\n    [key: string]: HeaderStyles;\r\n  };\r\n  body?: {\r\n    [key: string]: {\r\n      align?: CellAlign;\r\n    };\r\n  };\r\n};\r\n",
+            "sourceCode": "export type Color =\r\n  | 'primary'\r\n  | 'success'\r\n  | 'info'\r\n  | 'warning'\r\n  | 'danger'\r\n  | 'slate'\r\n  | 'neutral';\r\n\r\nexport type ButtonColor = 'primary' | 'danger' | 'success';\r\n\r\nexport type OnChangeSelectFn<T> = (options: T[]) => void;\r\nexport type OnChange = (value: any) => void;\r\nexport type OnTouched = () => void;\r\n\r\nexport type TagSize = 'small' | 'medium' | 'large';\r\n\r\nexport interface SelectOption extends Object {\r\n  selected?: boolean;\r\n}\r\n\r\nexport interface Day {\r\n  day: number;\r\n  name: string;\r\n}\r\n\r\ntype CellAlign = 'left' | 'center' | 'right';\r\n\r\nexport type HeaderStyles = {\r\n  title: string;\r\n  width?: string | number;\r\n  align?: CellAlign;\r\n};\r\n\r\nexport type TableOptions = {\r\n  columns: {\r\n    [key: string]: HeaderStyles;\r\n  };\r\n  body?: {\r\n    [key: string]: {\r\n      align?: CellAlign;\r\n    };\r\n  };\r\n};\r\n",
             "properties": [
                 {
                     "name": "day",
@@ -17,7 +17,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 21
+                    "line": 23
                 },
                 {
                     "name": "name",
@@ -26,7 +26,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 22
+                    "line": 24
                 }
             ],
             "indexSignatures": [],
@@ -72,12 +72,12 @@
         },
         {
             "name": "SelectOption",
-            "id": "interface-SelectOption-af59969285d0723f8024069134e6964a5efa2d62fe1fa4a9836ae641f73b98674854747744e2794502b6b9a1f532729668bd11aef0bf183d5eda7c3dd3573f6a",
+            "id": "interface-SelectOption-f2f364713148e4f2524070116198842b2352803ed4815a5570443bac33e0ebd522a2b4dbc36c5cbb493aacbbb26425f33857e92c6d68dea10ce8e1588bfc6101",
             "file": "projects/ngx-relic/src/lib/types.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export type Color =\r\n  | 'primary'\r\n  | 'success'\r\n  | 'info'\r\n  | 'warning'\r\n  | 'danger'\r\n  | 'slate'\r\n  | 'neutral';\r\n\r\nexport type ButtonColor = 'primary' | 'danger' | 'success';\r\n\r\nexport type OnChangeSelectFn<T> = (options: T[]) => void;\r\nexport type OnChange = (value: any) => void;\r\nexport type OnTouched = () => void;\r\n\r\nexport interface SelectOption extends Object {\r\n  selected?: boolean;\r\n}\r\n\r\nexport interface Day {\r\n  day: number;\r\n  name: string;\r\n}\r\n\r\ntype CellAlign = 'left' | 'center' | 'right';\r\n\r\nexport type HeaderStyles = {\r\n  title: string;\r\n  width?: string | number;\r\n  align?: CellAlign;\r\n};\r\n\r\nexport type TableOptions = {\r\n  columns: {\r\n    [key: string]: HeaderStyles;\r\n  };\r\n  body?: {\r\n    [key: string]: {\r\n      align?: CellAlign;\r\n    };\r\n  };\r\n};\r\n",
+            "sourceCode": "export type Color =\r\n  | 'primary'\r\n  | 'success'\r\n  | 'info'\r\n  | 'warning'\r\n  | 'danger'\r\n  | 'slate'\r\n  | 'neutral';\r\n\r\nexport type ButtonColor = 'primary' | 'danger' | 'success';\r\n\r\nexport type OnChangeSelectFn<T> = (options: T[]) => void;\r\nexport type OnChange = (value: any) => void;\r\nexport type OnTouched = () => void;\r\n\r\nexport type TagSize = 'small' | 'medium' | 'large';\r\n\r\nexport interface SelectOption extends Object {\r\n  selected?: boolean;\r\n}\r\n\r\nexport interface Day {\r\n  day: number;\r\n  name: string;\r\n}\r\n\r\ntype CellAlign = 'left' | 'center' | 'right';\r\n\r\nexport type HeaderStyles = {\r\n  title: string;\r\n  width?: string | number;\r\n  align?: CellAlign;\r\n};\r\n\r\nexport type TableOptions = {\r\n  columns: {\r\n    [key: string]: HeaderStyles;\r\n  };\r\n  body?: {\r\n    [key: string]: {\r\n      align?: CellAlign;\r\n    };\r\n  };\r\n};\r\n",
             "properties": [
                 {
                     "name": "selected",
@@ -86,7 +86,7 @@
                     "type": "boolean",
                     "optional": true,
                     "description": "",
-                    "line": 17
+                    "line": 19
                 }
             ],
             "indexSignatures": [],
@@ -2510,7 +2510,7 @@
         },
         {
             "name": "TagComponent",
-            "id": "component-TagComponent-0861f4ad2dea66eed501483e55c9951a3bad99e32432ceb565ece27583cd891165aa54c4c872efec15936c924c4b81a14a12100b79600afe3c5544c2905d7cd5",
+            "id": "component-TagComponent-9fa44448fb63123ca66a28d789658384ccd4e23fe5097b4bb15529b49d765654e6eb0f11ff4b06715bf9d4332d52d45e3387ef6ff52a2035c604f26a42d68bf9",
             "file": "projects/ngx-relic/src/lib/tag/tag.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2533,8 +2533,41 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "rawdescription": "\n\nEnable close feature\n",
+                    "description": "<p>Enable close feature</p>\n",
+                    "line": 38,
                     "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "icon",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "pos": 595,
+                            "end": 661,
+                            "flags": 16842752,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 354,
+                            "tagName": {
+                                "pos": 596,
+                                "end": 599,
+                                "flags": 16842752,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 80,
+                                "escapedText": "see"
+                            },
+                            "comment": "<p>://marella.me/material-icons/demo/{@link https} Icon list</p>\n"
+                        }
+                    ],
+                    "rawdescription": "\n\nname of the icon\nSee {@link https://marella.me/material-icons/demo/} Icon list\n",
+                    "description": "<p>name of the icon\nSee {@link <a href=\"https://marella.me/material-icons/demo/%7D\">https://marella.me/material-icons/demo/}</a> Icon list</p>\n",
+                    "line": 20,
+                    "type": "string",
                     "decorators": []
                 },
                 {
@@ -2542,8 +2575,21 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "rawdescription": "\n\nApply outline style\n",
+                    "description": "<p>Apply outline style</p>\n",
+                    "line": 44,
                     "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'medium'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nSize of the tag\n",
+                    "description": "<p>Size of the tag</p>\n",
+                    "line": 32,
+                    "type": "TagSize",
                     "decorators": []
                 },
                 {
@@ -2551,44 +2597,37 @@
                     "defaultValue": "'primary'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "rawdescription": "\n\nState color to be applied\n",
+                    "description": "<p>State color to be applied</p>\n",
+                    "line": 26,
                     "type": "Color",
                     "decorators": []
                 }
             ],
             "outputsClass": [
                 {
-                    "name": "closeClick",
+                    "name": "onClose",
                     "defaultValue": "new EventEmitter()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "rawdescription": "\n\nCalled event when close button is clicked\n",
+                    "description": "<p>Called event when close button is clicked</p>\n",
+                    "line": 50,
                     "type": "EventEmitter"
                 }
             ],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "onCloseClick",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 34,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
             "standalone": false,
             "imports": [],
-            "description": "",
-            "rawdescription": "\n",
+            "description": "<p> The <code>&lt;ngx-tag&gt;</code> component is used to display a tag that can contain text, an icon, or both. It is ideal for highlighting information,\ncategorizing elements, or displaying status. This component is highly configurable and allows customizations in style, size and behavior.</p>\n",
+            "rawdescription": "\n\n The `<ngx-tag>` component is used to display a tag that can contain text, an icon, or both. It is ideal for highlighting information,\ncategorizing elements, or displaying status. This component is highly configurable and allows customizations in style, size and behavior.\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { Color } from '../types';\n\n@Component({\n  selector: 'ngx-tag',\n  templateUrl: './tag.component.html',\n  styleUrls: ['./tag.component.scss'],\n})\nexport class TagComponent {\n  @Input()\n  state: Color = 'primary';\n\n  @Input()\n  close = false;\n\n  @Input()\n  outline = false;\n\n  @Output()\n  closeClick = new EventEmitter();\n\n  get defaultClass() {\n    return `ngx-tag--${this.state}`;\n  }\n\n  get outlineClass() {\n    return `ngx-tag--outline-${this.state}`;\n  }\n\n  get baseClass() {\n    return this.outline ? this.outlineClass : this.defaultClass;\n  }\n\n  onCloseClick() {\n    this.closeClick.emit();\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { Color, TagSize } from '../types';\n\n/**\n * @component\n *  The `<ngx-tag>` component is used to display a tag that can contain text, an icon, or both. It is ideal for highlighting information,\n * categorizing elements, or displaying status. This component is highly configurable and allows customizations in style, size and behavior.\n */\n@Component({\n  selector: 'ngx-tag',\n  templateUrl: './tag.component.html',\n  styleUrls: ['./tag.component.scss'],\n})\nexport class TagComponent {\n  /**\n   * name of the icon\n   * @see {@link https://marella.me/material-icons/demo/} Icon list\n   */\n  @Input()\n  icon = '';\n\n  /**\n   * State color to be applied\n   */\n  @Input()\n  state: Color = 'primary';\n\n  /**\n   * Size of the tag\n   */\n  @Input()\n  size: TagSize = 'medium';\n\n  /**\n   * Enable close feature\n   */\n  @Input()\n  close = false;\n\n  /**\n   * Apply outline style\n   */\n  @Input()\n  outline = false;\n\n  /**\n   * Called event when close button is clicked\n   */\n  @Output()\n  onClose = new EventEmitter();\n\n  get defaultClass() {\n    return `ngx-tag--${this.state}`;\n  }\n\n  get outlineClass() {\n    return `ngx-tag--outline-${this.state}`;\n  }\n\n  get baseClass() {\n    return this.outline ? this.outlineClass : this.defaultClass;\n  }\n\n  protected onCloseClick() {\n    this.onClose.emit();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2605,7 +2644,7 @@
                         "name": "defaultClass",
                         "type": "",
                         "returnType": "",
-                        "line": 22
+                        "line": 52
                     }
                 },
                 "outlineClass": {
@@ -2614,7 +2653,7 @@
                         "name": "outlineClass",
                         "type": "",
                         "returnType": "",
-                        "line": 26
+                        "line": 56
                     }
                 },
                 "baseClass": {
@@ -2623,7 +2662,7 @@
                         "name": "baseClass",
                         "type": "",
                         "returnType": "",
-                        "line": 30
+                        "line": 60
                     }
                 }
             },
@@ -3327,16 +3366,6 @@
                 "defaultValue": "{\r\n  args: {\r\n    paginator: false,\r\n    data: generateRandomData(10) as any[],\r\n    options: {\r\n      columns: {\r\n        firstName: {\r\n          title: 'First name',\r\n          width: '100px',\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          title: 'Last name',\r\n          align: 'left',\r\n          width: '100px',\r\n        },\r\n        age: {\r\n          title: 'Age',\r\n        },\r\n        city: {\r\n          title: 'City',\r\n        },\r\n      },\r\n      body: {\r\n        firstName: {\r\n          align: 'left',\r\n        },\r\n        lastName: {\r\n          align: 'left',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
-                "name": "Close",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ngx-relic/src/stories/tag.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    close: true,\r\n    state: 'info',\r\n  },\r\n}"
-            },
-            {
                 "name": "CustomColumns",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -3500,21 +3529,31 @@
                 "name": "tag",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-relic/src/stories/tag.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<TagModule>",
-                "defaultValue": "{\r\n  title: 'Display/Tag',\r\n  component: TagComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    close: {\r\n      control: 'boolean',\r\n    },\r\n    outline: {\r\n      control: 'boolean',\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['primary', 'danger', 'success', 'info', 'warning', 'neutral'],\r\n    },\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\">Texto de prueba</ngx-tag>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
-            },
-            {
-                "name": "tag",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ngx-relic/src/lib/label/label.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<LabelModule>",
                 "defaultValue": "{\r\n  title: 'Display/Label',\r\n  component: LabelComponent,\r\n  tags: ['autodocs'],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-label [required]=\"required\" [disabled]=\"disabled\">First name</ngx-label>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+            },
+            {
+                "name": "tag",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/lib/tag/tag.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TagModule>",
+                "defaultValue": "{\r\n  title: 'Display/Tag',\r\n  component: TagComponent,\r\n  tags: ['autodocs'],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\">Tag</ngx-tag>\r\n\r\n      `,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+            },
+            {
+                "name": "TagGroup",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/lib/tag/tag.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    close: true,\r\n    state: 'info',\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\">Bogotá</ngx-tag>\r\n      <ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\" class=\"ml-1\">Medellin</ngx-tag>\r\n      <ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\" class=\"ml-1\">Cali</ngx-tag>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "tooltip",
@@ -3863,17 +3902,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TagComponent>",
-                "file": "projects/ngx-relic/src/stories/tag.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<TooltipComponent>",
                 "file": "projects/ngx-relic/src/stories/tooltip.stories.ts",
                 "deprecated": false,
@@ -3915,6 +3943,17 @@
                 "kind": 183
             },
             {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TagComponent>",
+                "file": "projects/ngx-relic/src/lib/tag/tag.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
                 "name": "TableOptions",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
@@ -3924,6 +3963,17 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 187
+            },
+            {
+                "name": "TagSize",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"small\" | \"medium\" | \"large\"",
+                "file": "projects/ngx-relic/src/lib/types.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 192
             }
         ],
         "enumerations": [],
@@ -3968,28 +4018,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<TableModule>",
                     "defaultValue": "{\r\n  title: 'Data/Table',\r\n  component: TableComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TableComponent, TableRowDirective],\r\n      imports: [CommonModule, PaginationModule, ButtonModule],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `\r\n         <ngx-table ${argsToTemplate(args)}>\r\n        </ngx-table>\r\n              `,\r\n    };\r\n  },\r\n}"
-                }
-            ],
-            "projects/ngx-relic/src/stories/tag.stories.ts": [
-                {
-                    "name": "Close",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ngx-relic/src/stories/tag.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    close: true,\r\n    state: 'info',\r\n  },\r\n}"
-                },
-                {
-                    "name": "tag",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ngx-relic/src/stories/tag.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TagModule>",
-                    "defaultValue": "{\r\n  title: 'Display/Tag',\r\n  component: TagComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    close: {\r\n      control: 'boolean',\r\n    },\r\n    outline: {\r\n      control: 'boolean',\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['primary', 'danger', 'success', 'info', 'warning', 'neutral'],\r\n    },\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\">Texto de prueba</ngx-tag>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
                 }
             ],
             "projects/ngx-relic/src/lib/button/button.stories.ts": [
@@ -4142,6 +4170,28 @@
                     "deprecationMessage": "",
                     "type": "Meta<LabelModule>",
                     "defaultValue": "{\r\n  title: 'Display/Label',\r\n  component: LabelComponent,\r\n  tags: ['autodocs'],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-label [required]=\"required\" [disabled]=\"disabled\">First name</ngx-label>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+                }
+            ],
+            "projects/ngx-relic/src/lib/tag/tag.stories.ts": [
+                {
+                    "name": "tag",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/lib/tag/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TagModule>",
+                    "defaultValue": "{\r\n  title: 'Display/Tag',\r\n  component: TagComponent,\r\n  tags: ['autodocs'],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\">Tag</ngx-tag>\r\n\r\n      `,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+                },
+                {
+                    "name": "TagGroup",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-relic/src/lib/tag/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    close: true,\r\n    state: 'info',\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\">Bogotá</ngx-tag>\r\n      <ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\" class=\"ml-1\">Medellin</ngx-tag>\r\n      <ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\" class=\"ml-1\">Cali</ngx-tag>\r\n      `,\r\n    };\r\n  },\r\n}"
                 }
             ],
             "projects/ngx-relic/src/stories/tooltip.stories.ts": [
@@ -4404,6 +4454,17 @@
                     "deprecationMessage": "",
                     "description": "",
                     "kind": 187
+                },
+                {
+                    "name": "TagSize",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"small\" | \"medium\" | \"large\"",
+                    "file": "projects/ngx-relic/src/lib/types.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 192
                 }
             ],
             "projects/ngx-relic/src/lib/core/types.ts": [
@@ -4526,19 +4587,6 @@
                     "kind": 183
                 }
             ],
-            "projects/ngx-relic/src/stories/tag.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<TagComponent>",
-                    "file": "projects/ngx-relic/src/stories/tag.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "projects/ngx-relic/src/stories/tooltip.stories.ts": [
                 {
                     "name": "Story",
@@ -4577,12 +4625,25 @@
                     "description": "",
                     "kind": 183
                 }
+            ],
+            "projects/ngx-relic/src/lib/tag/tag.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TagComponent>",
+                    "file": "projects/ngx-relic/src/lib/tag/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
             ]
         }
     },
     "routes": [],
     "coverage": {
-        "count": 6,
+        "count": 8,
         "status": "low",
         "files": [
             {
@@ -4885,8 +4946,28 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "TagComponent",
+                "coveragePercent": 100,
+                "coverageCount": "7/7",
+                "status": "very-good"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/lib/tag/tag.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "tag",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/lib/tag/tag.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TagGroup",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -4972,26 +5053,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Placeholder",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/stories/tag.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Close",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/stories/tag.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "tag",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
