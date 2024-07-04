@@ -1,0 +1,43 @@
+import * as InputStories from "./input.stories";
+import {
+  Meta,
+  Story,
+  Controls,
+  Canvas,
+  Title,
+  Description,
+  Source,
+} from "@storybook/blocks";
+
+<Meta of={InputStories} title="Docs" />
+
+<Title />
+<Description />
+**Table of content:**
+
+- [Overview](#overview)
+- [Properties](#properties)
+
+## Overview
+
+Import `InputModule` to your module before using `<ngx-input>` component
+
+```ts
+import { InputModule } from "ngx-relic";
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, InputModule],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+Using `<ngx-input>` component in the html template
+
+<Source of={InputStories.EmailValidation} />
+<Canvas of={InputStories.EmailValidation} />
+
+## Properties
+
+<Controls />
