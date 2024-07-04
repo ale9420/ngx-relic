@@ -595,7 +595,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-fb7bb753d542d1f17d4c71b803ef42ad4d33f6bb3c55e3406b84ac09800ed61b9eb52c417dfe9baba6591f30b0e567061e70ed52a4968516b666e453cb77ccd4",
+            "id": "component-ButtonComponent-7192ed3b0e1e2e2746df9d3d5138ef56c576654d3e0620c4df36765d25db1a052cd7034a5d2a87c536779c3ae5426dc5a2245d2fd7bd3c4964e3c04ea813a8dc",
             "file": "projects/ngx-relic/src/lib/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -616,7 +616,7 @@
                     "defaultValue": "'primary'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
+                    "line": 22,
                     "type": "ButtonColor",
                     "decorators": []
                 },
@@ -627,7 +627,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nDisable button functionality\n",
                     "description": "<p>Disable button functionality</p>\n",
-                    "line": 35,
+                    "line": 34,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -638,15 +638,15 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 450,
-                            "end": 517,
+                            "pos": 383,
+                            "end": 450,
                             "flags": 16842752,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 354,
                             "tagName": {
-                                "pos": 451,
-                                "end": 454,
+                                "pos": 384,
+                                "end": 387,
                                 "flags": 16842752,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -658,7 +658,7 @@
                     ],
                     "rawdescription": "\n\nname of the icon\nSee {@link https://marella.me/material-icons/demo/} Icon list\n",
                     "description": "<p>name of the icon\nSee {@link <a href=\"https://marella.me/material-icons/demo/%7D\">https://marella.me/material-icons/demo/}</a> Icon list</p>\n",
-                    "line": 20,
+                    "line": 19,
                     "type": "string | null",
                     "decorators": []
                 },
@@ -669,7 +669,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nApply outline variation\n",
                     "description": "<p>Apply outline variation</p>\n",
-                    "line": 29,
+                    "line": 28,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -680,7 +680,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nApply plain variation\n",
                     "description": "<p>Apply plain variation</p>\n",
-                    "line": 41,
+                    "line": 40,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -694,10 +694,10 @@
             "hostListeners": [],
             "standalone": false,
             "imports": [],
-            "description": "<p>The <code>&lt;ngx-button&gt;</code> component is a wrapper for <code>&lt;button&gt;</code> element\nSee {@link <a href=\"https://marella.me/material-icons/demo/%7D\">https://marella.me/material-icons/demo/}</a> Icon list</p>\n",
-            "rawdescription": "\n\nThe `<ngx-button>` component is a wrapper for `<button>` element\nSee {@link https://marella.me/material-icons/demo/} Icon list\n",
+            "description": "<p>The <code>&lt;ngx-button&gt;</code> component is a wrapper for <code>&lt;button&gt;</code> element</p>\n",
+            "rawdescription": "\n\nThe `<ngx-button>` component is a wrapper for `<button>` element\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { ButtonColor } from '../types';\r\n\r\n/**\r\n * @component\r\n * The `<ngx-button>` component is a wrapper for `<button>` element\r\n * @see {@link https://marella.me/material-icons/demo/} Icon list\r\n */\r\n@Component({\r\n  selector: 'ngx-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrl: './button.component.scss',\r\n})\r\nexport class ButtonComponent {\r\n  /**\r\n   * name of the icon\r\n   * @see {@link https://marella.me/material-icons/demo/} Icon list\r\n   */\r\n  @Input()\r\n  icon: string | null = null;\r\n\r\n  @Input()\r\n  color: ButtonColor = 'primary';\r\n\r\n  /**\r\n   * Apply outline variation\r\n   */\r\n  @Input()\r\n  outline = false;\r\n\r\n  /**\r\n   * Disable button functionality\r\n   */\r\n  @Input()\r\n  disabled = false;\r\n\r\n  /**\r\n   * Apply plain variation\r\n   */\r\n  @Input()\r\n  plain = false;\r\n\r\n  /**\r\n   * Base class applied to the button component\r\n   * @return scss class applied to the button\r\n   */\r\n  protected get baseClass() {\r\n    if (this.outline) return `ngx-button--outline-${this.color}`;\r\n    if (this.plain) return `ngx-button--plain-${this.color}`;\r\n\r\n    return `ngx-button--default-${this.color}`;\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { ButtonColor } from '../types';\r\n\r\n/**\r\n * @component\r\n * The `<ngx-button>` component is a wrapper for `<button>` element\r\n */\r\n@Component({\r\n  selector: 'ngx-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrl: './button.component.scss',\r\n})\r\nexport class ButtonComponent {\r\n  /**\r\n   * name of the icon\r\n   * @see {@link https://marella.me/material-icons/demo/} Icon list\r\n   */\r\n  @Input()\r\n  icon: string | null = null;\r\n\r\n  @Input()\r\n  color: ButtonColor = 'primary';\r\n\r\n  /**\r\n   * Apply outline variation\r\n   */\r\n  @Input()\r\n  outline = false;\r\n\r\n  /**\r\n   * Disable button functionality\r\n   */\r\n  @Input()\r\n  disabled = false;\r\n\r\n  /**\r\n   * Apply plain variation\r\n   */\r\n  @Input()\r\n  plain = false;\r\n\r\n  /**\r\n   * Base class applied to the button component\r\n   * @return scss class applied to the button\r\n   */\r\n  protected get baseClass() {\r\n    if (this.outline) return `ngx-button--outline-${this.color}`;\r\n    if (this.plain) return `ngx-button--plain-${this.color}`;\r\n\r\n    return `ngx-button--default-${this.color}`;\r\n  }\r\n}\r\n",
             "styleUrl": "./button.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -1429,7 +1429,7 @@
         },
         {
             "name": "LabelComponent",
-            "id": "component-LabelComponent-0048a4e2b7d1b35daad4cacf9e69e0fc9143aae5969a51a37b176df7869d5fad01bdef23268bac4ce6de752cc708b9118ca6b2db1f618ad06a260e40891f65d7",
+            "id": "component-LabelComponent-809f566adb5037da5451b81bb58c0e5429ced502215650e176793f5767fff90a84af058450b2e20ab2cb794effb337b8c78f37238bb9f427188cc46f59044240",
             "file": "projects/ngx-relic/src/lib/label/label.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1450,7 +1450,9 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
+                    "rawdescription": "\n\nDisabled state to change styles\n",
+                    "description": "<p>Disabled state to change styles</p>\n",
+                    "line": 23,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -1459,7 +1461,9 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "rawdescription": "\n\nShows that the form control component is required\n",
+                    "description": "<p>Shows that the form control component is required</p>\n",
+                    "line": 17,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -1473,16 +1477,16 @@
             "hostListeners": [],
             "standalone": false,
             "imports": [],
-            "description": "",
-            "rawdescription": "\n",
+            "description": "<p>This component is used as part of any forms component to display the label of the form control</p>\n",
+            "rawdescription": "\n\nThis component is used as part of any forms component to display the label of the form control\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'ngx-label',\r\n  templateUrl: './label.component.html',\r\n  styleUrl: './label.component.scss',\r\n})\r\nexport class LabelComponent {\r\n  @Input()\r\n  required = false;\r\n\r\n  @Input()\r\n  disabled = false;\r\n}\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n/**\r\n * @component\r\n * This component is used as part of any forms component to display the label of the form control\r\n */\r\n@Component({\r\n  selector: 'ngx-label',\r\n  templateUrl: './label.component.html',\r\n  styleUrl: './label.component.scss',\r\n})\r\nexport class LabelComponent {\r\n  /**\r\n   * Shows that the form control component is required\r\n   */\r\n  @Input()\r\n  required = false;\r\n\r\n  /**\r\n   * Disabled state to change styles\r\n   */\r\n  @Input()\r\n  disabled = false;\r\n}\r\n",
             "styleUrl": "./label.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<label class=\"ngx-label\" [ngClass]=\"{ 'ngx-label--disabled': disabled }\">\r\n  <ng-content></ng-content>\r\n  <span *ngIf=\"required\" class=\"ngx-label__required\">*</span>\r\n</label>\r\n"
+            "templateData": "<label class=\"ngx-label\" [ngClass]=\"{ 'ngx-label--disabled': disabled }\">\r\n  <ng-content></ng-content>\r\n  <span\r\n    *ngIf=\"required\"\r\n    class=\"ngx-label__required\"\r\n    [ngClass]=\"{ 'ngx-label__required--disabled': disabled }\"\r\n    >*</span\r\n  >\r\n</label>\r\n"
         },
         {
             "name": "PaginationComponent",
@@ -3466,7 +3470,7 @@
                 "name": "Required",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-relic/src/stories/label.stories.ts",
+                "file": "projects/ngx-relic/src/lib/label/label.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -3496,21 +3500,21 @@
                 "name": "tag",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-relic/src/stories/label.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<LabelModule>",
-                "defaultValue": "{\r\n  title: 'Display/Label',\r\n  component: LabelComponent,\r\n  tags: ['autodocs'],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-label [required]=\"required\" [disabled]=\"disabled\">Texto de prueba</ngx-label>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
-            },
-            {
-                "name": "tag",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ngx-relic/src/stories/tag.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TagModule>",
                 "defaultValue": "{\r\n  title: 'Display/Tag',\r\n  component: TagComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    close: {\r\n      control: 'boolean',\r\n    },\r\n    outline: {\r\n      control: 'boolean',\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['primary', 'danger', 'success', 'info', 'warning', 'neutral'],\r\n    },\r\n  },\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-tag [close]=\"close\" [state]=\"state\" [outline]=\"outline\">Texto de prueba</ngx-tag>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+            },
+            {
+                "name": "tag",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-relic/src/lib/label/label.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<LabelModule>",
+                "defaultValue": "{\r\n  title: 'Display/Label',\r\n  component: LabelComponent,\r\n  tags: ['autodocs'],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-label [required]=\"required\" [disabled]=\"disabled\">First name</ngx-label>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
             },
             {
                 "name": "tooltip",
@@ -3848,17 +3852,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<LabelComponent>",
-                "file": "projects/ngx-relic/src/stories/label.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<SelectComponent<any, any>>",
                 "file": "projects/ngx-relic/src/stories/select.stories.ts",
                 "deprecated": false,
@@ -3894,6 +3887,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonComponent>",
                 "file": "projects/ngx-relic/src/lib/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<LabelComponent>",
+                "file": "projects/ngx-relic/src/lib/label/label.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4118,12 +4122,12 @@
                     "defaultValue": "{\r\n  parameters: {\r\n    previewTabs: {\r\n      'storybook/docs/panel': { hidden: true },\r\n    },\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n  tags: ['autodocs'],\r\n}"
                 }
             ],
-            "projects/ngx-relic/src/stories/label.stories.ts": [
+            "projects/ngx-relic/src/lib/label/label.stories.ts": [
                 {
                     "name": "Required",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/ngx-relic/src/stories/label.stories.ts",
+                    "file": "projects/ngx-relic/src/lib/label/label.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -4133,11 +4137,11 @@
                     "name": "tag",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/ngx-relic/src/stories/label.stories.ts",
+                    "file": "projects/ngx-relic/src/lib/label/label.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<LabelModule>",
-                    "defaultValue": "{\r\n  title: 'Display/Label',\r\n  component: LabelComponent,\r\n  tags: ['autodocs'],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-label [required]=\"required\" [disabled]=\"disabled\">Texto de prueba</ngx-label>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
+                    "defaultValue": "{\r\n  title: 'Display/Label',\r\n  component: LabelComponent,\r\n  tags: ['autodocs'],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n    return {\r\n      props,\r\n      template: `<ngx-label [required]=\"required\" [disabled]=\"disabled\">First name</ngx-label>`,\r\n    };\r\n  },\r\n\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n}"
                 }
             ],
             "projects/ngx-relic/src/stories/tooltip.stories.ts": [
@@ -4509,19 +4513,6 @@
                     "kind": 183
                 }
             ],
-            "projects/ngx-relic/src/stories/label.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<LabelComponent>",
-                    "file": "projects/ngx-relic/src/stories/label.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "projects/ngx-relic/src/stories/select.stories.ts": [
                 {
                     "name": "Story",
@@ -4573,12 +4564,25 @@
                     "description": "",
                     "kind": 183
                 }
+            ],
+            "projects/ngx-relic/src/lib/label/label.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<LabelComponent>",
+                    "file": "projects/ngx-relic/src/lib/label/label.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
             ]
         }
     },
     "routes": [],
     "coverage": {
-        "count": 4,
+        "count": 6,
         "status": "low",
         "files": [
             {
@@ -4718,8 +4722,28 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "LabelComponent",
+                "coveragePercent": 100,
+                "coverageCount": "3/3",
+                "status": "very-good"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/lib/label/label.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Required",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/lib/label/label.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "tag",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -4928,26 +4952,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Placeholder",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/stories/label.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Required",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/stories/label.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "tag",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

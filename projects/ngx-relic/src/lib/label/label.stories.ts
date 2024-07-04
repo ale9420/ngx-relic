@@ -1,5 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
-import { LabelComponent, LabelModule } from '../lib/label';
+import { LabelComponent, LabelModule } from './index';
 
 const tag: Meta<LabelModule> = {
   title: 'Display/Label',
@@ -9,7 +9,7 @@ const tag: Meta<LabelModule> = {
     const { ...props } = args;
     return {
       props,
-      template: `<ngx-label [required]="required" [disabled]="disabled">Texto de prueba</ngx-label>`,
+      template: `<ngx-label [required]="required" [disabled]="disabled">First name</ngx-label>`,
     };
   },
 

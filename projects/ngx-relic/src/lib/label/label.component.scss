@@ -21,6 +21,10 @@
     @media (prefers-color-scheme: dark) {
       color: var(--color-danger-500);
     }
+
+    &--disabled {
+      color: var(--color-danger-200);
+    }
   }
 
   &--disabled {

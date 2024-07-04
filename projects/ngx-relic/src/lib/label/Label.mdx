@@ -1,0 +1,43 @@
+import * as LabelStories from "./label.stories";
+import {
+  Meta,
+  Story,
+  Controls,
+  Canvas,
+  Title,
+  Description,
+  Source,
+} from "@storybook/blocks";
+
+<Meta of={LabelStories} title="Docs" />
+
+<Title />
+<Description />
+**Table of content:**
+
+- [Overview](#overview)
+- [Properties](#properties)
+
+## Overview
+
+Import `LabelModule` to your module before using `<ngx-label>` component
+
+```ts
+import { LabelModule } from "ngx-relic";
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, LabelModule],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+Using `<ngx-label>` component in the html template
+
+<Source of={LabelStories.Required} />
+<Canvas of={LabelStories.Required} />
+
+## Properties
+
+<Controls />
