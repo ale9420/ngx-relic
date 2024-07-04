@@ -96,7 +96,7 @@ export class TableComponent<TItem extends object> implements OnInit {
     this.paginatedData = this.data.slice(initialIndex, finalIndex);
   }
 
-  findRow(columnName: string) {
+  protected findRow(columnName: string) {
     const column = this.tableRows?.find((i) => i.appTableRow === columnName);
     if (column) return column.element;
     return null;

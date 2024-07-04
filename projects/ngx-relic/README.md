@@ -11,7 +11,7 @@ Run `npm i ngx-relic`
 Add the following code to your styles.scss file, it is possible to customize the theme colors of the library.
 
 ```scss
-@import "node_modules/ngx-relic/src/assets/scss/_main.scss";
+@import "ngx-relic";
 
 $palette-colors: (
   slate: #64748b,
@@ -27,24 +27,6 @@ $palette-colors: (
   $colors: setup($palette-colors);
   @include apply-theme($colors);
 }
-```
-
-Import NGX-Relic module in the main module of your application
-
-```typescript
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { NgxRelicModule } from "ngx-relic";
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, NgxRelicModule],
-  providers: [],
-  bootstrap: [AppComponent],
-})
-export class AppModule {}
 ```
 
 ## Icons
