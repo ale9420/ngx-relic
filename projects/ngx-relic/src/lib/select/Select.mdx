@@ -1,0 +1,43 @@
+import * as SelectStories from "./select.stories";
+import {
+  Meta,
+  Story,
+  Controls,
+  Canvas,
+  Title,
+  Description,
+  Source,
+} from "@storybook/blocks";
+
+<Meta of={SelectStories} title="Docs" />
+
+<Title />
+<Description />
+**Table of content:**
+
+- [Overview](#overview)
+- [Properties](#properties)
+
+## Overview
+
+Import `SelectModule` to your module before using `<ngx-select>` component
+
+```ts
+import { SelectModule } from "ngx-relic";
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, SelectModule],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+Using `<ngx-select>` component in the html template
+
+<Source of={SelectStories.Placeholder} />
+<Canvas of={SelectStories.Placeholder} />
+
+## Properties
+
+<Controls />

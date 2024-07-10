@@ -39,8 +39,9 @@
 
   <div #optionsContainer class="ngx-select__options-container" *ngIf="isOpen">
     <cdk-virtual-scroll-viewport
-      itemSize="4"
-      minBufferPx="168"
+      [style.minHeight]="itemBufferSize"
+      [itemSize]="itemScrollSize"
+      [minBufferPx]="itemBufferSize"
       maxBufferPx="400"
       class="ngx-select__scroll"
     >
