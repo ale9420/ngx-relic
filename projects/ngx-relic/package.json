@@ -19,6 +19,9 @@
     "@types/luxon": "^3.4.2",
     "luxon": "^3.4.4"
   },
+  "devDependencies": {
+    "ngx-cva-test-suite": "^2.0.1"
+  },
   "dependencies": {
     "tslib": "^2.3.0"
   },

@@ -1,20 +1,48 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { InputComponent } from './index';
+import { InputComponent, InputModule } from './index';
 import { BaseInputModule } from '../base-input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CoreModule } from '../core/core.module';
+import { Component } from '@angular/core';
+
+@Component({
+  template: `
+    <form [formGroup]="form">
+      <ngx-input
+        label="First name"
+        placeholder="Type a name"
+        type="text"
+        formControlName="input"
+      />
+    </form>
+  `,
+  imports: [FormsModule, ReactiveFormsModule, InputModule],
+})
+class InputFormControlComponent {
+  form: FormGroup;
+
+  constructor(fb: FormBuilder) {
+    this.form = fb.group({
+      input: fb.control(''),
+    });
+  }
+}
 
 describe('InputComponent', () => {
-  let component: InputComponent;
-  let fixture: ComponentFixture<InputComponent>;
+  let component: InputFormControlComponent;
+  let fixture: ComponentFixture<InputFormControlComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [InputComponent],
       imports: [BaseInputModule, FormsModule, ReactiveFormsModule, CoreModule],
     });
-    fixture = TestBed.createComponent(InputComponent);
+    fixture = TestBed.createComponent(InputFormControlComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

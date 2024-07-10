@@ -1,23 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TableRowDirective } from './table-row.directive';
-import { inject, TemplateRef } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 
 describe('TableRowDirective', () => {
-  let component: TableRowDirective;
-  let fixture: ComponentFixture<TableRowDirective>;
-  let injects: TableRowDirective;
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [TableRowDirective],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(TableRowDirective);
-
-    injects = fixture.debugElement.injector.get(inject);
-    component = fixture.componentInstance;
-  });
-
   it('should create an instance', () => {
-    expect(injects).toBeTruthy();
+    TestBed.configureTestingModule({
+      declarations: [TableRowDirective],
+      schemas: [NO_ERRORS_SCHEMA],
+    });
+
+    TestBed.runInInjectionContext(async () => {
+      const directive = new TableRowDirective();
+      expect(directive).toBeTruthy();
+    });
   });
 });
