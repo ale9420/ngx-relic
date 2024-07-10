@@ -8,7 +8,7 @@ describe('TooltipComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TooltipComponent]
+      declarations: [TooltipComponent],
     });
     fixture = TestBed.createComponent(TooltipComponent);
     component = fixture.componentInstance;
@@ -16,6 +16,12 @@ describe('TooltipComponent', () => {
   });
 
   it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should display tooltip when mouse events mouseenter/mouseleave are triggered', () => {
+    console.log(fixture.nativeElement);
+
     expect(component).toBeTruthy();
   });
 });

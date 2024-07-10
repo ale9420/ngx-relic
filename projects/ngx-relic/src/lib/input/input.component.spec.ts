@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputComponent } from './input.component';
+import { InputComponent } from './index';
+import { BaseInputModule } from '../base-input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CoreModule } from '../core/core.module';
 
 describe('InputComponent', () => {
   let component: InputComponent;
@@ -8,7 +11,8 @@ describe('InputComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [InputComponent]
+      declarations: [InputComponent],
+      imports: [BaseInputModule, FormsModule, ReactiveFormsModule, CoreModule],
     });
     fixture = TestBed.createComponent(InputComponent);
     component = fixture.componentInstance;
