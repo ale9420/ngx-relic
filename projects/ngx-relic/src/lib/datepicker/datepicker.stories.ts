@@ -16,7 +16,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, forwardRef } from '@angular/core';
 import { DatepickerComponent, DatepickerModule } from '../datepicker';
 import { BaseInputModule } from '../base-input';
 import { PlaceholderModule } from '../placeholder';
-import { HiddenDirective } from '../core';
 import { CoreModule } from '../core/core.module';
 import { ButtonModule } from '../button';
 

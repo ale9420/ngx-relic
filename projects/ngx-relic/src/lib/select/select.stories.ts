@@ -24,30 +24,6 @@ const input: Meta<SelectModule> = {
   title: 'Forms/Select',
   component: SelectComponent,
   tags: ['autodocs'],
-  argTypes: {
-    placeholder: {
-      control: 'text',
-    },
-    label: {
-      control: 'text',
-    },
-    errorText: {
-      control: 'text',
-    },
-    helperText: {
-      control: 'text',
-    },
-    required: {
-      control: 'boolean',
-    },
-    disabled: {
-      control: 'boolean',
-    },
-    type: {
-      control: 'select',
-      options: ['text', 'email', 'number', 'phone'],
-    },
-  },
   decorators: [
     moduleMetadata({
       declarations: [SelectComponent, SelectItemComponent],
@@ -84,11 +60,11 @@ const input: Meta<SelectModule> = {
           },
           {
             id: 2,
-            name: 'Comercial',
+            name: 'Guest',
           },
           {
             id: 3,
-            name: 'Mesa de gestion',
+            name: 'Management desk',
           },
         ],
         form: new FormBuilder().group({

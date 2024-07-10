@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LabelComponent } from './label.component';
+import { LabelComponent, LabelModule } from './index';
 
 describe('LabelComponent', () => {
   let component: LabelComponent;
@@ -8,10 +8,9 @@ describe('LabelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LabelComponent]
-    })
-    .compileComponents();
-    
+      imports: [LabelModule],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(LabelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BaseInputComponent } from './base-input.component';
+import { LabelModule } from '../label';
 
 describe('BaseInputComponent', () => {
   let component: BaseInputComponent;
@@ -8,7 +9,8 @@ describe('BaseInputComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BaseInputComponent]
+      declarations: [BaseInputComponent],
+      imports: [LabelModule],
     });
     fixture = TestBed.createComponent(BaseInputComponent);
     component = fixture.componentInstance;

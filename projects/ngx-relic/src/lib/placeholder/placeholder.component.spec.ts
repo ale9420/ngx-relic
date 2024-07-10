@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlaceholderComponent } from './placeholder.component';
+import { PlaceholderComponent, PlaceholderModule } from './index';
 
 describe('PlaceholderComponent', () => {
   let component: PlaceholderComponent;
@@ -8,10 +8,9 @@ describe('PlaceholderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PlaceholderComponent]
-    })
-    .compileComponents();
-    
+      imports: [PlaceholderModule],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(PlaceholderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

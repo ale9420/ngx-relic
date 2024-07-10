@@ -71,7 +71,7 @@ export class TableComponent<TItem extends object> implements OnInit {
   protected DEFAULT_TD_ALIGN = 'center';
 
   get headers() {
-    return Object.keys(this.options.columns);
+    return this.options ? Object.keys(this.options.columns) : null;
   }
 
   /**

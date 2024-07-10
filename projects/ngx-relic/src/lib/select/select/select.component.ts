@@ -42,7 +42,7 @@ export class SelectComponent<T extends object, U extends keyof T>
   implements OnInit, ControlValueAccessor
 {
   @Input()
-  options!: T[];
+  options: T[] = [];
 
   /**
    * The label associated with the datepicker field.

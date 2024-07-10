@@ -1,6 +1,6 @@
 {
   "name": "ngx-relic",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "keywords": [
     "angular",
     "components",
@@ -18,6 +18,9 @@
     "material-icons": "^1.13.7",
     "@types/luxon": "^3.4.2",
     "luxon": "^3.4.4"
+  },
+  "devDependencies": {
+    "ngx-cva-test-suite": "^2.0.1"
   },
   "dependencies": {
     "tslib": "^2.3.0"
