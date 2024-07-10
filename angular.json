@@ -54,6 +54,7 @@
               "-d",
               "projects/ngx-relic",
               "--disableProtected",
+              "--disablePrivate",
               "--watch"
             ],
             "port": 6006,

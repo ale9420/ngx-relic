@@ -1,0 +1,43 @@
+import * as DatepickerStories from "./datepicker.stories";
+import {
+  Meta,
+  Story,
+  Controls,
+  Canvas,
+  Title,
+  Description,
+  Source,
+} from "@storybook/blocks";
+
+<Meta of={DatepickerStories} title="Docs" />
+
+<Title />
+<Description />
+**Table of content:**
+
+- [Overview](#overview)
+- [Properties](#properties)
+
+## Overview
+
+Import `DatepickerModule` to your module before using `<ngx-datepicker>` component
+
+```ts
+import { DatepickerModule } from "ngx-relic";
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, DatepickerModule],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+Using `<ngx-datepicker>` component in the html template
+
+<Source of={DatepickerStories.DateFormControl} />
+<Canvas of={DatepickerStories.DateFormControl} />
+
+## Properties
+
+<Controls />

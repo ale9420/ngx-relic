@@ -1,5 +1,9 @@
-import { type Meta, type StoryObj } from '@storybook/angular';
-import { moduleMetadata } from '@storybook/angular';
+import {
+  type Meta,
+  type StoryObj,
+  moduleMetadata,
+  argsToTemplate,
+} from '@storybook/angular';
 import { CommonModule } from '@angular/common';
 import {
   FormsModule,
@@ -9,12 +13,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA, forwardRef } from '@angular/core';
-import { DatepickerComponent, DatepickerModule } from '../lib/datepicker';
-import { BaseInputModule } from '../lib/base-input';
-import { PlaceholderModule } from '../lib/placeholder';
-import { HiddenDirective } from '../lib/core';
-import { CoreModule } from '../lib/core/core.module';
-import { ButtonModule } from '../public-api';
+import { DatepickerComponent, DatepickerModule } from '../datepicker';
+import { BaseInputModule } from '../base-input';
+import { PlaceholderModule } from '../placeholder';
+import { HiddenDirective } from '../core';
+import { CoreModule } from '../core/core.module';
+import { ButtonModule } from '../button';
 
 const datepicker: Meta<DatepickerModule> = {
   title: 'Forms/Datepicker',
@@ -22,23 +26,6 @@ const datepicker: Meta<DatepickerModule> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-  },
-  argTypes: {
-    placeholder: {
-      control: 'text',
-    },
-    label: {
-      control: 'text',
-    },
-    errorText: {
-      control: 'text',
-    },
-    helperText: {
-      control: 'text',
-    },
-    required: {
-      control: 'boolean',
-    },
   },
   decorators: [
     moduleMetadata({
@@ -76,11 +63,7 @@ const datepicker: Meta<DatepickerModule> = {
           <form style="height: 350px;" [formGroup]="form">
               <ngx-datepicker
                   formControlName="date"
-                  [required]="required"
-                  [label]="label"
-                  [placeholder]="placeholder"
-                  [errorText]="errorText"
-                  [helperText]="helperText"
+                  ${argsToTemplate(args)}
                   />
               <br />
               <br />
@@ -95,7 +78,7 @@ const datepicker: Meta<DatepickerModule> = {
 export default datepicker;
 type Story = StoryObj<DatepickerComponent>;
 
-export const Placeholder: Story = {
+export const DateFormControl: Story = {
   args: {
     placeholder: 'Ingresa una fecha',
     label: 'Fecha de nacimiento',
