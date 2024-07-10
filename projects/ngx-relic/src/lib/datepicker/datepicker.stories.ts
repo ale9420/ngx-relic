@@ -80,9 +80,9 @@ type Story = StoryObj<DatepickerComponent>;
 
 export const DateFormControl: Story = {
   args: {
-    placeholder: 'Ingresa una fecha',
-    label: 'Fecha de nacimiento',
+    placeholder: 'Enter a date',
+    label: 'Birthdate',
     required: true,
-    errorText: 'Required field',
+    errorText: 'This field is required',
   },
 };
