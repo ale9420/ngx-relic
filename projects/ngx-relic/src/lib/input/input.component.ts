@@ -63,7 +63,7 @@ export class InputComponent {
 
   protected readonly _cvaDirective = inject<CvaDirective>(CvaDirective);
 
-  protected onChange(value: string | number) {
+  onChange(value: string | number) {
     this._cvaDirective.onChange(value);
     this._cvaDirective.onTouched();
   }

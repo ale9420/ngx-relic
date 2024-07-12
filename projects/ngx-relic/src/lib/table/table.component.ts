@@ -43,7 +43,7 @@ export class TableComponent<TItem extends object> implements OnInit {
    * Current paginated page from the table
    */
   @Input()
-  currentPage = 1;
+  currentPage = 0;
 
   /**
    * Enable pagination for the table
