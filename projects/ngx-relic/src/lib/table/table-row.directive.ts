@@ -5,5 +5,6 @@ import { Directive, Input, TemplateRef, inject } from '@angular/core';
 })
 export class TableRowDirective {
   @Input() appTableRow = '';
+
   element = inject(TemplateRef);
 }

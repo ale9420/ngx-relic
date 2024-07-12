@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TooltipComponent } from './tooltip.component';
+import { By } from '@angular/platform-browser';
 
 describe('TooltipComponent', () => {
   let component: TooltipComponent;
@@ -15,13 +15,25 @@ describe('TooltipComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should display tooltip when mouse events mouseenter/mouseleave are triggered', () => {
-    console.log(fixture.nativeElement);
+    expect(
+      fixture.debugElement.query(By.css('.ngx-tooltip__content')),
+    ).toBeNull();
 
-    expect(component).toBeTruthy();
+    fixture.nativeElement
+      .querySelector('.ngx-tooltip')
+      .dispatchEvent(new Event('mouseenter'));
+
+    expect(
+      fixture.debugElement.query(By.css('.ngx-tooltip__content')),
+    ).toBeDefined();
+
+    fixture.nativeElement
+      .querySelector('.ngx-tooltip')
+      .dispatchEvent(new Event('mouseleave'));
+
+    expect(
+      fixture.debugElement.query(By.css('.ngx-tooltip__content')),
+    ).toBeNull();
   });
 });
