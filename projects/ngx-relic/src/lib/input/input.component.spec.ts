@@ -19,6 +19,8 @@ import { Component } from '@angular/core';
         type="text"
         formControlName="input"
       />
+
+      <span id="form-value">{{ form.get('input').value }}</span>
     </form>
   `,
   imports: [FormsModule, ReactiveFormsModule, InputModule],
@@ -47,7 +49,21 @@ describe('InputComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should change input value', () => {
+    component.form.get('input')?.setValue('Alejo');
+    fixture.detectChanges();
+
+    console.log(fixture.nativeElement.innerHTML);
+
+    expect(
+      fixture.nativeElement.querySelector('#form-value').innerHTML,
+    ).toEqual('Alejo');
+
+    component.form.get('input')?.setValue('');
+    fixture.detectChanges();
+
+    expect(
+      fixture.nativeElement.querySelector('#form-value').innerHTML,
+    ).toEqual('');
   });
 });
