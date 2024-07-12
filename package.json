@@ -6,6 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:storybook": "ng run ngx-relic:storybook",
     "build": "ng build ngx-relic",
     "build:storybook": "ng run ngx-relic:build-storybook",
     "watch": "ng build ngx-relic --watch --configuration development",
@@ -15,7 +16,7 @@
   },
   "dependencies": {
     "@angular/animations": "^18.1.0",
-    "@angular/cdk": "^17.3.9",
+    "@angular/cdk": "^18.1.0",
     "@angular/common": "^18.1.0",
     "@angular/compiler": "^18.1.0",
     "@angular/core": "^18.1.0",
@@ -51,6 +52,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-mocks": "^14.13.0",
     "ng-packagr": "^18.1.0",
     "ngx-cva-test-suite": "^2.0.1",
     "remark-gfm": "^4.0.0",

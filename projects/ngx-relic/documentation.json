@@ -417,12 +417,12 @@
         },
         {
             "name": "TableRowDirective",
-            "id": "directive-TableRowDirective-d6fb02b07cc874362279a7afe6641adea5924a5f82386788a177eea98b8b8afea1205c56acd8355a4adb62a9f9da28a250be99e131ace82af815ed0f8ae3cfa4",
+            "id": "directive-TableRowDirective-929331b28d0e7f3f42c375d2f167f70f22e8436102f2006209e373004c1fcb7f917e63f9ea3e26072c50f7b334e9a760e2c5d91722d7a5b9dae53089ff3a3581",
             "file": "projects/ngx-relic/src/lib/table/table-row.directive.ts",
             "type": "directive",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Directive, Input, TemplateRef, inject } from '@angular/core';\r\n\r\n@Directive({\r\n  selector: 'ng-template[appTableRow]',\r\n})\r\nexport class TableRowDirective {\r\n  @Input() appTableRow = '';\r\n  element = inject(TemplateRef);\r\n}\r\n",
+            "sourceCode": "import { Directive, Input, TemplateRef, inject } from '@angular/core';\r\n\r\n@Directive({\r\n  selector: 'ng-template[appTableRow]',\r\n})\r\nexport class TableRowDirective {\r\n  @Input() appTableRow = '';\r\n\r\n  element = inject(TemplateRef);\r\n}\r\n",
             "selector": "ng-template[appTableRow]",
             "providers": [],
             "hostDirectives": [],
@@ -452,7 +452,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 8
+                    "line": 9
                 }
             ],
             "methodsClass": [],
@@ -1205,7 +1205,7 @@
         },
         {
             "name": "SelectComponent",
-            "id": "component-SelectComponent-1b6904e89c4e7f66c26e4d7e02952ecbbc1c150c8637d85facc69dd95445cb3bd63dcb3791083bf23d5442dd292a3527b842b7280849e2e2155c5d9f0fe667a5",
+            "id": "component-SelectComponent-b0732fb4a5a38266e2211f719f858772640ede76183802cfccf4438b7ee79cb8a123bb6a26de1b7099fba84ea34ec7e8b7cc62034ed9f12514d24657248173c7",
             "file": "projects/ngx-relic/src/lib/select/select/select.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1307,6 +1307,7 @@
                 },
                 {
                     "name": "options",
+                    "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 45,
@@ -1383,7 +1384,7 @@
             "description": "<p>The <code>&lt;ngx-select&gt;</code> component is used to allow users to choose an option from a drop-down set of options. It is a highly\ncustomizable component that supports multiple options, multiple selection, and various style and behavior settings.</p>\n",
             "rawdescription": "\n\nThe `<ngx-select>` component is used to allow users to choose an option from a drop-down set of options. It is a highly\ncustomizable component that supports multiple options, multiple selection, and various style and behavior settings.\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  OnInit,\n  Input,\n  HostListener,\n  ElementRef,\n  inject,\n  forwardRef,\n  Injector,\n} from '@angular/core';\nimport {\n  ControlValueAccessor,\n  FormControl,\n  FormControlDirective,\n  FormControlName,\n  FormGroupDirective,\n  NG_VALUE_ACCESSOR,\n  NgControl,\n  NgModel,\n} from '@angular/forms';\nimport { OnChangeSelectFn, OnTouched, SelectOption } from '../../types';\nimport { Subject, takeUntil, tap } from 'rxjs';\n\n/**\n * @component\n * The `<ngx-select>` component is used to allow users to choose an option from a drop-down set of options. It is a highly\n * customizable component that supports multiple options, multiple selection, and various style and behavior settings.\n */\n@Component({\n  selector: 'ngx-select',\n  templateUrl: './select.component.html',\n  styleUrls: ['./select.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      multi: true,\n      useExisting: forwardRef(() => SelectComponent),\n    },\n  ],\n})\nexport class SelectComponent<T extends object, U extends keyof T>\n  implements OnInit, ControlValueAccessor\n{\n  @Input()\n  options!: T[];\n\n  /**\n   * The label associated with the datepicker field.\n   */\n  @Input()\n  label = '';\n\n  /**\n   * The placeholder text displayed when the field is empty.\n   */\n  @Input()\n  placeholder = '';\n\n  /**\n   * Text displayed in the bottom of the input component when the\n   * input value does not comply with the expected validation\n   */\n  @Input()\n  errorText = '';\n\n  /**\n   * Text displayed in the bottom of the input component as a helper for the user\n   */\n  @Input()\n  helperText = '';\n\n  /**\n   * Key label property from the type of objects passed through the options Input\n   */\n  @Input()\n  labelKey = '';\n\n  /**\n   * Key value property from the type of objects passed through the options Input\n   */\n  @Input()\n  valueKey = '';\n\n  /**\n   * Indicates if multiple option selection is enabled\n   */\n  @Input()\n  multiple = false;\n\n  /**\n   * Indicates whether the input field is mandatory\n   */\n  @Input()\n  required = false;\n\n  /**\n   * Indicates if the component is disabled\n   */\n  @Input()\n  disabled = false;\n\n  /**\n   * Indicates if the select options are closed after the selection of an option\n   */\n  @Input()\n  closeOnSelect = true;\n\n  /**\n   * Maximum number of selected options in the placeholder field\n   */\n  @Input()\n  showMax = 1;\n\n  protected isOpen = false;\n  protected internalOptions: SelectOption[] = [];\n  protected selectedOptions: T[] = [];\n  private elementRef = inject(ElementRef);\n  private injector = inject(Injector);\n  protected control!: FormControl;\n  protected destroy = new Subject();\n  protected onChange!: OnChangeSelectFn<T>;\n  protected onTouched!: OnTouched;\n\n  /**\n   * @private\n   * @ignore\n   */\n  @HostListener('document:click', ['$event'])\n  onDocumentClick(event: MouseEvent) {\n    const clickedElement = event.target as HTMLElement;\n    const element = this.elementRef.nativeElement.querySelector('#element');\n    if (this.isOpen && element && !element.contains(clickedElement)) {\n      this.onTouched();\n      this.isOpen = false;\n    }\n  }\n\n  /**\n   * @private\n   * @ignore\n   */\n  ngOnInit() {\n    this.internalOptions = this.options.map((i) => ({ ...i, selected: false }));\n    this.setupModel();\n  }\n\n  /**\n   * @private\n   * @ignore\n   */\n  ngOnDestroy() {\n    this.destroy.next(true);\n    this.destroy.complete();\n  }\n\n  get showSelectedOptions() {\n    return this.selectedOptions.slice(0, this.showMax);\n  }\n\n  get selectedLabels() {\n    if (this.selectedOptions.length === 0) return this.placeholder;\n\n    if (this.multiple)\n      return this.selectedOptions\n        .map((i) => this.getKeyValue(this.labelKey as U, i))\n        .join(',');\n\n    return this.getKeyValue(this.labelKey as U, this.selectedOptions[0]);\n  }\n\n  get hasErrors() {\n    return this.control.errors && this.control.touched;\n  }\n\n  get itemScrollSize() {\n    return this.options.length >= 4 ? 4 : this.options.length;\n  }\n\n  get itemBufferSize() {\n    console.log(this.itemScrollSize * 38.8);\n    return `${Math.round(this.itemScrollSize * 38.8)}px`;\n  }\n\n  protected setupModel() {\n    const injectedControl = this.injector.get(NgControl);\n\n    switch (injectedControl.constructor) {\n      case NgModel: {\n        const { control, update } = injectedControl as NgModel;\n\n        this.control = control;\n\n        this.control.valueChanges\n          .pipe(\n            tap((value: T) => update.emit(value)),\n            takeUntil(this.destroy),\n          )\n          .subscribe();\n        break;\n      }\n      case FormControlName: {\n        this.control = this.injector\n          .get(FormGroupDirective)\n          .getControl(injectedControl as FormControlName);\n        break;\n      }\n      default: {\n        this.control = (injectedControl as FormControlDirective)\n          .form as FormControl;\n        break;\n      }\n    }\n\n    this.control.registerOnDisabledChange((isDisabled) => {\n      this.disabled = isDisabled;\n    });\n\n    this.disabled = this.control.status === 'DISABLED';\n  }\n\n  /**\n   * @private\n   * @ignore\n   */\n  writeValue(value: T[]): void {\n    if (value) {\n      this.selectedOptions = value;\n    }\n  }\n\n  /**\n   * @private\n   * @ignore\n   */\n  registerOnChange(fn: OnChangeSelectFn<T>): void {\n    this.onChange = fn;\n  }\n\n  /**\n   * @private\n   * @ignore\n   */\n  registerOnTouched(fn: OnTouched): void {\n    this.onTouched = fn;\n  }\n\n  protected onMultipleClick(\n    { selected, ...option }: SelectOption,\n    index: number,\n  ) {\n    const selectedOption = this.selectedOptions.find(\n      (i) =>\n        this.getKeyValue(this.valueKey as U, i as T) ===\n        this.getKeyValue(this.valueKey as U, option as T),\n    );\n\n    if (!selectedOption) {\n      this.selectedOptions.push(option as T);\n      this.internalOptions[index].selected = !selected;\n    } else {\n      this.selectedOptions = this.selectedOptions.filter(\n        (i) =>\n          this.getKeyValue(this.valueKey as U, i as T) !==\n          this.getKeyValue(this.valueKey as U, option as T),\n      );\n\n      this.internalOptions[index].selected = !selected;\n    }\n    this.onTouched();\n    this.onChange([...this.selectedOptions]);\n    this.onItemClick();\n  }\n\n  protected onSingleClick({ selected, ...rest }: SelectOption, index: number) {\n    this.clearSelection();\n    this.selectedOptions = [rest as T];\n    this.internalOptions[index].selected = !selected;\n    this.onTouched();\n    this.onChange(this.selectedOptions);\n    this.onItemClick();\n  }\n\n  protected removeItem(item: SelectOption) {\n    this.selectedOptions = this.selectedOptions.filter(\n      (i) =>\n        this.getKeyValue(this.valueKey as U, i as T) !==\n        this.getKeyValue(this.valueKey as U, item as T),\n    );\n    const internalIndex = this.internalOptions.findIndex(\n      (i) =>\n        this.getKeyValue(this.valueKey as U, i as T) ===\n        this.getKeyValue(this.valueKey as U, item as T),\n    );\n    this.internalOptions[internalIndex].selected = false;\n    this.onChange(this.selectedOptions);\n  }\n\n  protected clearSelection() {\n    const index = this.internalOptions.findIndex((i) => i.selected);\n    if (index > -1) this.internalOptions[index].selected = false;\n  }\n\n  /**\n   * Render the select options\n   */\n  openSelect() {\n    this.isOpen = !this.isOpen;\n  }\n\n  protected onItemClick() {\n    if (this.closeOnSelect) this.isOpen = false;\n  }\n\n  protected getKeyValue(key: U, object: T) {\n    return object[key];\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  OnInit,\n  Input,\n  HostListener,\n  ElementRef,\n  inject,\n  forwardRef,\n  Injector,\n} from '@angular/core';\nimport {\n  ControlValueAccessor,\n  FormControl,\n  FormControlDirective,\n  FormControlName,\n  FormGroupDirective,\n  NG_VALUE_ACCESSOR,\n  NgControl,\n  NgModel,\n} from '@angular/forms';\nimport { OnChangeSelectFn, OnTouched, SelectOption } from '../../types';\nimport { Subject, takeUntil, tap } from 'rxjs';\n\n/**\n * @component\n * The `<ngx-select>` component is used to allow users to choose an option from a drop-down set of options. It is a highly\n * customizable component that supports multiple options, multiple selection, and various style and behavior settings.\n */\n@Component({\n  selector: 'ngx-select',\n  templateUrl: './select.component.html',\n  styleUrls: ['./select.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      multi: true,\n      useExisting: forwardRef(() => SelectComponent),\n    },\n  ],\n})\nexport class SelectComponent<T extends object, U extends keyof T>\n  implements OnInit, ControlValueAccessor\n{\n  @Input()\n  options: T[] = [];\n\n  /**\n   * The label associated with the datepicker field.\n   */\n  @Input()\n  label = '';\n\n  /**\n   * The placeholder text displayed when the field is empty.\n   */\n  @Input()\n  placeholder = '';\n\n  /**\n   * Text displayed in the bottom of the input component when the\n   * input value does not comply with the expected validation\n   */\n  @Input()\n  errorText = '';\n\n  /**\n   * Text displayed in the bottom of the input component as a helper for the user\n   */\n  @Input()\n  helperText = '';\n\n  /**\n   * Key label property from the type of objects passed through the options Input\n   */\n  @Input()\n  labelKey = '';\n\n  /**\n   * Key value property from the type of objects passed through the options Input\n   */\n  @Input()\n  valueKey = '';\n\n  /**\n   * Indicates if multiple option selection is enabled\n   */\n  @Input()\n  multiple = false;\n\n  /**\n   * Indicates whether the input field is mandatory\n   */\n  @Input()\n  required = false;\n\n  /**\n   * Indicates if the component is disabled\n   */\n  @Input()\n  disabled = false;\n\n  /**\n   * Indicates if the select options are closed after the selection of an option\n   */\n  @Input()\n  closeOnSelect = true;\n\n  /**\n   * Maximum number of selected options in the placeholder field\n   */\n  @Input()\n  showMax = 1;\n\n  protected isOpen = false;\n  protected internalOptions: SelectOption[] = [];\n  protected selectedOptions: T[] = [];\n  private elementRef = inject(ElementRef);\n  private injector = inject(Injector);\n  protected control!: FormControl;\n  protected destroy = new Subject();\n  protected onChange!: OnChangeSelectFn<T>;\n  protected onTouched!: OnTouched;\n\n  /**\n   * @private\n   * @ignore\n   */\n  @HostListener('document:click', ['$event'])\n  onDocumentClick(event: MouseEvent) {\n    const clickedElement = event.target as HTMLElement;\n    const element = this.elementRef.nativeElement.querySelector('#element');\n    if (this.isOpen && element && !element.contains(clickedElement)) {\n      this.onTouched();\n      this.isOpen = false;\n    }\n  }\n\n  /**\n   * @private\n   * @ignore\n   */\n  ngOnInit() {\n    this.internalOptions = this.options.map((i) => ({ ...i, selected: false }));\n    this.setupModel();\n  }\n\n  /**\n   * @private\n   * @ignore\n   */\n  ngOnDestroy() {\n    this.destroy.next(true);\n    this.destroy.complete();\n  }\n\n  get showSelectedOptions() {\n    return this.selectedOptions.slice(0, this.showMax);\n  }\n\n  get selectedLabels() {\n    if (this.selectedOptions.length === 0) return this.placeholder;\n\n    if (this.multiple)\n      return this.selectedOptions\n        .map((i) => this.getKeyValue(this.labelKey as U, i))\n        .join(',');\n\n    return this.getKeyValue(this.labelKey as U, this.selectedOptions[0]);\n  }\n\n  get hasErrors() {\n    return this.control.errors && this.control.touched;\n  }\n\n  get itemScrollSize() {\n    return this.options.length >= 4 ? 4 : this.options.length;\n  }\n\n  get itemBufferSize() {\n    console.log(this.itemScrollSize * 38.8);\n    return `${Math.round(this.itemScrollSize * 38.8)}px`;\n  }\n\n  protected setupModel() {\n    const injectedControl = this.injector.get(NgControl);\n\n    switch (injectedControl.constructor) {\n      case NgModel: {\n        const { control, update } = injectedControl as NgModel;\n\n        this.control = control;\n\n        this.control.valueChanges\n          .pipe(\n            tap((value: T) => update.emit(value)),\n            takeUntil(this.destroy),\n          )\n          .subscribe();\n        break;\n      }\n      case FormControlName: {\n        this.control = this.injector\n          .get(FormGroupDirective)\n          .getControl(injectedControl as FormControlName);\n        break;\n      }\n      default: {\n        this.control = (injectedControl as FormControlDirective)\n          .form as FormControl;\n        break;\n      }\n    }\n\n    this.control.registerOnDisabledChange((isDisabled) => {\n      this.disabled = isDisabled;\n    });\n\n    this.disabled = this.control.status === 'DISABLED';\n  }\n\n  /**\n   * @private\n   * @ignore\n   */\n  writeValue(value: T[]): void {\n    if (value) {\n      this.selectedOptions = value;\n    }\n  }\n\n  /**\n   * @private\n   * @ignore\n   */\n  registerOnChange(fn: OnChangeSelectFn<T>): void {\n    this.onChange = fn;\n  }\n\n  /**\n   * @private\n   * @ignore\n   */\n  registerOnTouched(fn: OnTouched): void {\n    this.onTouched = fn;\n  }\n\n  protected onMultipleClick(\n    { selected, ...option }: SelectOption,\n    index: number,\n  ) {\n    const selectedOption = this.selectedOptions.find(\n      (i) =>\n        this.getKeyValue(this.valueKey as U, i as T) ===\n        this.getKeyValue(this.valueKey as U, option as T),\n    );\n\n    if (!selectedOption) {\n      this.selectedOptions.push(option as T);\n      this.internalOptions[index].selected = !selected;\n    } else {\n      this.selectedOptions = this.selectedOptions.filter(\n        (i) =>\n          this.getKeyValue(this.valueKey as U, i as T) !==\n          this.getKeyValue(this.valueKey as U, option as T),\n      );\n\n      this.internalOptions[index].selected = !selected;\n    }\n    this.onTouched();\n    this.onChange([...this.selectedOptions]);\n    this.onItemClick();\n  }\n\n  protected onSingleClick({ selected, ...rest }: SelectOption, index: number) {\n    this.clearSelection();\n    this.selectedOptions = [rest as T];\n    this.internalOptions[index].selected = !selected;\n    this.onTouched();\n    this.onChange(this.selectedOptions);\n    this.onItemClick();\n  }\n\n  protected removeItem(item: SelectOption) {\n    this.selectedOptions = this.selectedOptions.filter(\n      (i) =>\n        this.getKeyValue(this.valueKey as U, i as T) !==\n        this.getKeyValue(this.valueKey as U, item as T),\n    );\n    const internalIndex = this.internalOptions.findIndex(\n      (i) =>\n        this.getKeyValue(this.valueKey as U, i as T) ===\n        this.getKeyValue(this.valueKey as U, item as T),\n    );\n    this.internalOptions[internalIndex].selected = false;\n    this.onChange(this.selectedOptions);\n  }\n\n  protected clearSelection() {\n    const index = this.internalOptions.findIndex((i) => i.selected);\n    if (index > -1) this.internalOptions[index].selected = false;\n  }\n\n  /**\n   * Render the select options\n   */\n  openSelect() {\n    this.isOpen = !this.isOpen;\n  }\n\n  protected onItemClick() {\n    if (this.closeOnSelect) this.isOpen = false;\n  }\n\n  protected getKeyValue(key: U, object: T) {\n    return object[key];\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1511,7 +1512,7 @@
         },
         {
             "name": "TableComponent",
-            "id": "component-TableComponent-8cfbb904004d10b393b40eba2db2f24a31043db4b07ae9f523a234faaa015e2e66ca021e2481dd44cdb57c21bfa61a25ec9a64103c9662bca25ef15504a61fb5",
+            "id": "component-TableComponent-32d96c6b64ae30cf189111267eb43052956980025bce916dca3ac028842319399a405beb2c036053541d7bd734a7aadbb1c24d540aa36106ab9ea9182717a6e4",
             "file": "projects/ngx-relic/src/lib/table/table.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1614,7 +1615,7 @@
             "description": "<p>The <code>&lt;ngx-table&gt;</code> component render data through the <strong>Data Input</strong>, it is necessary to use the <strong>options Input</strong>\nto configure the columns to be displayed and editable visual changes for each one (title, width, align). Also, the <strong>body property</strong>\nallows editable alignment for each cell of a column</p>\n",
             "rawdescription": "\n\n\nThe `<ngx-table>` component render data through the **Data Input**, it is necessary to use the **options Input**\nto configure the columns to be displayed and editable visual changes for each one (title, width, align). Also, the **body property**\nallows editable alignment for each cell of a column\n",
             "type": "component",
-            "sourceCode": "import {\r\n  Component,\r\n  ContentChildren,\r\n  Input,\r\n  OnInit,\r\n  QueryList,\r\n} from '@angular/core';\r\nimport { TableRowDirective } from './table-row.directive';\r\nimport { TableOptions } from '../types';\r\n\r\n/**\r\n *\r\n * @component\r\n * The `<ngx-table>` component render data through the **Data Input**, it is necessary to use the **options Input**\r\n * to configure the columns to be displayed and editable visual changes for each one (title, width, align). Also, the **body property**\r\n * allows editable alignment for each cell of a column\r\n */\r\n@Component({\r\n  selector: 'ngx-table',\r\n  templateUrl: './table.component.html',\r\n  styleUrl: './table.component.scss',\r\n})\r\nexport class TableComponent<TItem extends object> implements OnInit {\r\n  /**\r\n   * Custom table rows to render\r\n   */\r\n  @ContentChildren(TableRowDirective)\r\n  tableRows?: QueryList<TableRowDirective>;\r\n\r\n  /**\r\n   * Options object to allow you to configure header and body properties\r\n   */\r\n  @Input()\r\n  options!: TableOptions;\r\n\r\n  /**\r\n   * Array of objects to display in the table\r\n   */\r\n  @Input()\r\n  data: TItem[] = [];\r\n\r\n  /**\r\n   * Current paginated page from the table\r\n   */\r\n  @Input()\r\n  currentPage = 1;\r\n\r\n  /**\r\n   * Enable pagination for the table\r\n   */\r\n  @Input()\r\n  paginator = true;\r\n\r\n  /**\r\n   * Limit of items displayed per page\r\n   */\r\n  @Input()\r\n  limit = 10;\r\n\r\n  /**\r\n   * Total number of data items\r\n   */\r\n  protected total = 0;\r\n\r\n  /**\r\n   * Current paginated data to render\r\n   */\r\n  protected paginatedData: TItem[] = [];\r\n\r\n  protected DEFAULT_COLUMN_WIDTH = '225px';\r\n  protected DEFAULT_TD_ALIGN = 'center';\r\n\r\n  get headers() {\r\n    return Object.keys(this.options.columns);\r\n  }\r\n\r\n  /**\r\n   * @private\r\n   * @ignore\r\n   */\r\n  ngOnInit(): void {\r\n    this.paginatedData = this.paginator\r\n      ? this.data.slice(0, this.limit)\r\n      : this.data;\r\n    this.total = this.data.length;\r\n  }\r\n\r\n  /**\r\n   * Change the current paginated page\r\n   * @param page\r\n   */\r\n  protected changePage(page: number) {\r\n    this.currentPage = page;\r\n    const initialIndex = this.limit * this.currentPage;\r\n    const finalIndex = initialIndex + this.limit;\r\n    this.paginatedData = this.data.slice(initialIndex, finalIndex);\r\n  }\r\n\r\n  protected findRow(columnName: string) {\r\n    const column = this.tableRows?.find((i) => i.appTableRow === columnName);\r\n    if (column) return column.element;\r\n    return null;\r\n  }\r\n\r\n  /**\r\n   * Apply header styles for one column\r\n   * @param columnName property of the columns object contained in the options input\r\n   * @returns minWidth and textAlign css properties\r\n   */\r\n  protected headerStyles(columnName: string) {\r\n    return {\r\n      minWidth:\r\n        this.options?.columns && this.options?.columns[columnName]\r\n          ? this.options?.columns[columnName]?.width\r\n          : this.DEFAULT_COLUMN_WIDTH,\r\n      textAlign:\r\n        this.options?.columns && this.options?.columns[columnName]\r\n          ? this.options?.columns[columnName].align\r\n          : this.DEFAULT_TD_ALIGN,\r\n    };\r\n  }\r\n\r\n  /**\r\n   * Apply styles for a cell of the table\r\n   * @param columnName property of the columns object contained in the options input\r\n   * @returns textAlign css property\r\n   */\r\n  protected cellStyles(columnName: string) {\r\n    return {\r\n      textAlign:\r\n        this.options?.body && this.options?.body[columnName]\r\n          ? this.options?.body[columnName]?.align\r\n          : this.DEFAULT_TD_ALIGN,\r\n    };\r\n  }\r\n}\r\n",
+            "sourceCode": "import {\r\n  Component,\r\n  ContentChildren,\r\n  Input,\r\n  OnInit,\r\n  QueryList,\r\n} from '@angular/core';\r\nimport { TableRowDirective } from './table-row.directive';\r\nimport { TableOptions } from '../types';\r\n\r\n/**\r\n *\r\n * @component\r\n * The `<ngx-table>` component render data through the **Data Input**, it is necessary to use the **options Input**\r\n * to configure the columns to be displayed and editable visual changes for each one (title, width, align). Also, the **body property**\r\n * allows editable alignment for each cell of a column\r\n */\r\n@Component({\r\n  selector: 'ngx-table',\r\n  templateUrl: './table.component.html',\r\n  styleUrl: './table.component.scss',\r\n})\r\nexport class TableComponent<TItem extends object> implements OnInit {\r\n  /**\r\n   * Custom table rows to render\r\n   */\r\n  @ContentChildren(TableRowDirective)\r\n  tableRows?: QueryList<TableRowDirective>;\r\n\r\n  /**\r\n   * Options object to allow you to configure header and body properties\r\n   */\r\n  @Input()\r\n  options!: TableOptions;\r\n\r\n  /**\r\n   * Array of objects to display in the table\r\n   */\r\n  @Input()\r\n  data: TItem[] = [];\r\n\r\n  /**\r\n   * Current paginated page from the table\r\n   */\r\n  @Input()\r\n  currentPage = 1;\r\n\r\n  /**\r\n   * Enable pagination for the table\r\n   */\r\n  @Input()\r\n  paginator = true;\r\n\r\n  /**\r\n   * Limit of items displayed per page\r\n   */\r\n  @Input()\r\n  limit = 10;\r\n\r\n  /**\r\n   * Total number of data items\r\n   */\r\n  protected total = 0;\r\n\r\n  /**\r\n   * Current paginated data to render\r\n   */\r\n  protected paginatedData: TItem[] = [];\r\n\r\n  protected DEFAULT_COLUMN_WIDTH = '225px';\r\n  protected DEFAULT_TD_ALIGN = 'center';\r\n\r\n  get headers() {\r\n    return this.options ? Object.keys(this.options.columns) : null;\r\n  }\r\n\r\n  /**\r\n   * @private\r\n   * @ignore\r\n   */\r\n  ngOnInit(): void {\r\n    this.paginatedData = this.paginator\r\n      ? this.data.slice(0, this.limit)\r\n      : this.data;\r\n    this.total = this.data.length;\r\n  }\r\n\r\n  /**\r\n   * Change the current paginated page\r\n   * @param page\r\n   */\r\n  protected changePage(page: number) {\r\n    this.currentPage = page;\r\n    const initialIndex = this.limit * this.currentPage;\r\n    const finalIndex = initialIndex + this.limit;\r\n    this.paginatedData = this.data.slice(initialIndex, finalIndex);\r\n  }\r\n\r\n  protected findRow(columnName: string) {\r\n    const column = this.tableRows?.find((i) => i.appTableRow === columnName);\r\n    if (column) return column.element;\r\n    return null;\r\n  }\r\n\r\n  /**\r\n   * Apply header styles for one column\r\n   * @param columnName property of the columns object contained in the options input\r\n   * @returns minWidth and textAlign css properties\r\n   */\r\n  protected headerStyles(columnName: string) {\r\n    return {\r\n      minWidth:\r\n        this.options?.columns && this.options?.columns[columnName]\r\n          ? this.options?.columns[columnName]?.width\r\n          : this.DEFAULT_COLUMN_WIDTH,\r\n      textAlign:\r\n        this.options?.columns && this.options?.columns[columnName]\r\n          ? this.options?.columns[columnName].align\r\n          : this.DEFAULT_TD_ALIGN,\r\n    };\r\n  }\r\n\r\n  /**\r\n   * Apply styles for a cell of the table\r\n   * @param columnName property of the columns object contained in the options input\r\n   * @returns textAlign css property\r\n   */\r\n  protected cellStyles(columnName: string) {\r\n    return {\r\n      textAlign:\r\n        this.options?.body && this.options?.body[columnName]\r\n          ? this.options?.body[columnName]?.align\r\n          : this.DEFAULT_TD_ALIGN,\r\n    };\r\n  }\r\n}\r\n",
             "styleUrl": "./table.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -2508,7 +2509,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Ingresa una fecha',\r\n    label: 'Fecha de nacimiento',\r\n    required: true,\r\n    errorText: 'Required field',\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Enter a date',\r\n    label: 'Birthdate',\r\n    required: true,\r\n    errorText: 'This field is required',\r\n  },\r\n}"
             },
             {
                 "name": "datepicker",
@@ -2548,7 +2549,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<SelectModule>",
-                "defaultValue": "{\r\n  title: 'Forms/Select',\r\n  component: SelectComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    placeholder: {\r\n      control: 'text',\r\n    },\r\n    label: {\r\n      control: 'text',\r\n    },\r\n    errorText: {\r\n      control: 'text',\r\n    },\r\n    helperText: {\r\n      control: 'text',\r\n    },\r\n    required: {\r\n      control: 'boolean',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n    },\r\n    type: {\r\n      control: 'select',\r\n      options: ['text', 'email', 'number', 'phone'],\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [SelectComponent, SelectItemComponent],\r\n      imports: [\r\n        CommonModule,\r\n        FormsModule,\r\n        ReactiveFormsModule,\r\n        ScrollingModule,\r\n        BaseInputModule,\r\n        ButtonModule,\r\n        PlaceholderModule,\r\n        TagModule,\r\n      ],\r\n      schemas: [CUSTOM_ELEMENTS_SCHEMA],\r\n      providers: [\r\n        {\r\n          provide: NG_VALUE_ACCESSOR,\r\n          useExisting: forwardRef(() => SelectComponent),\r\n          multi: true,\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        permissions: [\r\n          {\r\n            id: 1,\r\n            name: 'Admin',\r\n          },\r\n          {\r\n            id: 2,\r\n            name: 'Comercial',\r\n          },\r\n          {\r\n            id: 3,\r\n            name: 'Mesa de gestion',\r\n          },\r\n        ],\r\n        form: new FormBuilder().group({\r\n          select: ['', [Validators.required]],\r\n        }),\r\n      },\r\n      template: `\r\n        <form style=\"height: 350px;\" [formGroup]=\"form\">\r\n            <ngx-select\r\n              ${argsToTemplate(args)}\r\n              [options]=\"permissions\" \r\n              formControlName=\"select\"\r\n              labelKey=\"name\"\r\n              valueKey=\"id\"\r\n            />\r\n            <br />\r\n            <br />\r\n            {{input}}   \r\n        </form>\r\n            `,\r\n    };\r\n  },\r\n}"
+                "defaultValue": "{\r\n  title: 'Forms/Select',\r\n  component: SelectComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [SelectComponent, SelectItemComponent],\r\n      imports: [\r\n        CommonModule,\r\n        FormsModule,\r\n        ReactiveFormsModule,\r\n        ScrollingModule,\r\n        BaseInputModule,\r\n        ButtonModule,\r\n        PlaceholderModule,\r\n        TagModule,\r\n      ],\r\n      schemas: [CUSTOM_ELEMENTS_SCHEMA],\r\n      providers: [\r\n        {\r\n          provide: NG_VALUE_ACCESSOR,\r\n          useExisting: forwardRef(() => SelectComponent),\r\n          multi: true,\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        permissions: [\r\n          {\r\n            id: 1,\r\n            name: 'Admin',\r\n          },\r\n          {\r\n            id: 2,\r\n            name: 'Guest',\r\n          },\r\n          {\r\n            id: 3,\r\n            name: 'Management desk',\r\n          },\r\n        ],\r\n        form: new FormBuilder().group({\r\n          select: ['', [Validators.required]],\r\n        }),\r\n      },\r\n      template: `\r\n        <form style=\"height: 350px;\" [formGroup]=\"form\">\r\n            <ngx-select\r\n              ${argsToTemplate(args)}\r\n              [options]=\"permissions\" \r\n              formControlName=\"select\"\r\n              labelKey=\"name\"\r\n              valueKey=\"id\"\r\n            />\r\n            <br />\r\n            <br />\r\n            {{input}}   \r\n        </form>\r\n            `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -2694,7 +2695,7 @@
         "functions": [
             {
                 "name": "generateRandomData",
-                "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                "file": "projects/ngx-relic/src/lib/table/testing/helpers.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "deprecated": false,
@@ -2723,7 +2724,7 @@
             },
             {
                 "name": "getRandomDate",
-                "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                "file": "projects/ngx-relic/src/lib/table/testing/helpers.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "deprecated": false,
@@ -2766,7 +2767,7 @@
             },
             {
                 "name": "getRandomElement",
-                "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                "file": "projects/ngx-relic/src/lib/table/testing/helpers.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "deprecated": false,
@@ -2794,7 +2795,7 @@
             },
             {
                 "name": "getRandomInt",
-                "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                "file": "projects/ngx-relic/src/lib/table/testing/helpers.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "deprecated": false,
@@ -2897,7 +2898,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                "file": "projects/ngx-relic/src/lib/table/testing/helpers.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -3196,7 +3197,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Ingresa una fecha',\r\n    label: 'Fecha de nacimiento',\r\n    required: true,\r\n    errorText: 'Required field',\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Enter a date',\r\n    label: 'Birthdate',\r\n    required: true,\r\n    errorText: 'This field is required',\r\n  },\r\n}"
                 },
                 {
                     "name": "datepicker",
@@ -3240,7 +3241,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<SelectModule>",
-                    "defaultValue": "{\r\n  title: 'Forms/Select',\r\n  component: SelectComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    placeholder: {\r\n      control: 'text',\r\n    },\r\n    label: {\r\n      control: 'text',\r\n    },\r\n    errorText: {\r\n      control: 'text',\r\n    },\r\n    helperText: {\r\n      control: 'text',\r\n    },\r\n    required: {\r\n      control: 'boolean',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n    },\r\n    type: {\r\n      control: 'select',\r\n      options: ['text', 'email', 'number', 'phone'],\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [SelectComponent, SelectItemComponent],\r\n      imports: [\r\n        CommonModule,\r\n        FormsModule,\r\n        ReactiveFormsModule,\r\n        ScrollingModule,\r\n        BaseInputModule,\r\n        ButtonModule,\r\n        PlaceholderModule,\r\n        TagModule,\r\n      ],\r\n      schemas: [CUSTOM_ELEMENTS_SCHEMA],\r\n      providers: [\r\n        {\r\n          provide: NG_VALUE_ACCESSOR,\r\n          useExisting: forwardRef(() => SelectComponent),\r\n          multi: true,\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        permissions: [\r\n          {\r\n            id: 1,\r\n            name: 'Admin',\r\n          },\r\n          {\r\n            id: 2,\r\n            name: 'Comercial',\r\n          },\r\n          {\r\n            id: 3,\r\n            name: 'Mesa de gestion',\r\n          },\r\n        ],\r\n        form: new FormBuilder().group({\r\n          select: ['', [Validators.required]],\r\n        }),\r\n      },\r\n      template: `\r\n        <form style=\"height: 350px;\" [formGroup]=\"form\">\r\n            <ngx-select\r\n              ${argsToTemplate(args)}\r\n              [options]=\"permissions\" \r\n              formControlName=\"select\"\r\n              labelKey=\"name\"\r\n              valueKey=\"id\"\r\n            />\r\n            <br />\r\n            <br />\r\n            {{input}}   \r\n        </form>\r\n            `,\r\n    };\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  title: 'Forms/Select',\r\n  component: SelectComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [SelectComponent, SelectItemComponent],\r\n      imports: [\r\n        CommonModule,\r\n        FormsModule,\r\n        ReactiveFormsModule,\r\n        ScrollingModule,\r\n        BaseInputModule,\r\n        ButtonModule,\r\n        PlaceholderModule,\r\n        TagModule,\r\n      ],\r\n      schemas: [CUSTOM_ELEMENTS_SCHEMA],\r\n      providers: [\r\n        {\r\n          provide: NG_VALUE_ACCESSOR,\r\n          useExisting: forwardRef(() => SelectComponent),\r\n          multi: true,\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n  render: (args) => {\r\n    const { ...props } = args;\r\n\r\n    return {\r\n      props: {\r\n        ...props,\r\n        permissions: [\r\n          {\r\n            id: 1,\r\n            name: 'Admin',\r\n          },\r\n          {\r\n            id: 2,\r\n            name: 'Guest',\r\n          },\r\n          {\r\n            id: 3,\r\n            name: 'Management desk',\r\n          },\r\n        ],\r\n        form: new FormBuilder().group({\r\n          select: ['', [Validators.required]],\r\n        }),\r\n      },\r\n      template: `\r\n        <form style=\"height: 350px;\" [formGroup]=\"form\">\r\n            <ngx-select\r\n              ${argsToTemplate(args)}\r\n              [options]=\"permissions\" \r\n              formControlName=\"select\"\r\n              labelKey=\"name\"\r\n              valueKey=\"id\"\r\n            />\r\n            <br />\r\n            <br />\r\n            {{input}}   \r\n        </form>\r\n            `,\r\n    };\r\n  },\r\n}"
                 },
                 {
                     "name": "Placeholder",
@@ -3333,10 +3334,10 @@
             ]
         },
         "groupedFunctions": {
-            "projects/ngx-relic/src/lib/table/table.stories.ts": [
+            "projects/ngx-relic/src/lib/table/testing/helpers.ts": [
                 {
                     "name": "generateRandomData",
-                    "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                    "file": "projects/ngx-relic/src/lib/table/testing/helpers.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "deprecated": false,
@@ -3365,7 +3366,7 @@
                 },
                 {
                     "name": "getRandomDate",
-                    "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                    "file": "projects/ngx-relic/src/lib/table/testing/helpers.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "deprecated": false,
@@ -3408,7 +3409,7 @@
                 },
                 {
                     "name": "getRandomElement",
-                    "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                    "file": "projects/ngx-relic/src/lib/table/testing/helpers.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "deprecated": false,
@@ -3436,7 +3437,7 @@
                 },
                 {
                     "name": "getRandomInt",
-                    "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                    "file": "projects/ngx-relic/src/lib/table/testing/helpers.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "deprecated": false,
@@ -3639,28 +3640,17 @@
                     "kind": 184
                 }
             ],
-            "projects/ngx-relic/src/lib/table/table.stories.ts": [
+            "projects/ngx-relic/src/lib/table/testing/helpers.ts": [
                 {
                     "name": "Data",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "literal type",
-                    "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
+                    "file": "projects/ngx-relic/src/lib/table/testing/helpers.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
                     "kind": 187
-                },
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<TableComponent<any[]>>",
-                    "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
                 }
             ],
             "projects/ngx-relic/src/lib/button/button.stories.ts": [
@@ -3722,6 +3712,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<SelectComponent<any, any>>",
                     "file": "projects/ngx-relic/src/lib/select/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ngx-relic/src/lib/table/table.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TableComponent<any[]>>",
+                    "file": "projects/ngx-relic/src/lib/table/table.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -4038,46 +4041,6 @@
             },
             {
                 "filePath": "projects/ngx-relic/src/lib/table/table.stories.ts",
-                "type": "function",
-                "linktype": "miscellaneous",
-                "linksubtype": "function",
-                "name": "generateRandomData",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/lib/table/table.stories.ts",
-                "type": "function",
-                "linktype": "miscellaneous",
-                "linksubtype": "function",
-                "name": "getRandomDate",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/lib/table/table.stories.ts",
-                "type": "function",
-                "linktype": "miscellaneous",
-                "linksubtype": "function",
-                "name": "getRandomElement",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/lib/table/table.stories.ts",
-                "type": "function",
-                "linktype": "miscellaneous",
-                "linksubtype": "function",
-                "name": "getRandomInt",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-relic/src/lib/table/table.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -4112,6 +4075,46 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "table",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/lib/table/testing/helpers.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "generateRandomData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/lib/table/testing/helpers.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "getRandomDate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/lib/table/testing/helpers.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "getRandomElement",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-relic/src/lib/table/testing/helpers.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "getRandomInt",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
